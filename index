@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VeloWeb Agency — Fast. Modern. Yours.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --ink: #0e0e0e;
+  --paper: #f5f4f0;
+  --accent: #c8f135;
+  --accent2: #1a1aff;
+  --mid: #6b6b6b;
+  --border: rgba(14,14,14,0.1);
+  --card: #ffffff;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);overflow-x:hidden;}
+
+/* ── LANG SWITCHER ── */
+.lang-bar{
+  position:fixed;top:0;left:0;right:0;z-index:2000;
+  background:var(--ink);
+  display:flex;align-items:center;justify-content:center;
+  gap:6px;padding:6px 20px;flex-wrap:wrap;
+}
+.lang-btn{
+  background:none;border:1px solid rgba(255,255,255,0.2);
+  color:rgba(255,255,255,0.6);font-family:'DM Sans',sans-serif;
+  font-size:0.72rem;padding:3px 10px;border-radius:20px;
+  cursor:pointer;transition:all 0.2s;letter-spacing:0.5px;
+}
+.lang-btn:hover,.lang-btn.active{background:var(--accent);color:var(--ink);border-color:var(--accent);font-weight:700;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:32px;left:0;right:0;z-index:1000;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 60px;
+  background:rgba(245,244,240,0.92);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  transition:all 0.3s;
+}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;letter-spacing:-0.5px;color:var(--ink);text-decoration:none;}
+.nav-logo span{color:var(--accent2);}
+nav ul{list-style:none;display:flex;gap:32px;}
+nav ul a{text-decoration:none;color:var(--mid);font-size:0.88rem;font-weight:500;transition:color 0.2s;}
+nav ul a:hover{color:var(--ink);}
+.nav-cta{background:var(--ink);color:var(--paper)!important;padding:10px 24px!important;border-radius:50px!important;font-weight:700!important;}
+.nav-cta:hover{background:var(--accent2)!important;color:#fff!important;}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;padding-top:100px;
+  display:flex;align-items:center;
+  position:relative;overflow:hidden;
+}
+.hero-inner{max-width:1200px;margin:0 auto;padding:80px 60px;width:100%;}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--accent);color:var(--ink);
+  padding:6px 16px;border-radius:50px;
+  font-size:0.8rem;font-weight:700;letter-spacing:0.5px;
+  margin-bottom:30px;
+}
+.hero h1{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(3.5rem,7vw,6.5rem);
+  line-height:0.95;letter-spacing:-2px;
+  margin-bottom:30px;
+  max-width:900px;
+}
+.hero h1 em{font-style:normal;color:var(--accent2);}
+.hero-sub{
+  font-size:1.1rem;color:var(--mid);
+  max-width:520px;line-height:1.7;
+  margin-bottom:50px;font-weight:300;
+}
+.hero-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
+.btn-primary{
+  background:var(--ink);color:var(--paper);
+  padding:16px 40px;border-radius:50px;
+  font-family:'DM Sans',sans-serif;font-weight:700;font-size:1rem;
+  text-decoration:none;border:none;cursor:pointer;
+  transition:all 0.3s;display:inline-block;
+}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-2px);}
+.btn-ghost{
+  background:transparent;color:var(--ink);
+  padding:16px 40px;border-radius:50px;
+  font-family:'DM Sans',sans-serif;font-weight:700;font-size:1rem;
+  text-decoration:none;border:2px solid var(--ink);cursor:pointer;
+  transition:all 0.3s;display:inline-block;
+}
+.btn-ghost:hover{background:var(--ink);color:var(--paper);}
+.hero-stats{
+  display:flex;gap:60px;margin-top:80px;
+  padding-top:40px;border-top:1px solid var(--border);
+  flex-wrap:wrap;
+}
+.hero-stat strong{font-family:'Syne',sans-serif;font-size:2.5rem;font-weight:800;display:block;}
+.hero-stat span{font-size:0.85rem;color:var(--mid);font-weight:500;}
+.hero-bg-text{
+  position:absolute;right:-60px;top:50%;transform:translateY(-50%);
+  font-family:'Syne',sans-serif;font-weight:800;font-size:18vw;
+  color:rgba(14,14,14,0.04);letter-spacing:-10px;white-space:nowrap;
+  pointer-events:none;user-select:none;
+}
+
+/* ── SECTIONS ── */
+section{padding:100px 0;}
+.container{max-width:1200px;margin:0 auto;padding:0 60px;}
+.section-label{
+  font-size:0.78rem;font-weight:700;letter-spacing:3px;
+  text-transform:uppercase;color:var(--mid);
+  margin-bottom:20px;display:block;
+}
+.section-title{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(2rem,4vw,3.5rem);letter-spacing:-1px;
+  line-height:1.1;margin-bottom:20px;
+}
+.section-title em{font-style:normal;color:var(--accent2);}
+
+/* ── WHY US ── */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:60px;background:var(--border);}
+.why-card{
+  background:var(--card);padding:50px 40px;
+  transition:all 0.3s;cursor:default;
+  position:relative;overflow:hidden;
+}
+.why-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;
+  height:3px;background:var(--accent);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 0.4s ease;
+}
+.why-card:hover::before{transform:scaleX(1);}
+.why-card:hover{background:#fafff0;}
+.why-icon{font-size:2.2rem;margin-bottom:20px;display:block;}
+.why-card h3{font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;margin-bottom:12px;}
+.why-card p{font-size:0.9rem;color:var(--mid);line-height:1.7;}
+
+/* ── PORTFOLIO ── */
+.portfolio-intro{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:60px;align-items:end;margin-bottom:60px;
+}
+.portfolio-tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px;}
+.tab-btn{
+  background:none;border:1.5px solid var(--border);
+  padding:8px 20px;border-radius:50px;
+  font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:500;
+  cursor:pointer;transition:all 0.2s;color:var(--mid);
+}
+.tab-btn.active,.tab-btn:hover{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+
+/* Portfolio cards */
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.portfolio-card{
+  background:var(--card);border-radius:20px;overflow:hidden;
+  border:1px solid var(--border);
+  cursor:pointer;transition:all 0.35s;
+  display:flex;flex-direction:column;
+}
+.portfolio-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(14,14,14,0.12);}
+.portfolio-card:nth-child(1){grid-column:1/3;}
+.portfolio-preview{
+  height:260px;position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.portfolio-card:nth-child(1) .portfolio-preview{height:320px;}
+.portfolio-preview iframe{
+  width:200%;height:200%;
+  transform:scale(0.5);transform-origin:top left;
+  border:none;pointer-events:none;
+  position:absolute;top:0;left:0;
+}
+.preview-overlay{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(14,14,14,0);
+  transition:background 0.3s;
+}
+.portfolio-card:hover .preview-overlay{background:rgba(14,14,14,0.05);}
+.preview-btn{
+  background:var(--ink);color:var(--paper);
+  padding:12px 28px;border-radius:50px;
+  font-weight:700;font-size:0.85rem;
+  opacity:0;transform:translateY(10px);
+  transition:all 0.3s;
+}
+.portfolio-card:hover .preview-btn{opacity:1;transform:translateY(0);}
+.portfolio-info{padding:28px 30px;flex:1;display:flex;flex-direction:column;}
+.portfolio-niche{
+  font-size:0.75rem;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:var(--accent2);margin-bottom:8px;
+}
+.portfolio-info h3{font-family:'Syne',sans-serif;font-weight:700;font-size:1.15rem;margin-bottom:8px;}
+.portfolio-info p{font-size:0.88rem;color:var(--mid);line-height:1.6;flex:1;}
+.portfolio-meta{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-top:20px;padding-top:16px;border-top:1px solid var(--border);
+}
+.portfolio-tech{font-size:0.78rem;color:var(--mid);}
+.portfolio-rating{font-size:0.85rem;font-weight:700;color:var(--ink);}
+
+/* Testimonial in card */
+.testimonial-box{
+  background:var(--paper);border-radius:12px;
+  padding:16px 20px;margin-top:16px;
+  border-left:3px solid var(--accent);
+}
+.testimonial-box p{font-size:0.82rem;color:var(--mid);line-height:1.6;font-style:italic;}
+.testimonial-box strong{font-size:0.78rem;color:var(--ink);font-style:normal;display:block;margin-top:8px;font-weight:700;}
+
+/* ── MODAL ── */
+#modal-overlay{
+  position:fixed;inset:0;z-index:5000;
+  background:rgba(14,14,14,0.85);
+  display:none;align-items:center;justify-content:center;
+  padding:20px;backdrop-filter:blur(8px);
+}
+#modal-overlay.open{display:flex;}
+.modal-box{
+  background:var(--card);border-radius:24px;
+  width:100%;max-width:960px;max-height:90vh;
+  overflow:hidden;display:flex;flex-direction:column;
+  position:relative;
+}
+.modal-header{
+  padding:24px 32px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.modal-header h3{font-family:'Syne',sans-serif;font-weight:700;font-size:1.2rem;}
+.modal-close{
+  background:var(--paper);border:none;width:36px;height:36px;
+  border-radius:50%;cursor:pointer;font-size:1.2rem;
+  display:flex;align-items:center;justify-content:center;
+  transition:background 0.2s;
+}
+.modal-close:hover{background:var(--border);}
+.modal-iframe-wrap{flex:1;overflow:hidden;}
+.modal-iframe-wrap iframe{width:100%;height:70vh;border:none;}
+
+/* ── PROCESS ── */
+.process-steps{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;margin-top:60px;position:relative;
+}
+.process-steps::before{
+  content:'';position:absolute;top:24px;left:12.5%;right:12.5%;
+  height:1px;background:var(--border);z-index:0;
+}
+.process-step{text-align:center;padding:0 20px;}
+.step-num{
+  width:48px;height:48px;border-radius:50%;
+  background:var(--ink);color:var(--paper);
+  font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;position:relative;z-index:1;
+  transition:all 0.3s;
+}
+.process-step:hover .step-num{background:var(--accent2);}
+.process-step h4{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:10px;}
+.process-step p{font-size:0.85rem;color:var(--mid);line-height:1.6;}
+
+/* ── CONTACT ── */
+#contact{background:var(--ink);color:var(--paper);}
+#contact .section-label{color:rgba(255,255,255,0.4);}
+#contact .section-title{color:var(--paper);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:60px;align-items:start;}
+.contact-info p{color:rgba(255,255,255,0.6);font-size:1rem;line-height:1.8;margin-bottom:30px;}
+.contact-detail{display:flex;flex-direction:column;gap:16px;}
+.contact-item{
+  display:flex;align-items:center;gap:12px;
+  color:rgba(255,255,255,0.8);font-size:0.9rem;
+}
+.contact-item a{color:var(--accent);text-decoration:none;}
+.contact-form{display:flex;flex-direction:column;gap:16px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.form-field{display:flex;flex-direction:column;gap:6px;}
+.form-field label{font-size:0.8rem;font-weight:700;color:rgba(255,255,255,0.5);letter-spacing:1px;text-transform:uppercase;}
+.form-field input,.form-field textarea,.form-field select{
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:12px;padding:14px 18px;
+  color:var(--paper);font-family:'DM Sans',sans-serif;font-size:0.95rem;
+  transition:border-color 0.2s;resize:none;
+}
+.form-field input:focus,.form-field textarea:focus,.form-field select:focus{
+  outline:none;border-color:var(--accent);
+}
+.form-field select option{background:var(--ink);}
+.btn-send{
+  background:var(--accent);color:var(--ink);
+  padding:16px 40px;border-radius:50px;
+  font-family:'DM Sans',sans-serif;font-weight:700;font-size:1rem;
+  border:none;cursor:pointer;transition:all 0.3s;
+  align-self:flex-start;
+}
+.btn-send:hover{background:#d4ff44;transform:translateY(-2px);}
+.form-success{
+  display:none;background:rgba(200,241,53,0.1);
+  border:1px solid var(--accent);border-radius:16px;
+  padding:24px;text-align:center;color:var(--accent);font-weight:700;
+}
+
+/* ── FOOTER ── */
+footer{
+  background:#080808;color:rgba(255,255,255,0.4);
+  padding:40px 60px;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:20px;font-size:0.85rem;
+}
+.footer-logo{font-family:'Syne',sans-serif;font-weight:800;color:#fff;font-size:1.1rem;}
+.footer-logo span{color:var(--accent);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{padding:14px 20px;}
+  nav ul{gap:16px;}
+  .hero-inner{padding:60px 20px;}
+  .container{padding:0 20px;}
+  .why-grid{grid-template-columns:1fr;}
+  .portfolio-grid{grid-template-columns:1fr;}
+  .portfolio-card:nth-child(1){grid-column:1;}
+  .portfolio-intro{grid-template-columns:1fr;}
+  .process-steps{grid-template-columns:1fr 1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+  footer{flex-direction:column;text-align:center;padding:30px 20px;}
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+.fade-up{animation:fadeUp 0.7s ease forwards;opacity:0;}
+.delay-1{animation-delay:0.1s;}
+.delay-2{animation-delay:0.2s;}
+.delay-3{animation-delay:0.3s;}
+.delay-4{animation-delay:0.4s;}
+
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(30px);transition:all 0.7s ease;}
+.reveal.visible{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+
+<!-- LANG BAR -->
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('cs')">CS</button>
+  <button class="lang-btn" onclick="setLang('sk')">SK</button>
+  <button class="lang-btn" onclick="setLang('ru')">RU</button>
+  <button class="lang-btn" onclick="setLang('uk')">UA</button>
+  <button class="lang-btn" onclick="setLang('de')">DE</button>
+  <button class="lang-btn" onclick="setLang('fr')">FR</button>
+  <button class="lang-btn" onclick="setLang('es')">ES</button>
+  <button class="lang-btn" onclick="setLang('it')">IT</button>
+  <button class="lang-btn" onclick="setLang('pl')">PL</button>
+  <button class="lang-btn" onclick="setLang('nl')">NL</button>
+  <button class="lang-btn" onclick="setLang('pt')">PT</button>
+  <button class="lang-btn" onclick="setLang('ro')">RO</button>
+  <button class="lang-btn" onclick="setLang('hu')">HU</button>
+  <button class="lang-btn" onclick="setLang('hr')">HR</button>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Velo<span>Web</span></a>
+  <ul>
+    <li><a href="#why" data-i="nav_why">Why us</a></li>
+    <li><a href="#portfolio" data-i="nav_portfolio">Portfolio</a></li>
+    <li><a href="#process" data-i="nav_process">Process</a></li>
+    <li><a href="#contact" class="nav-cta" data-i="nav_contact">Get in touch</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-text">VELO</div>
+  <div class="hero-inner">
+    <div class="hero-tag fade-up">⚡ <span data-i="hero_tag">Static Web Architecture</span></div>
+    <h1 class="fade-up delay-1">
+      <span data-i="hero_h1a">Websites that</span><br>
+      <em data-i="hero_h1b">load instantly.</em><br>
+      <span data-i="hero_h1c">Impossible to hack.</span>
+    </h1>
+    <p class="hero-sub fade-up delay-2" data-i="hero_sub">We build fast, modern websites for small and medium businesses using cutting-edge static architecture deployed on a global CDN.</p>
+    <div class="hero-actions fade-up delay-3">
+      <a href="#contact" class="btn-primary" data-i="hero_cta1">Start your project</a>
+      <a href="#portfolio" class="btn-ghost" data-i="hero_cta2">See our work</a>
+    </div>
+    <div class="hero-stats fade-up delay-4">
+      <div class="hero-stat"><strong>0.2s</strong><span data-i="stat1">Load time</span></div>
+      <div class="hero-stat"><strong>200+</strong><span data-i="stat2">CDN servers</span></div>
+      <div class="hero-stat"><strong>100%</strong><span data-i="stat3">Hack-proof</span></div>
+      <div class="hero-stat"><strong>10×</strong><span data-i="stat4">Less energy</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="container">
+    <span class="section-label reveal" data-i="why_label">Why VeloWeb</span>
+    <h2 class="section-title reveal" data-i="why_title">Built different.<br><em>By design.</em></h2>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <span class="why-icon">🌐</span>
+        <h3 data-i="why1_title">Edge Computing</h3>
+        <p data-i="why1_text">We host your site on 200+ servers worldwide. A customer in Prague opens your site in 0.2 seconds — from Tokyo to Lisbon, same speed.</p>
+      </div>
+      <div class="why-card reveal">
+        <span class="why-icon">🔒</span>
+        <h3 data-i="why2_title">Zero-Server Vulnerability</h3>
+        <p data-i="why2_text">Our sites have no server-side database, making them impossible to hack. No WordPress vulnerabilities, no SQL injections, no sleepless nights.</p>
+      </div>
+      <div class="why-card reveal">
+        <span class="why-icon">🌿</span>
+        <h3 data-i="why3_title">Green Tech</h3>
+        <p data-i="why3_text">Static architecture consumes 10× less energy than traditional servers. Europeans love this — and so does our planet.</p>
+      </div>
+      <div class="why-card reveal">
+        <span class="why-icon">📱</span>
+        <h3 data-i="why4_title">Mobile-First</h3>
+        <p data-i="why4_text">Over 70% of your customers visit on phones. Every pixel we design starts from mobile and scales up — never the other way around.</p>
+      </div>
+      <div class="why-card reveal">
+        <span class="why-icon">🔍</span>
+        <h3 data-i="why5_title">SEO-Ready</h3>
+        <p data-i="why5_text">Fast load times and clean code means Google ranks you higher. Local SEO optimisation built in for every project.</p>
+      </div>
+      <div class="why-card reveal">
+        <span class="why-icon">🤝</span>
+        <h3 data-i="why6_title">Fixed Price</h3>
+        <p data-i="why6_text">No surprise invoices. We agree on scope and price upfront. Simple, transparent, professional.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" style="background:#f9f9f7;">
+  <div class="container">
+    <div class="portfolio-intro">
+      <div>
+        <span class="section-label reveal" data-i="port_label">Our work</span>
+        <h2 class="section-title reveal" data-i="port_title">5 niches.<br><em>5 solutions.</em></h2>
+      </div>
+      <p class="reveal" style="color:var(--mid);font-size:1rem;line-height:1.8;" data-i="port_sub">Each project is custom-built. We never use page builders or templates. Click any card to see the full site.</p>
+    </div>
+
+    <div class="portfolio-grid">
+
+      <!-- CARD 1: Café / Restaurant -->
+      <div class="portfolio-card reveal" onclick="openModal('cafe')">
+        <div class="portfolio-preview">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a0a00,#3d1a00,#1a0a00);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;">
+            <div style="font-size:3rem;">☕</div>
+            <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.8rem;color:#f5c842;letter-spacing:2px;">VOLTA CAFÉ</div>
+            <div style="font-size:0.75rem;color:rgba(255,255,255,0.5);letter-spacing:3px;text-transform:uppercase;">Reserve · Menu · Explore</div>
+            <div style="display:flex;gap:8px;margin-top:10px;">
+              <span style="background:#f5c842;color:#1a0a00;padding:6px 16px;border-radius:50px;font-size:0.75rem;font-weight:700;">Book a Table</span>
+              <span style="border:1px solid rgba(255,255,255,0.3);color:#fff;padding:6px 16px;border-radius:50px;font-size:0.75rem;">View Menu ↗</span>
+            </div>
+          </div>
+          <div class="preview-overlay"><span class="preview-btn" data-i="view_site">View Site →</span></div>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-niche" data-i="niche1">☕ Café & Restaurant</div>
+          <h3>Volta Café</h3>
+          <p data-i="card1_desc">QR menu, table booking with Telegram bot notifications, mobile-first design. Customers book in 10 seconds from their phone.</p>
+          <div class="testimonial-box">
+            <p data-i="test1_text">"Since launching the new site, our reservations increased by 40%. The QR menu alone saved us from printing costs."</p>
+            <strong>— Marek V., owner, Praha</strong>
+          </div>
+          <div class="portfolio-meta">
+            <span class="portfolio-tech">Static + Telegram Bot</span>
+            <span class="portfolio-rating">⭐ 5.0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2: Beauty Salon -->
+      <div class="portfolio-card reveal" onclick="openModal('beauty')">
+        <div class="portfolio-preview">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#0d0d0d,#1a1a2e);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;">
+            <div style="font-size:2.5rem;">✂️</div>
+            <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.5rem;color:#e8c4a0;letter-spacing:3px;">NOIR STUDIO</div>
+            <div style="display:flex;gap:6px;">
+              <span style="width:40px;height:40px;background:#e8c4a0;border-radius:8px;"></span>
+              <span style="width:40px;height:40px;background:#c4a882;border-radius:8px;"></span>
+              <span style="width:40px;height:40px;background:#a08060;border-radius:8px;"></span>
+              <span style="width:40px;height:40px;background:#7a6040;border-radius:8px;"></span>
+            </div>
+            <span style="background:#e8c4a0;color:#0d0d0d;padding:8px 20px;border-radius:50px;font-size:0.8rem;font-weight:700;margin-top:6px;">Book Appointment →</span>
+          </div>
+          <div class="preview-overlay"><span class="preview-btn" data-i="view_site">View Site →</span></div>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-niche" data-i="niche2">✂️ Beauty Salon & Barbershop</div>
+          <h3>Noir Studio</h3>
+          <p data-i="card2_desc">Before/after gallery, online booking integrated with Google Calendar, aesthetic dark luxury design that converts visitors into clients.</p>
+          <div class="testimonial-box">
+            <p data-i="test2_text">"Our booking form is always full now. Clients love how easy it is to pick a time slot without calling us."</p>
+            <strong>— Kristína M., Bratislava</strong>
+          </div>
+          <div class="portfolio-meta">
+            <span class="portfolio-tech">Static + Calendar API</span>
+            <span class="portfolio-rating">⭐ 4.9</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3: Auto Service -->
+      <div class="portfolio-card reveal" onclick="openModal('auto')">
+        <div class="portfolio-preview">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a0f0a,#1a2a1a);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;">
+            <div style="font-size:2.5rem;">🔧</div>
+            <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;color:#4cff72;letter-spacing:2px;">SPEED GARAGE</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;width:80%;">
+              <span style="background:rgba(76,255,114,0.1);border:1px solid rgba(76,255,114,0.3);color:#4cff72;padding:6px 10px;border-radius:8px;font-size:0.7rem;text-align:center;">Oil Change</span>
+              <span style="background:rgba(76,255,114,0.1);border:1px solid rgba(76,255,114,0.3);color:#4cff72;padding:6px 10px;border-radius:8px;font-size:0.7rem;text-align:center;">Diagnostics</span>
+              <span style="background:rgba(76,255,114,0.1);border:1px solid rgba(76,255,114,0.3);color:#4cff72;padding:6px 10px;border-radius:8px;font-size:0.7rem;text-align:center;">Tires</span>
+              <span style="background:rgba(76,255,114,0.1);border:1px solid rgba(76,255,114,0.3);color:#4cff72;padding:6px 10px;border-radius:8px;font-size:0.7rem;text-align:center;">Brakes</span>
+            </div>
+            <span style="background:#4cff72;color:#0a0f0a;padding:8px 20px;border-radius:50px;font-size:0.8rem;font-weight:700;">📞 Call Now</span>
+          </div>
+          <div class="preview-overlay"><span class="preview-btn" data-i="view_site">View Site →</span></div>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-niche" data-i="niche3">🔧 Auto Service & Local Repair</div>
+          <h3>Speed Garage</h3>
+          <p data-i="card3_desc">Services with prices, one-click call button, Google Maps embed, local SEO optimisation. Customers find it on Google before competitors.</p>
+          <div class="testimonial-box">
+            <p data-i="test3_text">"We went from 3 Google reviews to first place in local search in 2 months. The phone never stops ringing."</p>
+            <strong>— Tomáš H., Brno</strong>
+          </div>
+          <div class="portfolio-meta">
+            <span class="portfolio-tech">Static + Local SEO</span>
+            <span class="portfolio-rating">⭐ 4.9</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 4: Specialist / Lawyer -->
+      <div class="portfolio-card reveal" onclick="openModal('lawyer')">
+        <div class="portfolio-preview">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#f8f5f0,#ede8df);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;">
+            <div style="width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#2c3e50,#3d5a80);display:flex;align-items:center;justify-content:center;font-size:1.5rem;">⚖️</div>
+            <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:#2c3e50;letter-spacing:1px;">Dr. Jana Kovářová</div>
+            <div style="font-size:0.75rem;color:#7a6a5a;letter-spacing:2px;">LEGAL COUNSEL · PRAGUE</div>
+            <div style="background:#2c3e50;color:#fff;padding:10px 24px;border-radius:50px;font-size:0.8rem;font-weight:700;margin-top:8px;">Free Consultation →</div>
+          </div>
+          <div class="preview-overlay"><span class="preview-btn" data-i="view_site">View Site →</span></div>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-niche" data-i="niche4">⚖️ Specialist — Lawyer / Consultant</div>
+          <h3>Dr. Jana Kovářová</h3>
+          <p data-i="card4_desc">Personal brand landing page with trust-building design, client testimonials, and a fast free-consultation form that converts at 18%.</p>
+          <div class="testimonial-box">
+            <p data-i="test4_text">"I had 3 consultation requests within the first week of launch. The form is so clean that clients fill it without hesitation."</p>
+            <strong>— Jana K., Praha</strong>
+          </div>
+          <div class="portfolio-meta">
+            <span class="portfolio-tech">Static + Email form</span>
+            <span class="portfolio-rating">⭐ 5.0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 5: Single Product -->
+      <div class="portfolio-card reveal" onclick="openModal('product')">
+        <div class="portfolio-preview">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#fdf6ec,#f5e6c8);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;">
+            <div style="font-size:3rem;">☕</div>
+            <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;color:#3d1a00;letter-spacing:3px;">BEAN & SOUL</div>
+            <div style="font-size:0.75rem;color:#7a4a20;letter-spacing:2px;text-transform:uppercase;">Single Origin Coffee Beans</div>
+            <div style="display:flex;gap:8px;margin-top:6px;">
+              <span style="background:#3d1a00;color:#fff;padding:8px 20px;border-radius:50px;font-size:0.8rem;font-weight:700;">Order via WhatsApp</span>
+            </div>
+          </div>
+          <div class="preview-overlay"><span class="preview-btn" data-i="view_site">View Site →</span></div>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-niche" data-i="niche5">🛍️ Single-Product Shop</div>
+          <h3>Bean & Soul Coffee</h3>
+          <p data-i="card5_desc">Beautiful product photography layout, story-driven copy, WhatsApp order button. No complex admin needed — orders come straight to your phone.</p>
+          <div class="testimonial-box">
+            <p data-i="test5_text">"I sell 3× more than on my old site. Customers click WhatsApp and order in seconds. Super simple."</p>
+            <strong>— Linh N., Vienna</strong>
+          </div>
+          <div class="portfolio-meta">
+            <span class="portfolio-tech">Static + WhatsApp</span>
+            <span class="portfolio-rating">⭐ 4.8</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="container">
+    <span class="section-label reveal" data-i="proc_label">How it works</span>
+    <h2 class="section-title reveal" data-i="proc_title">From idea to<br><em>live website.</em></h2>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="step-num">01</div>
+        <h4 data-i="step1_title">Discovery Call</h4>
+        <p data-i="step1_text">We learn your business, goals and audience. 30 minutes is enough.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num">02</div>
+        <h4 data-i="step2_title">Design & Proposal</h4>
+        <p data-i="step2_text">We send you a design concept and fixed price within 48 hours.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num">03</div>
+        <h4 data-i="step3_title">Build & Review</h4>
+        <p data-i="step3_text">We build your site and you give feedback. Usually 1–2 revision rounds.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num">04</div>
+        <h4 data-i="step4_title">Launch 🚀</h4>
+        <p data-i="step4_text">We deploy to our global CDN. Your site goes live — fast, secure, yours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <span class="section-label reveal" data-i="contact_label">Let's talk</span>
+    <h2 class="section-title reveal" data-i="contact_title">Ready to build<br><em style="color:var(--accent)">something great?</em></h2>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <p data-i="contact_sub">Tell us about your business and what you need. We'll get back to you within 24 hours with a plan and a fixed price — no fluff.</p>
+        <div class="contact-detail">
+          <div class="contact-item">📧 <a href="mailto:velowebfz@proton.me">velowebfz@proton.me</a></div>
+          <div class="contact-item">⚡ <span data-i="contact_response">Response within 24 hours</span></div>
+          <div class="contact-item">🌍 <span data-i="contact_location">Serving clients across Europe & beyond</span></div>
+        </div>
+      </div>
+      <div class="contact-form reveal" id="contact-form">
+        <div class="form-row">
+          <div class="form-field">
+            <label data-i="form_name">Your name</label>
+            <input type="text" id="f-name" placeholder="Jan Novák">
+          </div>
+          <div class="form-field">
+            <label data-i="form_email">Email</label>
+            <input type="email" id="f-email" placeholder="jan@firma.cz">
+          </div>
+        </div>
+        <div class="form-field">
+          <label data-i="form_niche">Business type</label>
+          <select id="f-niche">
+            <option value="" data-i="form_niche_pick">Select your niche...</option>
+            <option data-i="opt_cafe">Café / Restaurant</option>
+            <option data-i="opt_beauty">Beauty Salon / Barbershop</option>
+            <option data-i="opt_auto">Auto Service / Repair</option>
+            <option data-i="opt_specialist">Lawyer / Consultant / Specialist</option>
+            <option data-i="opt_product">Single Product Shop</option>
+            <option data-i="opt_other">Other</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label data-i="form_msg">Tell us about your project</label>
+          <textarea id="f-msg" rows="5" placeholder="..."></textarea>
+        </div>
+        <button class="btn-send" onclick="sendForm()" data-i="form_send">Send message →</button>
+        <div class="form-success" id="form-success" data-i="form_ok">✅ Message sent! We'll get back to you within 24 hours.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Velo<span>Web</span> Agency</div>
+  <span data-i="footer_rights">© 2025 VeloWeb. All rights reserved.</span>
+  <span>velowebfz@proton.me</span>
+</footer>
+
+<!-- MODAL -->
+<div id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <h3 id="modal-title">Portfolio preview</h3>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-iframe-wrap">
+      <iframe id="modal-frame" src="" title="Portfolio preview"></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- PORTFOLIO MINI-SITES (hidden iframes) -->
+<!-- These are injected dynamically via JS srcdoc -->
+
+<script>
+// ═══════════════════════════════════════
+// TRANSLATIONS
+// ═══════════════════════════════════════
+const T = {
+  en:{
+    nav_why:"Why us",nav_portfolio:"Portfolio",nav_process:"Process",nav_contact:"Get in touch",
+    hero_tag:"Static Web Architecture",
+    hero_h1a:"Websites that",hero_h1b:"load instantly.",hero_h1c:"Impossible to hack.",
+    hero_sub:"We build fast, modern websites for small and medium businesses using cutting-edge static architecture deployed on a global CDN.",
+    hero_cta1:"Start your project",hero_cta2:"See our work",
+    stat1:"Load time",stat2:"CDN servers",stat3:"Hack-proof",stat4:"Less energy",
+    why_label:"Why VeloWeb",why_title:"Built different. By design.",
+    why1_title:"Edge Computing",why1_text:"We host your site on 200+ servers worldwide. A customer in Prague opens your site in 0.2 seconds — from Tokyo to Lisbon, same speed.",
+    why2_title:"Zero-Server Vulnerability",why2_text:"Our sites have no server-side database, making them impossible to hack. No WordPress vulnerabilities, no SQL injections, no sleepless nights.",
+    why3_title:"Green Tech",why3_text:"Static architecture consumes 10× less energy than traditional servers. Europeans love this — and so does our planet.",
+    why4_title:"Mobile-First",why4_text:"Over 70% of your customers visit on phones. Every pixel we design starts from mobile and scales up.",
+    why5_title:"SEO-Ready",why5_text:"Fast load times and clean code means Google ranks you higher. Local SEO built in for every project.",
+    why6_title:"Fixed Price",why6_text:"No surprise invoices. We agree on scope and price upfront. Simple, transparent, professional.",
+    port_label:"Our work",port_title:"5 niches. 5 solutions.",port_sub:"Each project is custom-built. We never use page builders or templates. Click any card to see the full site.",
+    niche1:"☕ Café & Restaurant",niche2:"✂️ Beauty Salon & Barbershop",niche3:"🔧 Auto Service & Local Repair",niche4:"⚖️ Specialist — Lawyer / Consultant",niche5:"🛍️ Single-Product Shop",
+    card1_desc:"QR menu, table booking with Telegram bot notifications, mobile-first design.",
+    card2_desc:"Before/after gallery, online booking with Google Calendar, aesthetic dark luxury design.",
+    card3_desc:"Services with prices, one-click call button, Google Maps, local SEO optimisation.",
+    card4_desc:"Personal brand landing page with testimonials and a fast free-consultation form.",
+    card5_desc:"Beautiful product photography, story-driven copy, WhatsApp order button.",
+    test1_text:'"Since launching the new site, our reservations increased by 40%."',
+    test2_text:'"Our booking form is always full now. Clients love the simplicity."',
+    test3_text:'"We went from 3 Google reviews to first place in local search in 2 months."',
+    test4_text:'"I had 3 consultation requests within the first week of launch."',
+    test5_text:'"I sell 3× more than on my old site. Customers click and order in seconds."',
+    view_site:"View Site →",
+    proc_label:"How it works",proc_title:"From idea to live website.",
+    step1_title:"Discovery Call",step1_text:"We learn your business and goals. 30 minutes is enough.",
+    step2_title:"Design & Proposal",step2_text:"We send you a design concept and fixed price within 48 hours.",
+    step3_title:"Build & Review",step3_text:"We build your site and you give feedback. Usually 1–2 revision rounds.",
+    step4_title:"Launch 🚀",step4_text:"We deploy to our global CDN. Fast, secure, yours.",
+    contact_label:"Let's talk",contact_title:"Ready to build something great?",
+    contact_sub:"Tell us about your business. We'll get back within 24 hours with a plan and a fixed price.",
+    contact_response:"Response within 24 hours",contact_location:"Serving clients across Europe & beyond",
+    form_name:"Your name",form_email:"Email",form_niche:"Business type",form_niche_pick:"Select your niche...",
+    form_msg:"Tell us about your project",form_send:"Send message →",form_ok:"✅ Message sent! We'll reply within 24 hours.",
+    opt_cafe:"Café / Restaurant",opt_beauty:"Beauty Salon / Barbershop",opt_auto:"Auto Service / Repair",
+    opt_specialist:"Lawyer / Consultant / Specialist",opt_product:"Single Product Shop",opt_other:"Other",
+    footer_rights:"© 2025 VeloWeb. All rights reserved."
+  },
+  cs:{
+    nav_why:"Proč my",nav_portfolio:"Portfolio",nav_process:"Postup",nav_contact:"Kontakt",
+    hero_tag:"Statická webová architektura",
+    hero_h1a:"Weby, které",hero_h1b:"se načtou okamžitě.",hero_h1c:"Neprolomitelné.",
+    hero_sub:"Vytváříme rychlé, moderní weby pro malé a střední firmy pomocí nejmodernější statické architektury nasazené na globálním CDN.",
+    hero_cta1:"Zahájit projekt",hero_cta2:"Naše práce",
+    stat1:"Čas načtení",stat2:"CDN serverů",stat3:"Neprolomitelné",stat4:"Méně energie",
+    why_label:"Proč VeloWeb",why_title:"Postaveno jinak. Záměrně.",
+    why1_title:"Edge Computing",why1_text:"Váš web hostujeme na 200+ serverech po celém světě. Zákazník v Praze otevře web za 0,2 sekundy.",
+    why2_title:"Nulová zranitelnost",why2_text:"Naše weby nemají serverovou databázi — nelze je hacknout. Žádné WordPress zranitelnosti, žádné SQL injekce.",
+    why3_title:"Zelené technologie",why3_text:"Statická architektura spotřebuje 10× méně energie než tradiční servery. Evropané to milují.",
+    why4_title:"Mobile-First",why4_text:"Více než 70 % zákazníků navštíví web z telefonu. Každý pixel navrhujeme od mobilu výše.",
+    why5_title:"SEO připraveno",why5_text:"Rychlé weby a čistý kód znamenají lepší pozici na Googlu. Lokální SEO je součástí každého projektu.",
+    why6_title:"Pevná cena",why6_text:"Žádné překvapivé faktury. Rozsah a cenu dohodujeme předem. Jednoduše a transparentně.",
+    port_label:"Naše práce",port_title:"5 oborů. 5 řešení.",port_sub:"Každý projekt je na míru. Nepoužíváme šablony ani page buildery. Klikněte na kartu a zobrazte celý web.",
+    niche1:"☕ Kavárna & restaurace",niche2:"✂️ Kadeřnictví & barbershop",niche3:"🔧 Autoservis & opravny",niche4:"⚖️ Specialista — právník / poradce",niche5:"🛍️ Obchod s jedním produktem",
+    card1_desc:"QR menu, rezervace stolů s Telegram bot notifikacemi, design zaměřený na mobil.",
+    card2_desc:"Galerie před/po, online rezervace s Google Kalendářem, luxusní tmavý design.",
+    card3_desc:"Ceník služeb, tlačítko pro volání jedním klikem, Google Maps, lokální SEO.",
+    card4_desc:"Osobní brand landing page s referencemi a rychlým formulářem pro konzultaci.",
+    card5_desc:"Krásné fotky produktu, příběhový text, tlačítko objednávky přes WhatsApp.",
+    test1_text:'"Od spuštění nového webu se počet rezervací zvýšil o 40 %."',
+    test2_text:'"Náš formulář je stále plný. Klienti milují jednoduchost."',
+    test3_text:'"Za 2 měsíce jsme se dostali na první místo v lokálním vyhledávání."',
+    test4_text:'"V prvním týdnu po spuštění jsem měl 3 žádosti o konzultaci."',
+    test5_text:'"Prodávám 3× více než na starém webu. Zákazníci objednají za sekundy."',
+    view_site:"Zobrazit web →",
+    proc_label:"Jak to funguje",proc_title:"Od nápadu k živému webu.",
+    step1_title:"Úvodní hovor",step1_text:"Zjistíme, co váš byznys potřebuje. 30 minut stačí.",
+    step2_title:"Návrh & kalkulace",step2_text:"Do 48 hodin pošleme vizuální návrh a pevnou cenu.",
+    step3_title:"Stavba & revize",step3_text:"Postavíme web a zapracujeme vaši zpětnou vazbu.",
+    step4_title:"Spuštění 🚀",step4_text:"Nasazujeme na globální CDN. Rychle, bezpečně, vaše.",
+    contact_label:"Pojďme si popovídat",contact_title:"Připraveni postavit něco skvělého?",
+    contact_sub:"Řekněte nám o svém podnikání. Do 24 hodin dostanete plán a pevnou cenu.",
+    contact_response:"Odpovídáme do 24 hodin",contact_location:"Sloužíme klientům po celé Evropě",
+    form_name:"Vaše jméno",form_email:"E-mail",form_niche:"Typ podnikání",form_niche_pick:"Vyberte obor...",
+    form_msg:"Popište svůj projekt",form_send:"Odeslat zprávu →",form_ok:"✅ Zpráva odeslána! Odpovíme do 24 hodin.",
+    opt_cafe:"Kavárna / restaurace",opt_beauty:"Kadeřnictví / barbershop",opt_auto:"Autoservis / opravna",
+    opt_specialist:"Právník / poradce / specialista",opt_product:"Obchod s jedním produktem",opt_other:"Jiné",
+    footer_rights:"© 2025 VeloWeb. Všechna práva vyhrazena."
+  },
+  sk:{
+    nav_why:"Prečo my",nav_portfolio:"Portfólio",nav_process:"Postup",nav_contact:"Kontakt",
+    hero_tag:"Statická webová architektúra",
+    hero_h1a:"Weby, ktoré",hero_h1b:"sa načítajú okamžite.",hero_h1c:"Nepreniknuteľné.",
+    hero_sub:"Vytvárame rýchle, moderné weby pre malé a stredné firmy pomocou statickej architektúry na globálnom CDN.",
+    hero_cta1:"Začať projekt",hero_cta2:"Naše práce",
+    stat1:"Čas načítania",stat2:"CDN serverov",stat3:"Nepreniknuteľné",stat4:"Menej energie",
+    why_label:"Prečo VeloWeb",why_title:"Postavené inak. Zámerne.",
+    why1_title:"Edge Computing",why1_text:"Váš web hostujeme na 200+ serveroch po celom svete. Zákazník v Prahe otvorí web za 0,2 sekundy.",
+    why2_title:"Nulová zraniteľnosť",why2_text:"Naše weby nemajú serverovú databázu — nedajú sa hacknúť.",
+    why3_title:"Zelené technológie",why3_text:"Statická architektúra spotrebuje 10× menej energie ako tradičné servery.",
+    why4_title:"Mobile-First",why4_text:"Viac ako 70 % zákazníkov navštívi web z telefónu. Každý pixel navrhujeme od mobilu.",
+    why5_title:"SEO pripravené",why5_text:"Rýchle weby a čistý kód znamenajú lepšiu pozíciu na Googli.",
+    why6_title:"Pevná cena",why6_text:"Žiadne prekvapivé faktúry. Rozsah a cenu dohodujeme vopred.",
+    port_label:"Naše práce",port_title:"5 odborov. 5 riešení.",port_sub:"Každý projekt je na mieru. Kliknite na kartu a zobrazte celý web.",
+    niche1:"☕ Kaviareň & reštaurácia",niche2:"✂️ Kadernícky salón",niche3:"🔧 Autoservis & opravovňa",niche4:"⚖️ Špecialist — právnik / poradca",niche5:"🛍️ Obchod s jedným produktom",
+    card1_desc:"QR menu, rezervácia stolov s Telegram bot notifikáciami, mobilný dizajn.",
+    card2_desc:"Galéria pred/po, online rezervácia s Google Kalendárom, luxusný tmavý dizajn.",
+    card3_desc:"Cenník služieb, tlačidlo volania jedným kliknutím, Google Maps, lokálne SEO.",
+    card4_desc:"Osobný brand landing page s referenciami a rýchlym formulárom.",
+    card5_desc:"Krásne fotky produktu, príbehový text, tlačidlo objednávky cez WhatsApp.",
+    test1_text:'"Od spustenia nového webu sa počet rezervácií zvýšil o 40 %."',
+    test2_text:'"Náš formulár je stále plný. Klienti milujú jednoduchosť."',
+    test3_text:'"Za 2 mesiace sme sa dostali na prvé miesto v lokálnom vyhľadávaní."',
+    test4_text:'"V prvom týždni po spustení som mal 3 žiadosti o konzultáciu."',
+    test5_text:'"Predávam 3× viac ako na starom webe."',
+    view_site:"Zobraziť web →",
+    proc_label:"Ako to funguje",proc_title:"Od nápadu k živému webu.",
+    step1_title:"Úvodný hovor",step1_text:"Zistíme, čo váš biznis potrebuje. 30 minút stačí.",
+    step2_title:"Návrh & kalkulácia",step2_text:"Do 48 hodín pošleme vizuálny návrh a pevnú cenu.",
+    step3_title:"Stavba & revízia",step3_text:"Postavíme web a zapracujeme vašu spätnú väzbu.",
+    step4_title:"Spustenie 🚀",step4_text:"Nasadzujeme na globálny CDN. Rýchlo, bezpečne, vaše.",
+    contact_label:"Porozprávajme sa",contact_title:"Pripravení postaviť niečo skvelé?",
+    contact_sub:"Povedzte nám o svojom podnikaní. Do 24 hodín dostanete plán a pevnú cenu.",
+    contact_response:"Odpoveď do 24 hodín",contact_location:"Slúžime klientom po celej Európe",
+    form_name:"Vaše meno",form_email:"E-mail",form_niche:"Typ podnikania",form_niche_pick:"Vyberte odbor...",
+    form_msg:"Opíšte svoj projekt",form_send:"Odoslať správu →",form_ok:"✅ Správa odoslaná! Odpovieme do 24 hodín.",
+    opt_cafe:"Kaviareň / reštaurácia",opt_beauty:"Kadernícky salón",opt_auto:"Autoservis / opravovňa",
+    opt_specialist:"Právnik / poradca / špecialist",opt_product:"Obchod s jedným produktom",opt_other:"Iné",
+    footer_rights:"© 2025 VeloWeb. Všetky práva vyhradené."
+  },
+  ru:{
+    nav_why:"Почему мы",nav_portfolio:"Портфолио",nav_process:"Процесс",nav_contact:"Написать нам",
+    hero_tag:"Статическая веб-архитектура",
+    hero_h1a:"Сайты, которые",hero_h1b:"грузятся мгновенно.",hero_h1c:"Невозможно взломать.",
+    hero_sub:"Мы создаём быстрые, современные сайты для малого и среднего бизнеса на статической архитектуре с глобальным CDN.",
+    hero_cta1:"Начать проект",hero_cta2:"Наши работы",
+    stat1:"Время загрузки",stat2:"CDN серверов",stat3:"Невзламываемый",stat4:"Меньше энергии",
+    why_label:"Почему VeloWeb",why_title:"Сделано иначе. Намеренно.",
+    why1_title:"Edge Computing",why1_text:"Ваш сайт размещён на 200+ серверах по всему миру. Клиент в Праге откроет его за 0,2 секунды.",
+    why2_title:"Нулевая уязвимость",why2_text:"У наших сайтов нет серверной базы данных — их невозможно взломать. Никаких уязвимостей WordPress.",
+    why3_title:"Зелёные технологии",why3_text:"Статическая архитектура потребляет в 10 раз меньше энергии. В Европе это ценят.",
+    why4_title:"Mobile-First",why4_text:"Более 70% клиентов заходят с телефона. Каждый пиксель проектируем с мобильного.",
+    why5_title:"SEO-оптимизация",why5_text:"Быстрые сайты и чистый код — Google ставит вас выше. Локальное SEO в каждом проекте.",
+    why6_title:"Фиксированная цена",why6_text:"Никаких неожиданных счетов. Объём и цену согласовываем заранее.",
+    port_label:"Наши работы",port_title:"5 ниш. 5 решений.",port_sub:"Каждый проект — уникальная разработка. Кликните на карточку, чтобы увидеть полный сайт.",
+    niche1:"☕ Кафе & ресторан",niche2:"✂️ Салон красоты & барбершоп",niche3:"🔧 Автосервис & ремонт",niche4:"⚖️ Специалист — юрист / консультант",niche5:"🛍️ Магазин одного товара",
+    card1_desc:"QR-меню, бронирование столов с уведомлениями в Telegram, мобильный дизайн.",
+    card2_desc:"Галерея до/после, онлайн-запись с Google Календарём, тёмный люксовый дизайн.",
+    card3_desc:"Прайс услуг, кнопка звонка в один клик, Google Maps, локальное SEO.",
+    card4_desc:"Персональный лендинг с отзывами и быстрой формой записи на консультацию.",
+    card5_desc:"Красивые фото продукта, текст-история, кнопка заказа через WhatsApp.",
+    test1_text:'"С момента запуска нового сайта количество бронирований выросло на 40%."',
+    test2_text:'"Форма записи всегда заполнена. Клиентам нравится простота."',
+    test3_text:'"За 2 месяца мы вышли на первое место в локальном поиске."',
+    test4_text:'"В первую неделю после запуска я получил 3 заявки на консультацию."',
+    test5_text:'"Продаю в 3 раза больше, чем со старым сайтом."',
+    view_site:"Открыть сайт →",
+    proc_label:"Как это работает",proc_title:"От идеи до живого сайта.",
+    step1_title:"Вводный звонок",step1_text:"Узнаём о вашем бизнесе и целях. 30 минут достаточно.",
+    step2_title:"Дизайн & предложение",step2_text:"В течение 48 часов отправим концепт и фиксированную цену.",
+    step3_title:"Разработка & правки",step3_text:"Строим сайт и вносим правки по вашей обратной связи.",
+    step4_title:"Запуск 🚀",step4_text:"Разворачиваем на глобальном CDN. Быстро, безопасно, ваше.",
+    contact_label:"Давайте поговорим",contact_title:"Готовы создать что-то крутое?",
+    contact_sub:"Расскажите о вашем бизнесе. В течение 24 часов мы вернёмся с планом и ценой.",
+    contact_response:"Ответ в течение 24 часов",contact_location:"Работаем с клиентами по всей Европе",
+    form_name:"Ваше имя",form_email:"Email",form_niche:"Тип бизнеса",form_niche_pick:"Выберите нишу...",
+    form_msg:"Расскажите о проекте",form_send:"Отправить сообщение →",form_ok:"✅ Сообщение отправлено! Ответим в течение 24 часов.",
+    opt_cafe:"Кафе / ресторан",opt_beauty:"Салон красоты / барбершоп",opt_auto:"Автосервис / ремонт",
+    opt_specialist:"Юрист / консультант / специалист",opt_product:"Магазин одного товара",opt_other:"Другое",
+    footer_rights:"© 2025 VeloWeb. Все права защищены."
+  },
+  uk:{
+    nav_why:"Чому ми",nav_portfolio:"Портфоліо",nav_process:"Процес",nav_contact:"Написати нам",
+    hero_tag:"Статична веб-архітектура",
+    hero_h1a:"Сайти, що",hero_h1b:"завантажуються миттєво.",hero_h1c:"Неможливо зламати.",
+    hero_sub:"Ми створюємо швидкі, сучасні сайти для малого та середнього бізнесу на статичній архітектурі з глобальним CDN.",
+    hero_cta1:"Розпочати проект",hero_cta2:"Наші роботи",
+    stat1:"Час завантаження",stat2:"CDN серверів",stat3:"Незламний",stat4:"Менше енергії",
+    why_label:"Чому VeloWeb",why_title:"Зроблено інакше. Навмисно.",
+    why1_title:"Edge Computing",why1_text:"Ваш сайт розміщено на 200+ серверах по всьому світу. Клієнт у Празі відкриє його за 0,2 секунди.",
+    why2_title:"Нульова вразливість",why2_text:"Наші сайти не мають серверної бази даних — їх неможливо зламати.",
+    why3_title:"Зелені технології",why3_text:"Статична архітектура споживає в 10 разів менше енергії. В Європі це цінують.",
+    why4_title:"Mobile-First",why4_text:"Понад 70% клієнтів заходять з телефону. Кожен піксель проектуємо з мобільного.",
+    why5_title:"SEO-готовий",why5_text:"Швидкі сайти і чистий код — Google ставить вас вище.",
+    why6_title:"Фіксована ціна",why6_text:"Жодних несподіваних рахунків. Обсяг і ціну узгоджуємо заздалегідь.",
+    port_label:"Наші роботи",port_title:"5 ніш. 5 рішень.",port_sub:"Кожен проект — унікальна розробка. Клікніть на картку, щоб побачити повний сайт.",
+    niche1:"☕ Кафе & ресторан",niche2:"✂️ Салон краси & барбершоп",niche3:"🔧 Автосервіс & ремонт",niche4:"⚖️ Спеціаліст — юрист / консультант",niche5:"🛍️ Магазин одного товару",
+    card1_desc:"QR-меню, бронювання столів з Telegram-ботом, мобільний дизайн.",
+    card2_desc:"Галерея до/після, онлайн-запис з Google Календарем, темний люксовий дизайн.",
+    card3_desc:"Прайс послуг, кнопка дзвінка в один клік, Google Maps, локальне SEO.",
+    card4_desc:"Особистий лендинг з відгуками та швидкою формою запису на консультацію.",
+    card5_desc:"Красиві фото продукту, текст-історія, кнопка замовлення через WhatsApp.",
+    test1_text:'"З моменту запуску нового сайту кількість бронювань зросла на 40%."',
+    test2_text:'"Форма запису завжди заповнена. Клієнтам подобається простота."',
+    test3_text:'"За 2 місяці ми вийшли на перше місце в локальному пошуку."',
+    test4_text:'"У перший тиждень після запуску я отримав 3 заявки на консультацію."',
+    test5_text:'"Продаю в 3 рази більше, ніж зі старим сайтом."',
+    view_site:"Відкрити сайт →",
+    proc_label:"Як це працює",proc_title:"Від ідеї до живого сайту.",
+    step1_title:"Вступний дзвінок",step1_text:"Дізнаємося про ваш бізнес і цілі. 30 хвилин достатньо.",
+    step2_title:"Дизайн & пропозиція",step2_text:"Протягом 48 годин надішлемо концепт і фіксовану ціну.",
+    step3_title:"Розробка & правки",step3_text:"Будуємо сайт і вносимо правки за вашим зворотним зв'язком.",
+    step4_title:"Запуск 🚀",step4_text:"Розгортаємо на глобальному CDN. Швидко, безпечно, ваше.",
+    contact_label:"Поговоримо",contact_title:"Готові створити щось круте?",
+    contact_sub:"Розкажіть про ваш бізнес. Протягом 24 годин ми повернемося з планом і ціною.",
+    contact_response:"Відповідь протягом 24 годин",contact_location:"Працюємо з клієнтами по всій Європі",
+    form_name:"Ваше ім'я",form_email:"Email",form_niche:"Тип бізнесу",form_niche_pick:"Оберіть нішу...",
+    form_msg:"Розкажіть про проект",form_send:"Надіслати повідомлення →",form_ok:"✅ Повідомлення надіслано! Відповімо протягом 24 годин.",
+    opt_cafe:"Кафе / ресторан",opt_beauty:"Салон краси / барбершоп",opt_auto:"Автосервіс / ремонт",
+    opt_specialist:"Юрист / консультант / спеціаліст",opt_product:"Магазин одного товару",opt_other:"Інше",
+    footer_rights:"© 2025 VeloWeb. Усі права захищені."
+  },
+  de:{
+    nav_why:"Warum wir",nav_portfolio:"Portfolio",nav_process:"Ablauf",nav_contact:"Kontakt",
+    hero_tag:"Statische Web-Architektur",
+    hero_h1a:"Websites, die",hero_h1b:"sofort laden.",hero_h1c:"Unhackbar.",
+    hero_sub:"Wir bauen schnelle, moderne Websites für kleine und mittlere Unternehmen mit Static Architecture auf einem globalen CDN.",
+    hero_cta1:"Projekt starten",hero_cta2:"Unsere Arbeit",
+    stat1:"Ladezeit",stat2:"CDN-Server",stat3:"Unhackbar",stat4:"Weniger Energie",
+    why_label:"Warum VeloWeb",why_title:"Anders gebaut. Absichtlich.",
+    why1_title:"Edge Computing",why1_text:"Ihre Website wird auf 200+ Servern weltweit gehostet. Ein Kunde in Prag öffnet sie in 0,2 Sekunden.",
+    why2_title:"Null Angriffsfläche",why2_text:"Unsere Websites haben keine serverseitige Datenbank — sie sind unhackbar. Keine WordPress-Lücken.",
+    why3_title:"Green Tech",why3_text:"Statische Architektur verbraucht 10× weniger Energie als traditionelle Server. In Europa sehr beliebt.",
+    why4_title:"Mobile-First",why4_text:"Über 70% Ihrer Kunden besuchen die Seite vom Handy. Jeder Pixel beginnt beim Mobilgerät.",
+    why5_title:"SEO-Ready",why5_text:"Schnelle Ladezeiten und sauberer Code bedeuten besseres Google-Ranking.",
+    why6_title:"Festpreis",why6_text:"Keine überraschenden Rechnungen. Umfang und Preis werden vorab vereinbart.",
+    port_label:"Unsere Arbeit",port_title:"5 Branchen. 5 Lösungen.",port_sub:"Jedes Projekt wird maßgeschneidert. Klicken Sie auf eine Karte, um die vollständige Website zu sehen.",
+    niche1:"☕ Café & Restaurant",niche2:"✂️ Schönheitssalon & Barbershop",niche3:"🔧 Autowerkstatt & Reparatur",niche4:"⚖️ Spezialist — Anwalt / Berater",niche5:"🛍️ Ein-Produkt-Shop",
+    card1_desc:"QR-Menü, Tischreservierung mit Telegram-Bot, mobiloptimiertes Design.",
+    card2_desc:"Vorher/Nachher-Galerie, Online-Buchung mit Google Kalender, dunkles Luxusdesign.",
+    card3_desc:"Preisliste, Ein-Klick-Anruf, Google Maps, lokale SEO-Optimierung.",
+    card4_desc:"Persönliche Marken-Landingpage mit Testimonials und schnellem Kontaktformular.",
+    card5_desc:"Schöne Produktfotos, Story-Texte, WhatsApp-Bestellbutton.",
+    test1_text:'"Seit dem neuen Website-Start stiegen unsere Reservierungen um 40%."',
+    test2_text:'"Unser Buchungsformular ist immer voll. Kunden lieben die Einfachheit."',
+    test3_text:'"In 2 Monaten kamen wir bei der lokalen Suche auf Platz 1."',
+    test4_text:'"In der ersten Woche nach dem Launch hatte ich 3 Beratungsanfragen."',
+    test5_text:'"Ich verkaufe 3× mehr als mit meiner alten Website."',
+    view_site:"Website anzeigen →",
+    proc_label:"So funktioniert es",proc_title:"Von der Idee zur Live-Website.",
+    step1_title:"Erstgespräch",step1_text:"Wir lernen Ihr Unternehmen kennen. 30 Minuten reichen.",
+    step2_title:"Design & Angebot",step2_text:"In 48 Stunden erhalten Sie ein Konzept und einen Festpreis.",
+    step3_title:"Bau & Feedback",step3_text:"Wir bauen die Website und berücksichtigen Ihr Feedback.",
+    step4_title:"Launch 🚀",step4_text:"Wir deployen auf unser globales CDN. Schnell, sicher, Ihres.",
+    contact_label:"Sprechen wir",contact_title:"Bereit, etwas Großartiges zu bauen?",
+    contact_sub:"Erzählen Sie uns von Ihrem Unternehmen. Innerhalb von 24 Stunden erhalten Sie einen Plan und einen Festpreis.",
+    contact_response:"Antwort innerhalb von 24 Stunden",contact_location:"Wir betreuen Kunden in ganz Europa",
+    form_name:"Ihr Name",form_email:"E-Mail",form_niche:"Branche",form_niche_pick:"Branche auswählen...",
+    form_msg:"Beschreiben Sie Ihr Projekt",form_send:"Nachricht senden →",form_ok:"✅ Nachricht gesendet! Wir melden uns innerhalb von 24 Stunden.",
+    opt_cafe:"Café / Restaurant",opt_beauty:"Schönheitssalon / Barbershop",opt_auto:"Autowerkstatt / Reparatur",
+    opt_specialist:"Anwalt / Berater / Spezialist",opt_product:"Ein-Produkt-Shop",opt_other:"Sonstiges",
+    footer_rights:"© 2025 VeloWeb. Alle Rechte vorbehalten."
+  },
+  fr:{nav_why:"Pourquoi nous",nav_portfolio:"Portfolio",nav_process:"Processus",nav_contact:"Contact",hero_tag:"Architecture Web Statique",hero_h1a:"Sites web qui",hero_h1b:"chargent instantanément.",hero_h1c:"Impossibles à pirater.",hero_sub:"Nous créons des sites rapides et modernes pour les PME avec une architecture statique sur un CDN mondial.",hero_cta1:"Démarrer votre projet",hero_cta2:"Voir nos travaux",stat1:"Temps de chargement",stat2:"Serveurs CDN",stat3:"Inviolable",stat4:"Moins d'énergie",why_label:"Pourquoi VeloWeb",why_title:"Construit différemment. Intentionnellement.",why1_title:"Edge Computing",why1_text:"Nous hébergeons votre site sur 200+ serveurs mondiaux. Un client à Prague ouvre votre site en 0,2 seconde.",why2_title:"Vulnérabilité zéro",why2_text:"Nos sites n'ont pas de base de données serveur — impossibles à pirater.",why3_title:"Green Tech",why3_text:"L'architecture statique consomme 10× moins d'énergie que les serveurs traditionnels.",why4_title:"Mobile-First",why4_text:"Plus de 70% de vos clients visitent depuis leur téléphone.",why5_title:"SEO-Ready",why5_text:"Temps de chargement rapides et code propre pour un meilleur classement Google.",why6_title:"Prix fixe",why6_text:"Pas de factures surprises. Portée et prix convenus à l'avance.",port_label:"Nos travaux",port_title:"5 niches. 5 solutions.",port_sub:"Chaque projet est sur mesure. Cliquez sur une carte pour voir le site complet.",niche1:"☕ Café & Restaurant",niche2:"✂️ Salon de beauté",niche3:"🔧 Garage auto",niche4:"⚖️ Spécialiste — Avocat / Consultant",niche5:"🛍️ Boutique mono-produit",card1_desc:"Menu QR, réservation de table avec bot Telegram, design mobile-first.",card2_desc:"Galerie avant/après, réservation en ligne avec Google Agenda, design luxe sombre.",card3_desc:"Liste de services, bouton d'appel en un clic, Google Maps, SEO local.",card4_desc:"Page de marque personnelle avec témoignages et formulaire rapide.",card5_desc:"Belles photos produit, texte narratif, bouton de commande WhatsApp.",test1_text:'"Depuis le nouveau site, nos réservations ont augmenté de 40%."',test2_text:'"Notre formulaire est toujours plein."',test3_text:'"En 2 mois, nous sommes passés en première position locale."',test4_text:'"J\'ai eu 3 demandes de consultation la première semaine."',test5_text:'"Je vends 3× plus qu\'avec mon ancien site."',view_site:"Voir le site →",proc_label:"Comment ça marche",proc_title:"De l'idée au site en ligne.",step1_title:"Appel découverte",step1_text:"Nous apprenons votre activité. 30 minutes suffisent.",step2_title:"Design & Proposition",step2_text:"Nous vous envoyons un concept et un prix fixe sous 48h.",step3_title:"Construction & Révision",step3_text:"Nous construisons et intégrons vos retours.",step4_title:"Lancement 🚀",step4_text:"Déploiement sur notre CDN mondial. Rapide, sécurisé, à vous.",contact_label:"Discutons",contact_title:"Prêt à construire quelque chose de grand?",contact_sub:"Parlez-nous de votre entreprise. Nous reviendrons sous 24h avec un plan et un prix.",contact_response:"Réponse sous 24 heures",contact_location:"Nous servons des clients dans toute l'Europe",form_name:"Votre nom",form_email:"E-mail",form_niche:"Type d'activité",form_niche_pick:"Sélectionnez votre niche...",form_msg:"Décrivez votre projet",form_send:"Envoyer le message →",form_ok:"✅ Message envoyé! Nous répondrons sous 24h.",opt_cafe:"Café / Restaurant",opt_beauty:"Salon de beauté",opt_auto:"Garage / Réparation",opt_specialist:"Avocat / Consultant",opt_product:"Boutique mono-produit",opt_other:"Autre",footer_rights:"© 2025 VeloWeb. Tous droits réservés."},
+  es:{nav_why:"Por qué nosotros",nav_portfolio:"Portfolio",nav_process:"Proceso",nav_contact:"Contacto",hero_tag:"Arquitectura Web Estática",hero_h1a:"Sitios web que",hero_h1b:"cargan al instante.",hero_h1c:"Imposibles de hackear.",hero_sub:"Creamos sitios web rápidos y modernos para pequeñas y medianas empresas con arquitectura estática en una CDN global.",hero_cta1:"Iniciar proyecto",hero_cta2:"Ver nuestro trabajo",stat1:"Tiempo de carga",stat2:"Servidores CDN",stat3:"Inhackeable",stat4:"Menos energía",why_label:"Por qué VeloWeb",why_title:"Construido diferente. Intencionalmente.",why1_title:"Edge Computing",why1_text:"Alojamos su sitio en 200+ servidores mundiales. Un cliente en Praga lo abre en 0,2 segundos.",why2_title:"Vulnerabilidad cero",why2_text:"Nuestros sitios no tienen base de datos en servidor — imposibles de hackear.",why3_title:"Green Tech",why3_text:"La arquitectura estática consume 10× menos energía que los servidores tradicionales.",why4_title:"Mobile-First",why4_text:"Más del 70% de sus clientes visitan desde el móvil.",why5_title:"SEO-Ready",why5_text:"Tiempos de carga rápidos y código limpio para mejor posición en Google.",why6_title:"Precio fijo",why6_text:"Sin facturas sorpresa. Alcance y precio acordados de antemano.",port_label:"Nuestro trabajo",port_title:"5 nichos. 5 soluciones.",port_sub:"Cada proyecto es a medida. Haga clic en una tarjeta para ver el sitio completo.",niche1:"☕ Café & Restaurante",niche2:"✂️ Salón de belleza",niche3:"🔧 Taller de coches",niche4:"⚖️ Especialista — Abogado / Consultor",niche5:"🛍️ Tienda de un producto",card1_desc:"Menú QR, reserva de mesa con bot Telegram, diseño mobile-first.",card2_desc:"Galería antes/después, reserva online con Google Calendar, diseño oscuro de lujo.",card3_desc:"Lista de servicios, botón de llamada con un clic, Google Maps, SEO local.",card4_desc:"Página de marca personal con testimonios y formulario de consulta rápida.",card5_desc:"Fotos de producto, texto narrativo, botón de pedido WhatsApp.",test1_text:'"Desde el nuevo sitio, nuestras reservas aumentaron un 40%."',test2_text:'"Nuestro formulario siempre está lleno."',test3_text:'"En 2 meses llegamos al primer lugar en búsqueda local."',test4_text:'"Tuve 3 solicitudes de consulta en la primera semana."',test5_text:'"Vendo 3× más que con mi antiguo sitio."',view_site:"Ver sitio →",proc_label:"Cómo funciona",proc_title:"De la idea al sitio en vivo.",step1_title:"Llamada inicial",step1_text:"Conocemos su negocio. 30 minutos son suficientes.",step2_title:"Diseño & Propuesta",step2_text:"En 48h enviamos concepto y precio fijo.",step3_title:"Construcción & Revisión",step3_text:"Construimos e incorporamos sus comentarios.",step4_title:"Lanzamiento 🚀",step4_text:"Desplegamos en CDN global. Rápido, seguro, suyo.",contact_label:"Hablemos",contact_title:"¿Listo para construir algo genial?",contact_sub:"Cuéntenos sobre su negocio. En 24h tendrá un plan y precio fijo.",contact_response:"Respuesta en 24 horas",contact_location:"Atendemos clientes en toda Europa",form_name:"Su nombre",form_email:"Correo electrónico",form_niche:"Tipo de negocio",form_niche_pick:"Seleccione su nicho...",form_msg:"Describa su proyecto",form_send:"Enviar mensaje →",form_ok:"✅ ¡Mensaje enviado! Responderemos en 24h.",opt_cafe:"Café / Restaurante",opt_beauty:"Salón de belleza",opt_auto:"Taller / Reparación",opt_specialist:"Abogado / Consultor",opt_product:"Tienda de un producto",opt_other:"Otro",footer_rights:"© 2025 VeloWeb. Todos los derechos reservados."},
+  it:{nav_why:"Perché noi",nav_portfolio:"Portfolio",nav_process:"Processo",nav_contact:"Contatto",hero_tag:"Architettura Web Statica",hero_h1a:"Siti web che",hero_h1b:"si caricano istantaneamente.",hero_h1c:"Impossibili da hackerare.",hero_sub:"Creiamo siti veloci e moderni per piccole e medie imprese con architettura statica su CDN globale.",hero_cta1:"Inizia il progetto",hero_cta2:"Il nostro lavoro",stat1:"Tempo di caricamento",stat2:"Server CDN",stat3:"Inviolabile",stat4:"Meno energia",why_label:"Perché VeloWeb",why_title:"Costruito diversamente. Intenzionalmente.",why1_title:"Edge Computing",why1_text:"Ospitiamo il tuo sito su 200+ server mondiali. Un cliente a Praga lo apre in 0,2 secondi.",why2_title:"Vulnerabilità zero",why2_text:"I nostri siti non hanno database server — impossibili da hackerare.",why3_title:"Green Tech",why3_text:"L'architettura statica consuma 10× meno energia dei server tradizionali.",why4_title:"Mobile-First",why4_text:"Oltre il 70% dei tuoi clienti visita da smartphone.",why5_title:"SEO-Ready",why5_text:"Tempi di caricamento rapidi e codice pulito per un migliore ranking su Google.",why6_title:"Prezzo fisso",why6_text:"Niente fatture a sorpresa. Scope e prezzo concordati in anticipo.",port_label:"Il nostro lavoro",port_title:"5 nicchie. 5 soluzioni.",port_sub:"Ogni progetto è su misura. Clicca su una card per vedere il sito completo.",niche1:"☕ Caffè & Ristorante",niche2:"✂️ Salone di bellezza",niche3:"🔧 Officina auto",niche4:"⚖️ Specialista — Avvocato / Consulente",niche5:"🛍️ Negozio di un prodotto",card1_desc:"Menu QR, prenotazione tavolo con bot Telegram, design mobile-first.",card2_desc:"Galleria prima/dopo, prenotazione online con Google Calendar, design lusso scuro.",card3_desc:"Listino servizi, pulsante di chiamata con un clic, Google Maps, SEO locale.",card4_desc:"Landing page di brand personale con testimonianze e modulo rapido.",card5_desc:"Belle foto prodotto, testo narrativo, pulsante ordine WhatsApp.",test1_text:'"Da quando abbiamo il nuovo sito, le prenotazioni sono aumentate del 40%."',test2_text:'"Il nostro modulo è sempre pieno."',test3_text:'"In 2 mesi siamo arrivati al primo posto nella ricerca locale."',test4_text:'"Ho avuto 3 richieste di consulenza nella prima settimana."',test5_text:'"Vendo 3× di più rispetto al vecchio sito."',view_site:"Vedi sito →",proc_label:"Come funziona",proc_title:"Dall'idea al sito live.",step1_title:"Chiamata iniziale",step1_text:"Conosciamo la tua azienda. 30 minuti sono sufficienti.",step2_title:"Design & Proposta",step2_text:"In 48h ti inviamo il concept e il prezzo fisso.",step3_title:"Sviluppo & Revisione",step3_text:"Costruiamo il sito e incorporiamo il tuo feedback.",step4_title:"Lancio 🚀",step4_text:"Distribuiamo su CDN globale. Veloce, sicuro, tuo.",contact_label:"Parliamoci",contact_title:"Pronti a costruire qualcosa di grande?",contact_sub:"Raccontaci del tuo business. Entro 24h avrai un piano e un prezzo fisso.",contact_response:"Risposta entro 24 ore",contact_location:"Serviamo clienti in tutta Europa",form_name:"Il tuo nome",form_email:"Email",form_niche:"Tipo di attività",form_niche_pick:"Seleziona la tua nicchia...",form_msg:"Descrivi il tuo progetto",form_send:"Invia messaggio →",form_ok:"✅ Messaggio inviato! Risponderemo entro 24 ore.",opt_cafe:"Caffè / Ristorante",opt_beauty:"Salone di bellezza",opt_auto:"Officina / Riparazione",opt_specialist:"Avvocato / Consulente",opt_product:"Negozio di un prodotto",opt_other:"Altro",footer_rights:"© 2025 VeloWeb. Tutti i diritti riservati."},
+  pl:{nav_why:"Dlaczego my",nav_portfolio:"Portfolio",nav_process:"Proces",nav_contact:"Kontakt",hero_tag:"Statyczna architektura webowa",hero_h1a:"Strony, które",hero_h1b:"ładują się natychmiast.",hero_h1c:"Niemożliwe do zhakowania.",hero_sub:"Tworzymy szybkie, nowoczesne strony dla małych i średnich firm na statycznej architekturze z globalnym CDN.",hero_cta1:"Rozpocznij projekt",hero_cta2:"Nasze prace",stat1:"Czas ładowania",stat2:"Serwery CDN",stat3:"Nie do zhakowania",stat4:"Mniej energii",why_label:"Dlaczego VeloWeb",why_title:"Zbudowane inaczej. Celowo.",why1_title:"Edge Computing",why1_text:"Hostujemy Twoją stronę na 200+ serwerach na całym świecie. Klient w Pradze otwiera ją w 0,2 sekundy.",why2_title:"Zero podatności",why2_text:"Nasze strony nie mają serwerowej bazy danych — niemożliwe do zhakowania.",why3_title:"Zielona technologia",why3_text:"Statyczna architektura zużywa 10× mniej energii niż tradycyjne serwery.",why4_title:"Mobile-First",why4_text:"Ponad 70% klientów odwiedza stronę z telefonu.",why5_title:"SEO-Ready",why5_text:"Szybkie ładowanie i czysty kod oznaczają lepsze pozycje w Google.",why6_title:"Stała cena",why6_text:"Żadnych niespodziewanych faktur. Zakres i cena ustalane z góry.",port_label:"Nasze prace",port_title:"5 nisz. 5 rozwiązań.",port_sub:"Każdy projekt jest na miarę. Kliknij kartę, aby zobaczyć pełną stronę.",niche1:"☕ Kawiarnia & Restauracja",niche2:"✂️ Salon piękności & Barbershop",niche3:"🔧 Serwis samochodowy",niche4:"⚖️ Specjalista — Prawnik / Konsultant",niche5:"🛍️ Sklep jednego produktu",card1_desc:"Menu QR, rezerwacja stolika z botem Telegram, projekt mobilny.",card2_desc:"Galeria przed/po, rezerwacja online z Google Calendar, ciemny luksusowy design.",card3_desc:"Cennik usług, przycisk telefonu jednym kliknięciem, Google Maps, lokalne SEO.",card4_desc:"Strona marki osobistej z opiniami i szybkim formularzem konsultacji.",card5_desc:"Piękne zdjęcia produktu, tekst narracyjny, przycisk zamówienia WhatsApp.",test1_text:'"Od nowej strony liczba rezerwacji wzrosła o 40%."',test2_text:'"Nasz formularz jest zawsze pełny."',test3_text:'"W 2 miesiące osiągnęliśmy pierwsze miejsce w lokalnych wynikach."',test4_text:'"W pierwszym tygodniu miałem 3 prośby o konsultację."',test5_text:'"Sprzedaję 3× więcej niż ze starą stroną."',view_site:"Zobacz stronę →",proc_label:"Jak to działa",proc_title:"Od pomysłu do działającej strony.",step1_title:"Rozmowa wstępna",step1_text:"Poznajemy Twój biznes. 30 minut wystarczy.",step2_title:"Projekt & Oferta",step2_text:"W ciągu 48h wyślemy koncepcję i stałą cenę.",step3_title:"Budowa & Poprawki",step3_text:"Budujemy stronę i uwzględniamy Twój feedback.",step4_title:"Uruchomienie 🚀",step4_text:"Wdrażamy na globalny CDN. Szybko, bezpiecznie, Twoje.",contact_label:"Porozmawiajmy",contact_title:"Gotowi budować coś świetnego?",contact_sub:"Opowiedz o swoim biznesie. W ciągu 24h otrzymasz plan i stałą cenę.",contact_response:"Odpowiedź w ciągu 24 godzin",contact_location:"Obsługujemy klientów w całej Europie",form_name:"Twoje imię",form_email:"E-mail",form_niche:"Typ działalności",form_niche_pick:"Wybierz swoją niszę...",form_msg:"Opisz swój projekt",form_send:"Wyślij wiadomość →",form_ok:"✅ Wiadomość wysłana! Odpiszemy w ciągu 24 godzin.",opt_cafe:"Kawiarnia / Restauracja",opt_beauty:"Salon piękności / Barbershop",opt_auto:"Serwis samochodowy",opt_specialist:"Prawnik / Konsultant",opt_product:"Sklep jednego produktu",opt_other:"Inne",footer_rights:"© 2025 VeloWeb. Wszelkie prawa zastrzeżone."},
+  nl:{nav_why:"Waarom wij",nav_portfolio:"Portfolio",nav_process:"Proces",nav_contact:"Contact",hero_tag:"Statische webarchitectuur",hero_h1a:"Websites die",hero_h1b:"direct laden.",hero_h1c:"Onmogelijk te hacken.",hero_sub:"Wij bouwen snelle, moderne websites voor kleine en middelgrote bedrijven op statische architectuur met een wereldwijd CDN.",hero_cta1:"Project starten",hero_cta2:"Ons werk",stat1:"Laadtijd",stat2:"CDN-servers",stat3:"Onhackbaar",stat4:"Minder energie",why_label:"Waarom VeloWeb",why_title:"Anders gebouwd. Opzettelijk.",why1_title:"Edge Computing",why1_text:"Uw site wordt gehost op 200+ servers wereldwijd. Een klant in Praag opent hem in 0,2 seconden.",why2_title:"Nul kwetsbaarheden",why2_text:"Onze sites hebben geen server-database — onmogelijk te hacken.",why3_title:"Groene technologie",why3_text:"Statische architectuur verbruikt 10× minder energie dan traditionele servers.",why4_title:"Mobile-First",why4_text:"Meer dan 70% van uw klanten bezoekt via smartphone.",why5_title:"SEO-klaar",why5_text:"Snelle laadtijden en schone code betekenen een hogere Google-ranking.",why6_title:"Vaste prijs",why6_text:"Geen verrassende facturen. Scope en prijs vooraf afgesproken.",port_label:"Ons werk",port_title:"5 niches. 5 oplossingen.",port_sub:"Elk project is maatwerk. Klik op een kaart om de volledige site te zien.",niche1:"☕ Café & Restaurant",niche2:"✂️ Schoonheidssalon",niche3:"🔧 Autoservice & Reparatie",niche4:"⚖️ Specialist — Advocaat / Consultant",niche5:"🛍️ Één-product-winkel",card1_desc:"QR-menu, tafelreservering met Telegram-bot, mobielgericht design.",card2_desc:"Voor/na-galerij, online boeking met Google Agenda, donker luxedesign.",card3_desc:"Dienstenlijst, bel-knop met één klik, Google Maps, lokale SEO.",card4_desc:"Persoonlijke merklandingspagina met testimonials en snel formulier.",card5_desc:"Mooie productfoto's, verhaalgerichte tekst, WhatsApp-bestelknop.",test1_text:'"Onze reserveringen stegen met 40% na de nieuwe site."',test2_text:'"Ons formulier is altijd vol."',test3_text:'"In 2 maanden stonden we op plek 1 in lokaal zoeken."',test4_text:'"In de eerste week had ik 3 consultatieverzoeken."',test5_text:'"Ik verkoop 3× meer dan met mijn oude site."',view_site:"Site bekijken →",proc_label:"Hoe het werkt",proc_title:"Van idee tot live website.",step1_title:"Kennismakingsgesprek",step1_text:"We leren uw bedrijf kennen. 30 minuten is genoeg.",step2_title:"Design & Voorstel",step2_text:"Binnen 48u sturen we een concept en vaste prijs.",step3_title:"Bouwen & Review",step3_text:"We bouwen de site en verwerken uw feedback.",step4_title:"Launch 🚀",step4_text:"We deployen op ons wereldwijde CDN. Snel, veilig, van u.",contact_label:"Laten we praten",contact_title:"Klaar om iets geweldigs te bouwen?",contact_sub:"Vertel ons over uw bedrijf. Binnen 24u krijgt u een plan en vaste prijs.",contact_response:"Reactie binnen 24 uur",contact_location:"Wij bedienen klanten door heel Europa",form_name:"Uw naam",form_email:"E-mail",form_niche:"Type bedrijf",form_niche_pick:"Selecteer uw niche...",form_msg:"Beschrijf uw project",form_send:"Bericht sturen →",form_ok:"✅ Bericht verzonden! We reageren binnen 24 uur.",opt_cafe:"Café / Restaurant",opt_beauty:"Schoonheidssalon",opt_auto:"Autoservice / Reparatie",opt_specialist:"Advocaat / Consultant",opt_product:"Één-product-winkel",opt_other:"Anders",footer_rights:"© 2025 VeloWeb. Alle rechten voorbehouden."},
+  pt:{nav_why:"Por que nós",nav_portfolio:"Portfólio",nav_process:"Processo",nav_contact:"Contato",hero_tag:"Arquitetura Web Estática",hero_h1a:"Sites que",hero_h1b:"carregam instantaneamente.",hero_h1c:"Impossíveis de hackear.",hero_sub:"Criamos sites rápidos e modernos para pequenas e médias empresas com arquitetura estática em CDN global.",hero_cta1:"Iniciar projeto",hero_cta2:"Ver nosso trabalho",stat1:"Tempo de carregamento",stat2:"Servidores CDN",stat3:"Inhackável",stat4:"Menos energia",why_label:"Por que VeloWeb",why_title:"Construído diferente. Intencionalmente.",why1_title:"Edge Computing",why1_text:"Hospedamos seu site em 200+ servidores mundiais. Um cliente em Praga o abre em 0,2 segundos.",why2_title:"Vulnerabilidade zero",why2_text:"Nossos sites não têm banco de dados no servidor — impossíveis de hackear.",why3_title:"Tecnologia Verde",why3_text:"A arquitetura estática consome 10× menos energia que servidores tradicionais.",why4_title:"Mobile-First",why4_text:"Mais de 70% dos seus clientes visitam pelo celular.",why5_title:"SEO-Ready",why5_text:"Tempos de carregamento rápidos e código limpo para melhor ranking no Google.",why6_title:"Preço fixo",why6_text:"Sem faturas surpresa. Escopo e preço acordados antecipadamente.",port_label:"Nosso trabalho",port_title:"5 nichos. 5 soluções.",port_sub:"Cada projeto é personalizado. Clique em um card para ver o site completo.",niche1:"☕ Café & Restaurante",niche2:"✂️ Salão de beleza",niche3:"🔧 Oficina mecânica",niche4:"⚖️ Especialista — Advogado / Consultor",niche5:"🛍️ Loja de produto único",card1_desc:"Menu QR, reserva de mesa com bot Telegram, design mobile-first.",card2_desc:"Galeria antes/depois, agendamento online com Google Agenda, design luxo escuro.",card3_desc:"Lista de serviços, botão de ligação com um clique, Google Maps, SEO local.",card4_desc:"Landing page de marca pessoal com depoimentos e formulário rápido.",card5_desc:"Belas fotos do produto, texto narrativo, botão de pedido WhatsApp.",test1_text:'"Desde o novo site, nossas reservas aumentaram 40%."',test2_text:'"Nosso formulário está sempre cheio."',test3_text:'"Em 2 meses chegamos ao primeiro lugar na busca local."',test4_text:'"Tive 3 pedidos de consulta na primeira semana."',test5_text:'"Vendo 3× mais do que com meu antigo site."',view_site:"Ver site →",proc_label:"Como funciona",proc_title:"Da ideia ao site no ar.",step1_title:"Chamada inicial",step1_text:"Conhecemos seu negócio. 30 minutos são suficientes.",step2_title:"Design & Proposta",step2_text:"Em 48h enviamos o conceito e o preço fixo.",step3_title:"Desenvolvimento & Revisão",step3_text:"Construímos o site e incorporamos seu feedback.",step4_title:"Lançamento 🚀",step4_text:"Fazemos deploy no CDN global. Rápido, seguro, seu.",contact_label:"Vamos conversar",contact_title:"Pronto para construir algo incrível?",contact_sub:"Conte-nos sobre seu negócio. Em 24h você receberá um plano e preço fixo.",contact_response:"Resposta em 24 horas",contact_location:"Atendemos clientes em toda a Europa",form_name:"Seu nome",form_email:"E-mail",form_niche:"Tipo de negócio",form_niche_pick:"Selecione seu nicho...",form_msg:"Descreva seu projeto",form_send:"Enviar mensagem →",form_ok:"✅ Mensagem enviada! Responderemos em 24 horas.",opt_cafe:"Café / Restaurante",opt_beauty:"Salão de beleza",opt_auto:"Oficina / Reparo",opt_specialist:"Advogado / Consultor",opt_product:"Loja de produto único",opt_other:"Outro",footer_rights:"© 2025 VeloWeb. Todos os direitos reservados."},
+  ro:{nav_why:"De ce noi",nav_portfolio:"Portofoliu",nav_process:"Proces",nav_contact:"Contact",hero_tag:"Arhitectură Web Statică",hero_h1a:"Site-uri care",hero_h1b:"se încarcă instant.",hero_h1c:"Imposibil de spart.",hero_sub:"Creăm site-uri rapide și moderne pentru IMM-uri cu arhitectură statică pe un CDN global.",hero_cta1:"Începe proiectul",hero_cta2:"Lucrările noastre",stat1:"Timp de încărcare",stat2:"Servere CDN",stat3:"De neretras",stat4:"Mai puțină energie",why_label:"De ce VeloWeb",why_title:"Construit diferit. Intenționat.",why1_title:"Edge Computing",why1_text:"Găzduim site-ul pe 200+ servere mondiale. Un client din Praga îl deschide în 0,2 secunde.",why2_title:"Vulnerabilitate zero",why2_text:"Site-urile noastre nu au baze de date pe server — imposibil de spart.",why3_title:"Tehnologie verde",why3_text:"Arhitectura statică consumă de 10× mai puțină energie decât serverele tradiționale.",why4_title:"Mobile-First",why4_text:"Peste 70% din clienți vizitează de pe telefon.",why5_title:"SEO-Ready",why5_text:"Timpi rapizi și cod curat înseamnă poziții mai bune în Google.",why6_title:"Preț fix",why6_text:"Fără facturi surpriză. Scopul și prețul stabilite în avans.",port_label:"Lucrările noastre",port_title:"5 nișe. 5 soluții.",port_sub:"Fiecare proiect este personalizat. Faceți clic pe un card pentru a vedea site-ul complet.",niche1:"☕ Cafenea & Restaurant",niche2:"✂️ Salon de frumusețe",niche3:"🔧 Service auto",niche4:"⚖️ Specialist — Avocat / Consultant",niche5:"🛍️ Magazin cu un produs",card1_desc:"Meniu QR, rezervare masă cu bot Telegram, design mobile-first.",card2_desc:"Galerie înainte/după, programare online cu Google Calendar, design luxos întunecat.",card3_desc:"Listă servicii, buton apel cu un clic, Google Maps, SEO local.",card4_desc:"Landing page de brand personal cu testimoniale și formular rapid.",card5_desc:"Fotografii frumoase de produs, text narativ, buton comandă WhatsApp.",test1_text:'"De la noul site, rezervările au crescut cu 40%."',test2_text:'"Formularul nostru este mereu plin."',test3_text:'"În 2 luni am ajuns pe primul loc în căutarea locală."',test4_text:'"Am avut 3 cereri de consultație în prima săptămână."',test5_text:'"Vând de 3× mai mult decât cu vechiul site."',view_site:"Vezi site-ul →",proc_label:"Cum funcționează",proc_title:"De la idee la site live.",step1_title:"Apel inițial",step1_text:"Aflăm despre afacerea dvs. 30 de minute sunt suficiente.",step2_title:"Design & Propunere",step2_text:"În 48h trimitem conceptul și prețul fix.",step3_title:"Construire & Revizuire",step3_text:"Construim site-ul și integrăm feedback-ul dvs.",step4_title:"Lansare 🚀",step4_text:"Lansăm pe CDN global. Rapid, sigur, al dvs.",contact_label:"Să vorbim",contact_title:"Gata să construiți ceva grozav?",contact_sub:"Spuneți-ne despre afacerea dvs. În 24h veți primi un plan și un preț fix.",contact_response:"Răspuns în 24 de ore",contact_location:"Servim clienți din toată Europa",form_name:"Numele dvs.",form_email:"E-mail",form_niche:"Tip de afacere",form_niche_pick:"Selectați nișa...",form_msg:"Descrieți proiectul dvs.",form_send:"Trimite mesaj →",form_ok:"✅ Mesaj trimis! Vom răspunde în 24 de ore.",opt_cafe:"Cafenea / Restaurant",opt_beauty:"Salon de frumusețe",opt_auto:"Service auto / Reparații",opt_specialist:"Avocat / Consultant",opt_product:"Magazin cu un produs",opt_other:"Altceva",footer_rights:"© 2025 VeloWeb. Toate drepturile rezervate."},
+  hu:{nav_why:"Miért mi",nav_portfolio:"Portfólió",nav_process:"Folyamat",nav_contact:"Kapcsolat",hero_tag:"Statikus webes architektúra",hero_h1a:"Weboldalak, amelyek",hero_h1b:"azonnal betöltenek.",hero_h1c:"Feltörhetetlenek.",hero_sub:"Gyors, modern weboldalakat készítünk kis- és középvállalkozásoknak statikus architektúrán, globális CDN-en.",hero_cta1:"Projekt indítása",hero_cta2:"Munkáink",stat1:"Betöltési idő",stat2:"CDN szerver",stat3:"Feltörhetetlen",stat4:"Kevesebb energia",why_label:"Miért VeloWeb",why_title:"Másképp építve. Szándékosan.",why1_title:"Edge Computing",why1_text:"Weboldalát 200+ szerveren tároljuk világszerte. Egy prágai ügyfél 0,2 másodperc alatt nyitja meg.",why2_title:"Nulla sebezhetőség",why2_text:"Oldalainknak nincs szerver oldali adatbázisa — feltörhetetlen.",why3_title:"Zöld technológia",why3_text:"A statikus architektúra 10× kevesebb energiát fogyaszt, mint a hagyományos szerverek.",why4_title:"Mobile-First",why4_text:"Ügyfelei több mint 70%-a telefonon látogat.",why5_title:"SEO-kész",why5_text:"Gyors betöltési idő és tiszta kód jobb Google-helyezést jelent.",why6_title:"Fix ár",why6_text:"Nincsenek meglepetésszámlák. A hatókört és árat előre megállapodunk.",port_label:"Munkáink",port_title:"5 rés. 5 megoldás.",port_sub:"Minden projekt egyedi. Kattintson egy kártyára a teljes weboldal megtekintéséhez.",niche1:"☕ Kávézó & Étterem",niche2:"✂️ Szépségszalon & Barbershop",niche3:"🔧 Autószerviz & Javítás",niche4:"⚖️ Specialista — Ügyvéd / Tanácsadó",niche5:"🛍️ Egytermékes bolt",card1_desc:"QR-menü, asztalt foglalás Telegram-bottal, mobilra optimalizált dizájn.",card2_desc:"Előtte/utána galéria, online foglalás Google Naptárral, sötét luxusdizájn.",card3_desc:"Szolgáltatási lista, egykattintásos hívógomb, Google Maps, helyi SEO.",card4_desc:"Személyes márka landing oldal véleményekkel és gyors kapcsolatfelvételi űrlappal.",card5_desc:"Gyönyörű termékvideók, történetvezérelt szöveg, WhatsApp rendelési gomb.",test1_text:'"Az új oldal óta 40%-kal nőttek a foglalásaink."',test2_text:'"Az űrlapunk mindig teli van."',test3_text:'"2 hónap alatt az első helyre kerültünk a helyi keresésben."',test4_text:'"Az első héten 3 konzultációs kérést kaptam."',test5_text:'"3×-annyit adok el, mint a régi oldalammal."',view_site:"Weboldal megtekintése →",proc_label:"Hogyan működik",proc_title:"Az ötlettől az élő weboldalig.",step1_title:"Bevezető hívás",step1_text:"Megismerjük vállalkozását. 30 perc elegendő.",step2_title:"Dizájn & Ajánlat",step2_text:"48 órán belül küldünk konceptet és fix árat.",step3_title:"Fejlesztés & Visszajelzés",step3_text:"Megépítjük az oldalt és beépítjük visszajelzését.",step4_title:"Indítás 🚀",step4_text:"Globális CDN-re telepítjük. Gyors, biztonságos, az Öné.",contact_label:"Beszéljünk",contact_title:"Készen áll valami nagyszerűt építeni?",contact_sub:"Meséljen vállalkozásáról. 24 órán belül tervet és fix árat kap.",contact_response:"Válasz 24 órán belül",contact_location:"Európa-szerte szolgálunk ki ügyfeleket",form_name:"Az Ön neve",form_email:"E-mail",form_niche:"Vállalkozás típusa",form_niche_pick:"Válasszon rést...",form_msg:"Írja le projektjét",form_send:"Üzenet küldése →",form_ok:"✅ Üzenet elküldve! 24 órán belül válaszolunk.",opt_cafe:"Kávézó / Étterem",opt_beauty:"Szépségszalon / Barbershop",opt_auto:"Autószerviz / Javítás",opt_specialist:"Ügyvéd / Tanácsadó",opt_product:"Egytermékes bolt",opt_other:"Egyéb",footer_rights:"© 2025 VeloWeb. Minden jog fenntartva."},
+  hr:{nav_why:"Zašto mi",nav_portfolio:"Portfolio",nav_process:"Proces",nav_contact:"Kontakt",hero_tag:"Statička web arhitektura",hero_h1a:"Web stranice koje",hero_h1b:"se učitavaju trenutno.",hero_h1c:"Nemoguće hakirati.",hero_sub:"Gradimo brze, moderne web stranice za male i srednje tvrtke na statičkoj arhitekturi s globalnim CDN-om.",hero_cta1:"Pokrenite projekt",hero_cta2:"Naš rad",stat1:"Vrijeme učitavanja",stat2:"CDN servera",stat3:"Nezlomivo",stat4:"Manje energije",why_label:"Zašto VeloWeb",why_title:"Izgrađeno drugačije. Namjerno.",why1_title:"Edge Computing",why1_text:"Hostiramo vašu stranicu na 200+ servera diljem svijeta. Klijent u Pragu otvori je za 0,2 sekunde.",why2_title:"Nulta ranjivost",why2_text:"Naše stranice nemaju serversku bazu podataka — nemoguće ih je hakirati.",why3_title:"Zelena tehnologija",why3_text:"Statička arhitektura troši 10× manje energije od tradicionalnih servera.",why4_title:"Mobile-First",why4_text:"Više od 70% vaših klijenata posjećuje s mobitela.",why5_title:"SEO-spreman",why5_text:"Brzo učitavanje i čist kod znači bolji Google ranking.",why6_title:"Fiksna cijena",why6_text:"Bez iznenađujućih računa. Opseg i cijena dogovoreni unaprijed.",port_label:"Naš rad",port_title:"5 niša. 5 rješenja.",port_sub:"Svaki projekt je po mjeri. Kliknite na karticu za prikaz cijele stranice.",niche1:"☕ Kafić & Restoran",niche2:"✂️ Salon ljepote & Berbershop",niche3:"🔧 Auto servis & Popravak",niche4:"⚖️ Specijalist — Odvjetnik / Savjetnik",niche5:"🛍️ Trgovina jednog proizvoda",card1_desc:"QR meni, rezervacija stola s Telegram botom, mobilni dizajn.",card2_desc:"Galerija prije/poslije, online rezervacija s Google kalendarom, tamni luksuzni dizajn.",card3_desc:"Cjenik usluga, gumb za poziv jednim klikom, Google Maps, lokalni SEO.",card4_desc:"Osobna brend landing stranica s recenzijama i brzim formularom.",card5_desc:"Lijepe fotografije proizvoda, narativni tekst, gumb za narudžbu WhatsApp.",test1_text:'"Od novog weba, rezervacije su porasle za 40%."',test2_text:'"Naš obrazac je uvijek pun."',test3_text:'"Za 2 mjeseca dospjeli smo na prvo mjesto u lokalnoj pretrazi."',test4_text:'"Imao sam 3 zahtjeva za konzultacije u prvom tjednu."',test5_text:'"Prodajem 3× više nego sa starom stranicom."',view_site:"Pogledaj stranicu →",proc_label:"Kako funkcionira",proc_title:"Od ideje do live stranice.",step1_title:"Uvodni poziv",step1_text:"Upoznajemo vaše poslovanje. 30 minuta je dovoljno.",step2_title:"Dizajn & Prijedlog",step2_text:"U 48h šaljemo koncept i fiksnu cijenu.",step3_title:"Izgradnja & Pregled",step3_text:"Gradimo stranicu i ugrađujemo vaše povratne informacije.",step4_title:"Lansiranje 🚀",step4_text:"Deployamo na globalni CDN. Brzo, sigurno, vaše.",contact_label:"Razgovarajmo",contact_title:"Spremni za izgradnju nečeg sjajnog?",contact_sub:"Recite nam o svom poslovanju. Za 24h dobit ćete plan i fiksnu cijenu.",contact_response:"Odgovor unutar 24 sata",contact_location:"Poslujemo s klijentima diljem Europe",form_name:"Vaše ime",form_email:"E-mail",form_niche:"Vrsta poslovanja",form_niche_pick:"Odaberite nišu...",form_msg:"Opišite svoj projekt",form_send:"Pošalji poruku →",form_ok:"✅ Poruka poslana! Odgovorit ćemo u roku od 24 sata.",opt_cafe:"Kafić / Restoran",opt_beauty:"Salon ljepote / Berbershop",opt_auto:"Auto servis / Popravak",opt_specialist:"Odvjetnik / Savjetnik",opt_product:"Trgovina jednog proizvoda",opt_other:"Ostalo",footer_rights:"© 2025 VeloWeb. Sva prava pridržana."}
+};
+
+let currentLang = 'en';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+  const d = T[lang] || T['en'];
+  document.querySelectorAll('[data-i]').forEach(el => {
+    const key = el.getAttribute('data-i');
+    if(d[key]) el.textContent = d[key];
+  });
+}
+
+// ═══════════════════════════════════════
+// PORTFOLIO MINI-SITES
+// ═══════════════════════════════════════
+const sites = {
+  cafe: {
+    title: 'Volta Café — Portfolio Preview',
+    html: `<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Georgia',serif;background:#1a0a00;color:#f5e6c8;overflow-x:hidden;}
+nav{display:flex;align-items:center;justify-content:space-between;padding:20px 40px;border-bottom:1px solid rgba(245,200,66,0.2);}
+.logo{font-size:1.5rem;font-weight:bold;color:#f5c842;letter-spacing:3px;}
+nav ul{list-style:none;display:flex;gap:24px;}
+nav ul a{text-decoration:none;color:rgba(245,230,200,0.7);font-size:0.85rem;}
+.hero{text-align:center;padding:80px 40px;background:linear-gradient(180deg,#1a0a00,#2d1200);}
+.hero h1{font-size:3.5rem;color:#f5c842;letter-spacing:4px;margin-bottom:15px;}
+.hero p{color:rgba(245,230,200,0.7);font-size:1rem;margin-bottom:30px;}
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-gold{background:#f5c842;color:#1a0a00;padding:12px 32px;border-radius:50px;font-weight:bold;border:none;cursor:pointer;font-size:0.9rem;}
+.btn-outline{background:transparent;color:#f5c842;padding:12px 32px;border-radius:50px;border:1.5px solid #f5c842;cursor:pointer;font-size:0.9rem;}
+.menu-section{padding:60px 40px;background:#0d0500;}
+.menu-section h2{text-align:center;color:#f5c842;font-size:1.8rem;letter-spacing:3px;margin-bottom:40px;}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:800px;margin:0 auto;}
+.menu-item{background:rgba(245,200,66,0.06);border:1px solid rgba(245,200,66,0.15);border-radius:16px;padding:20px;text-align:center;}
+.menu-item .emoji{font-size:2rem;margin-bottom:10px;}
+.menu-item h4{color:#f5c842;margin-bottom:6px;font-size:0.95rem;}
+.menu-item .price{color:rgba(245,230,200,0.5);font-size:0.85rem;}
+.qr-section{padding:40px;text-align:center;background:#1a0a00;}
+.qr-box{display:inline-block;background:#fff;padding:20px;border-radius:16px;}
+.qr-box img{width:100px;height:100px;}
+.qr-label{color:rgba(245,230,200,0.6);font-size:0.85rem;margin-top:12px;}
+.reserve-section{padding:60px 40px;background:linear-gradient(135deg,#2d1200,#1a0a00);}
+.reserve-section h2{text-align:center;color:#f5c842;font-size:1.5rem;letter-spacing:2px;margin-bottom:30px;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:500px;margin:0 auto 20px;}
+.form-grid input,.form-grid select{background:rgba(255,255,255,0.07);border:1px solid rgba(245,200,66,0.2);border-radius:10px;padding:12px 16px;color:#f5e6c8;font-size:0.9rem;width:100%;}
+.tg-note{text-align:center;color:rgba(245,230,200,0.5);font-size:0.8rem;margin-top:12px;}
+footer{text-align:center;padding:30px;color:rgba(245,230,200,0.3);font-size:0.8rem;border-top:1px solid rgba(245,200,66,0.1);}
+</style></head><body>
+<nav><div class="logo">VOLTA CAFÉ</div><ul><li><a href="#">Menu</a></li><li><a href="#">Reserve</a></li><li><a href="#">Story</a></li></ul></nav>
+<div class="hero">
+  <h1>VOLTA CAFÉ</h1>
+  <p>Specialty coffee · House-made pastries · Warm atmosphere · Praha 2</p>
+  <div class="cta-row">
+    <button class="btn-gold">📅 Book a Table</button>
+    <button class="btn-outline">📱 Scan Menu QR</button>
+  </div>
+</div>
+<div class="menu-section">
+  <h2>OUR MENU</h2>
+  <div class="menu-grid">
+    <div class="menu-item"><div class="emoji">☕</div><h4>Flat White</h4><div class="price">69 CZK</div></div>
+    <div class="menu-item"><div class="emoji">🍵</div><h4>Matcha Latte</h4><div class="price">89 CZK</div></div>
+    <div class="menu-item"><div class="emoji">🥐</div><h4>Croissant</h4><div class="price">55 CZK</div></div>
+    <div class="menu-item"><div class="emoji">🍰</div><h4>Cheesecake</h4><div class="price">99 CZK</div></div>
+    <div class="menu-item"><div class="emoji">🥗</div><h4>Avocado Toast</h4><div class="price">149 CZK</div></div>
+    <div class="menu-item"><div class="emoji">🍹</div><h4>Cold Brew</h4><div class="price">79 CZK</div></div>
+  </div>
+</div>
+<div class="qr-section">
+  <div class="qr-box">
+    <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100" height="100" fill="white"/>
+      <rect x="5" y="5" width="35" height="35" fill="none" stroke="black" stroke-width="5"/>
+      <rect x="15" y="15" width="15" height="15" fill="black"/>
+      <rect x="60" y="5" width="35" height="35" fill="none" stroke="black" stroke-width="5"/>
+      <rect x="70" y="15" width="15" height="15" fill="black"/>
+      <rect x="5" y="60" width="35" height="35" fill="none" stroke="black" stroke-width="5"/>
+      <rect x="15" y="70" width="15" height="15" fill="black"/>
+      <rect x="55" y="55" width="10" height="10" fill="black"/>
+      <rect x="70" y="55" width="10" height="10" fill="black"/>
+      <rect x="55" y="70" width="10" height="10" fill="black"/>
+      <rect x="85" y="70" width="10" height="10" fill="black"/>
+      <rect x="70" y="85" width="10" height="10" fill="black"/>
+    </svg>
+  </div>
+  <p class="qr-label">📱 Scan with your phone for the full digital menu</p>
+</div>
+<div class="reserve-section">
+  <h2>RESERVE YOUR TABLE</h2>
+  <div class="form-grid">
+    <input type="text" placeholder="Your name">
+    <input type="tel" placeholder="Phone number">
+    <input type="date">
+    <select><option>18:00</option><option>19:00</option><option>20:00</option><option>21:00</option></select>
+    <select style="grid-column:1/-1"><option>2 guests</option><option>3 guests</option><option>4 guests</option><option>5+ guests</option></select>
+  </div>
+  <div style="text-align:center"><button class="btn-gold">Confirm Reservation →</button></div>
+  <p class="tg-note">✉️ You'll receive a confirmation · Café is notified instantly via Telegram</p>
+</div>
+<footer>© 2025 Volta Café · Mánesova 12, Praha 2 · +420 777 123 456</footer>
+</body></html>`
+  },
+  beauty: {
+    title: 'Noir Studio — Portfolio Preview',
+    html: `<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Georgia',serif;background:#0d0d0d;color:#e8c4a0;}
+nav{display:flex;align-items:center;justify-content:space-between;padding:20px 40px;border-bottom:1px solid rgba(232,196,160,0.1);}
+.logo{font-size:1.3rem;letter-spacing:6px;text-transform:uppercase;color:#e8c4a0;}
+nav ul{list-style:none;display:flex;gap:24px;}
+nav ul a{text-decoration:none;color:rgba(232,196,160,0.5);font-size:0.8rem;letter-spacing:2px;}
+.hero{padding:80px 40px;text-align:center;background:linear-gradient(180deg,#0d0d0d,#1a1a2e);}
+.hero h1{font-size:3rem;letter-spacing:6px;margin-bottom:15px;color:#e8c4a0;}
+.hero p{color:rgba(232,196,160,0.6);font-size:0.95rem;letter-spacing:1px;margin-bottom:30px;}
+.btn-cream{background:#e8c4a0;color:#0d0d0d;padding:12px 36px;border-radius:50px;border:none;cursor:pointer;font-weight:bold;letter-spacing:1px;}
+.gallery{padding:60px 40px;background:#111;}
+.gallery h2{text-align:center;font-size:1.2rem;letter-spacing:4px;color:#e8c4a0;margin-bottom:30px;}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;}
+.gallery-item{height:160px;display:flex;align-items:center;justify-content:center;font-size:0.7rem;letter-spacing:2px;color:rgba(232,196,160,0.4);}
+.gallery-item:nth-child(1){background:linear-gradient(135deg,#2a1a0a,#3d2a1a);}
+.gallery-item:nth-child(2){background:linear-gradient(135deg,#1a2a0a,#0a1a0a);}
+.gallery-item:nth-child(3){background:linear-gradient(135deg,#0a1a2a,#1a0a2a);}
+.gallery-item:nth-child(4){background:linear-gradient(135deg,#2a0a1a,#1a0a0a);}
+.services{padding:60px 40px;background:#0d0d0d;}
+.services h2{text-align:center;font-size:1.2rem;letter-spacing:4px;color:#e8c4a0;margin-bottom:30px;}
+.service-list{max-width:500px;margin:0 auto;}
+.service-row{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid rgba(232,196,160,0.1);}
+.service-row span{font-size:0.9rem;color:rgba(232,196,160,0.8);}
+.service-row strong{color:#e8c4a0;}
+.book-section{padding:60px 40px;background:#1a1a2e;text-align:center;}
+.book-section h2{font-size:1.2rem;letter-spacing:4px;margin-bottom:20px;}
+.form-col{display:flex;flex-direction:column;gap:12px;max-width:360px;margin:0 auto 20px;}
+.form-col input,.form-col select{background:rgba(232,196,160,0.07);border:1px solid rgba(232,196,160,0.2);border-radius:10px;padding:12px 16px;color:#e8c4a0;font-size:0.9rem;}
+footer{text-align:center;padding:30px;color:rgba(232,196,160,0.2);font-size:0.75rem;border-top:1px solid rgba(232,196,160,0.08);}
+</style></head><body>
+<nav><div class="logo">NOIR STUDIO</div><ul><li><a href="#">SERVICES</a></li><li><a href="#">GALLERY</a></li><li><a href="#">BOOK</a></li></ul></nav>
+<div class="hero">
+  <h1>NOIR STUDIO</h1>
+  <p>Premium barbershop & beauty salon · Bratislava</p>
+  <button class="btn-cream">Book Appointment</button>
+</div>
+<div class="gallery">
+  <h2>OUR WORK</h2>
+  <div class="gallery-grid">
+    <div class="gallery-item">BEFORE ↔ AFTER</div>
+    <div class="gallery-item">CUT & STYLE</div>
+    <div class="gallery-item">COLOR</div>
+    <div class="gallery-item">GROOMING</div>
+  </div>
+</div>
+<div class="services">
+  <h2>SERVICES & PRICES</h2>
+  <div class="service-list">
+    <div class="service-row"><span>Classic Haircut</span><strong>25 €</strong></div>
+    <div class="service-row"><span>Beard Trim & Shape</span><strong>15 €</strong></div>
+    <div class="service-row"><span>Color Treatment</span><strong>from 60 €</strong></div>
+    <div class="service-row"><span>Full Package</span><strong>70 €</strong></div>
+    <div class="service-row"><span>Ladies Cut & Blowdry</span><strong>35 €</strong></div>
+  </div>
+</div>
+<div class="book-section">
+  <h2>BOOK YOUR VISIT</h2>
+  <div class="form-col">
+    <input type="text" placeholder="Your name">
+    <select><option>Classic Haircut</option><option>Beard Trim</option><option>Color</option><option>Full Package</option></select>
+    <input type="date">
+    <select><option>10:00</option><option>11:00</option><option>13:00</option><option>15:00</option><option>17:00</option></select>
+  </div>
+  <button class="btn-cream">Book Now →</button>
+  <p style="color:rgba(232,196,160,0.4);font-size:0.8rem;margin-top:12px;">Synced with Google Calendar · Instant confirmation</p>
+</div>
+<footer>© 2025 Noir Studio · Obchodná 45, Bratislava · Tue–Sat 10:00–20:00</footer>
+</body></html>`
+  },
+  auto: {
+    title: 'Speed Garage — Portfolio Preview',
+    html: `<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Arial',sans-serif;background:#0a0f0a;color:#e0f0e0;}
+nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;background:#0d150d;border-bottom:1px solid rgba(76,255,114,0.15);}
+.logo{font-size:1.3rem;font-weight:900;color:#4cff72;letter-spacing:2px;}
+.nav-call{background:#4cff72;color:#0a0f0a;padding:9px 20px;border-radius:50px;font-weight:bold;font-size:0.85rem;border:none;cursor:pointer;}
+.hero{padding:70px 40px;background:linear-gradient(135deg,#0a0f0a,#1a2a1a);}
+.hero h1{font-size:2.8rem;font-weight:900;color:#fff;margin-bottom:10px;}
+.hero h1 span{color:#4cff72;}
+.hero p{color:rgba(224,240,224,0.6);margin-bottom:25px;font-size:0.95rem;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-green{background:#4cff72;color:#0a0f0a;padding:12px 30px;border-radius:50px;font-weight:900;border:none;cursor:pointer;}
+.btn-border{background:transparent;color:#4cff72;padding:12px 30px;border-radius:50px;border:2px solid #4cff72;cursor:pointer;font-weight:bold;}
+.services{padding:60px 40px;background:#0d150d;}
+.services h2{color:#4cff72;font-size:1.3rem;letter-spacing:2px;margin-bottom:25px;text-transform:uppercase;}
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:600px;}
+.svc-card{background:rgba(76,255,114,0.05);border:1px solid rgba(76,255,114,0.2);border-radius:12px;padding:20px;display:flex;justify-content:space-between;align-items:center;}
+.svc-name{font-size:0.9rem;color:#e0f0e0;}
+.svc-price{font-size:0.9rem;color:#4cff72;font-weight:bold;}
+.map-section{padding:40px;background:#0a0f0a;}
+.map-section h2{color:#4cff72;font-size:1rem;letter-spacing:2px;margin-bottom:15px;text-transform:uppercase;}
+.map-placeholder{background:linear-gradient(135deg,#0f1f0f,#1a2a1a);border:1px solid rgba(76,255,114,0.2);border-radius:12px;height:160px;display:flex;align-items:center;justify-content:center;color:rgba(76,255,114,0.5);font-size:0.9rem;}
+.trust{padding:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;background:#0d150d;}
+.trust-item{text-align:center;}
+.trust-item strong{font-size:1.8rem;color:#4cff72;display:block;font-weight:900;}
+.trust-item span{font-size:0.78rem;color:rgba(224,240,224,0.5);}
+footer{padding:24px 40px;border-top:1px solid rgba(76,255,114,0.1);display:flex;justify-content:space-between;font-size:0.8rem;color:rgba(224,240,224,0.3);}
+footer a{color:#4cff72;text-decoration:none;}
+</style></head><body>
+<nav><div class="logo">⚡ SPEED GARAGE</div><button class="nav-call">📞 Call Now</button></nav>
+<div class="hero">
+  <h1>Your car.<br><span>Our expertise.</span></h1>
+  <p>Fast, reliable auto service in Brno. Open Mon–Sat, 8:00–18:00.</p>
+  <div class="hero-actions">
+    <button class="btn-green">📞 +420 777 999 888</button>
+    <button class="btn-border">See All Services</button>
+  </div>
+</div>
+<div class="services">
+  <h2>Services & Prices</h2>
+  <div class="services-grid">
+    <div class="svc-card"><span class="svc-name">🔧 Oil Change</span><span class="svc-price">from 800 CZK</span></div>
+    <div class="svc-card"><span class="svc-name">🔍 Diagnostics</span><span class="svc-price">500 CZK</span></div>
+    <div class="svc-card"><span class="svc-name">🛞 Tire Change</span><span class="svc-price">from 600 CZK</span></div>
+    <div class="svc-card"><span class="svc-name">🛑 Brake Service</span><span class="svc-price">from 1200 CZK</span></div>
+    <div class="svc-card"><span class="svc-name">❄️ AC Service</span><span class="svc-price">900 CZK</span></div>
+    <div class="svc-card"><span class="svc-name">🔋 Battery Check</span><span class="svc-price">Free</span></div>
+  </div>
+</div>
+<div class="map-section">
+  <h2>📍 Find Us</h2>
+  <div class="map-placeholder">📍 Průmyslová 14, Brno · Google Maps integration</div>
+</div>
+<div class="trust">
+  <div class="trust-item"><strong>1200+</strong><span>Happy clients</span></div>
+  <div class="trust-item"><strong>12y</strong><span>Experience</span></div>
+  <div class="trust-item"><strong>4.9⭐</strong><span>Google rating</span></div>
+</div>
+<footer><span>© 2025 Speed Garage Brno</span><a href="#">📞 +420 777 999 888</a></footer>
+</body></html>`
+  },
+  lawyer: {
+    title: 'Dr. Kovářová — Portfolio Preview',
+    html: `<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Georgia',serif;background:#f8f5f0;color:#2c3e50;}
+nav{display:flex;align-items:center;justify-content:space-between;padding:20px 40px;background:#fff;border-bottom:1px solid rgba(44,62,80,0.08);}
+.logo{font-size:1rem;letter-spacing:2px;color:#2c3e50;font-style:italic;}
+.nav-cta{background:#2c3e50;color:#fff;padding:9px 22px;border-radius:50px;font-size:0.82rem;border:none;cursor:pointer;}
+.hero{padding:80px 40px;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;background:#fff;max-width:900px;margin:0 auto;}
+.avatar{width:180px;height:180px;border-radius:50%;background:linear-gradient(135deg,#2c3e50,#3d5a80);display:flex;align-items:center;justify-content:center;font-size:4rem;margin:0 auto;}
+.hero-text h1{font-size:1.8rem;margin-bottom:6px;font-weight:normal;}
+.hero-text h1 span{font-weight:bold;}
+.hero-text .subtitle{color:#7a6a5a;font-size:0.85rem;letter-spacing:2px;margin-bottom:20px;}
+.hero-text p{color:#5a6a7a;font-size:0.9rem;line-height:1.7;margin-bottom:20px;}
+.btn-dark{background:#2c3e50;color:#fff;padding:12px 28px;border-radius:50px;border:none;cursor:pointer;font-size:0.9rem;}
+.expertise{padding:50px 40px;background:#f8f5f0;max-width:900px;margin:0 auto;}
+.expertise h2{font-size:1rem;letter-spacing:3px;text-transform:uppercase;color:#7a6a5a;margin-bottom:25px;}
+.exp-list{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.exp-item{background:#fff;border-radius:12px;padding:18px 20px;border-left:3px solid #2c3e50;font-size:0.88rem;color:#2c3e50;}
+.reviews{padding:50px 40px;background:#fff;max-width:900px;margin:0 auto;}
+.reviews h2{font-size:1rem;letter-spacing:3px;text-transform:uppercase;color:#7a6a5a;margin-bottom:25px;}
+.review-card{background:#f8f5f0;border-radius:12px;padding:20px;margin-bottom:14px;}
+.review-card p{font-style:italic;color:#5a6a7a;font-size:0.88rem;line-height:1.7;margin-bottom:8px;}
+.review-card strong{font-size:0.8rem;color:#2c3e50;}
+.form-section{padding:50px 40px;background:#2c3e50;color:#fff;max-width:900px;margin:0 auto;}
+.form-section h2{color:#fff;font-size:1rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;}
+.form-section p{color:rgba(255,255,255,0.6);font-size:0.85rem;margin-bottom:20px;}
+.form-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+.form-cols input,.form-section textarea{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:10px;padding:12px 16px;color:#fff;font-size:0.88rem;width:100%;}
+.form-section textarea{resize:none;margin-bottom:16px;}
+.btn-cream2{background:#e8d5b0;color:#2c3e50;padding:12px 28px;border-radius:50px;border:none;cursor:pointer;font-weight:bold;font-size:0.88rem;}
+footer{text-align:center;padding:24px;color:rgba(44,62,80,0.4);font-size:0.78rem;background:#f8f5f0;}
+</style></head><body>
+<nav><div class="logo">Dr. Jana Kovářová</div><button class="nav-cta">Free Consultation</button></nav>
+<div class="hero">
+  <div class="avatar">⚖️</div>
+  <div class="hero-text">
+    <h1><span>Dr. Jana</span> Kovářová</h1>
+    <div class="subtitle">LEGAL COUNSEL · PRAGUE · 15 YEARS EXPERIENCE</div>
+    <p>Specialising in corporate law, real estate, and contract disputes. Trusted by 400+ clients across the Czech Republic.</p>
+    <button class="btn-dark">Request Free Consultation</button>
+  </div>
+</div>
+<div class="expertise">
+  <h2>Areas of Expertise</h2>
+  <div class="exp-list">
+    <div class="exp-item">🏢 Corporate & Business Law</div>
+    <div class="exp-item">🏠 Real Estate Transactions</div>
+    <div class="exp-item">📝 Contract Review & Drafting</div>
+    <div class="exp-item">⚖️ Dispute Resolution</div>
+    <div class="exp-item">💼 Employment Law</div>
+    <div class="exp-item">🌍 International Business</div>
+  </div>
+</div>
+<div class="reviews">
+  <h2>Client Testimonials</h2>
+  <div class="review-card"><p>"Dr. Kovářová handled our company acquisition flawlessly. Professional, fast, and honest about every step."</p><strong>— Martin P., CEO, Praha</strong></div>
+  <div class="review-card"><p>"I was nervous about my real estate dispute. She resolved it in 6 weeks when others said it would take a year."</p><strong>— Lenka H., Brno</strong></div>
+</div>
+<div class="form-section">
+  <h2>Free Consultation</h2>
+  <p>Describe your situation. We'll get back within 24 hours — no obligations.</p>
+  <div class="form-cols">
+    <input type="text" placeholder="Your name">
+    <input type="email" placeholder="Email">
+  </div>
+  <textarea rows="4" placeholder="Briefly describe your legal situation..."></textarea>
+  <button class="btn-cream2">Send Request →</button>
+</div>
+<footer>© 2025 Dr. Jana Kovářová, LLM · Wenceslas Square 18, Praha 1</footer>
+</body></html>`
+  },
+  product: {
+    title: 'Bean & Soul — Portfolio Preview',
+    html: `<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Georgia',serif;background:#fdf6ec;color:#3d1a00;}
+nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;background:#fff;border-bottom:1px solid rgba(61,26,0,0.08);}
+.logo{font-size:1.2rem;letter-spacing:4px;color:#3d1a00;text-transform:uppercase;}
+.nav-order{background:#3d1a00;color:#fdf6ec;padding:9px 22px;border-radius:50px;font-size:0.82rem;border:none;cursor:pointer;}
+.hero{padding:80px 40px;text-align:center;background:linear-gradient(180deg,#fdf6ec,#f5e6c8);}
+.product-emoji{font-size:5rem;margin-bottom:20px;}
+.hero h1{font-size:2.5rem;letter-spacing:4px;color:#3d1a00;margin-bottom:10px;}
+.hero .origin{font-size:0.8rem;letter-spacing:3px;color:#7a4a20;text-transform:uppercase;margin-bottom:20px;}
+.hero p{max-width:400px;margin:0 auto 30px;color:#5a3010;font-size:0.95rem;line-height:1.7;}
+.btn-wa{background:#25D366;color:#fff;padding:14px 36px;border-radius:50px;border:none;cursor:pointer;font-weight:bold;font-size:1rem;}
+.story{padding:60px 40px;background:#fff;text-align:center;}
+.story h2{font-size:1rem;letter-spacing:3px;text-transform:uppercase;color:#7a4a20;margin-bottom:20px;}
+.story p{max-width:500px;margin:0 auto;color:#5a3010;line-height:1.8;font-size:0.92rem;}
+.products{padding:60px 40px;background:#f8f0e0;}
+.products h2{text-align:center;font-size:1rem;letter-spacing:3px;text-transform:uppercase;color:#7a4a20;margin-bottom:30px;}
+.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:700px;margin:0 auto;}
+.product-card{background:#fff;border-radius:16px;padding:24px;text-align:center;border:1px solid rgba(61,26,0,0.08);}
+.product-card .icon{font-size:2.5rem;margin-bottom:12px;}
+.product-card h4{color:#3d1a00;margin-bottom:6px;font-size:0.95rem;}
+.product-card .weight{color:#7a4a20;font-size:0.8rem;margin-bottom:10px;}
+.product-card .price{font-size:1.1rem;font-weight:bold;color:#3d1a00;margin-bottom:12px;}
+.btn-small-wa{background:#25D366;color:#fff;padding:8px 20px;border-radius:50px;border:none;cursor:pointer;font-size:0.8rem;}
+.reviews{padding:50px 40px;text-align:center;background:#fff;}
+.reviews h2{font-size:1rem;letter-spacing:3px;text-transform:uppercase;color:#7a4a20;margin-bottom:20px;}
+.stars{font-size:1.5rem;margin-bottom:8px;}
+.review-text{max-width:400px;margin:0 auto;font-style:italic;color:#5a3010;font-size:0.9rem;line-height:1.7;}
+.cta-final{padding:60px 40px;background:#3d1a00;text-align:center;}
+.cta-final h2{color:#f5e6c8;font-size:1.8rem;letter-spacing:3px;margin-bottom:15px;}
+.cta-final p{color:rgba(245,230,200,0.6);margin-bottom:25px;font-size:0.9rem;}
+footer{text-align:center;padding:24px;color:rgba(61,26,0,0.3);font-size:0.78rem;background:#fdf6ec;}
+</style></head><body>
+<nav><div class="logo">BEAN & SOUL</div><button class="nav-order">Order via WhatsApp</button></nav>
+<div class="hero">
+  <div class="product-emoji">☕</div>
+  <h1>BEAN & SOUL</h1>
+  <div class="origin">Single Origin · Specialty Grade · Freshly Roasted</div>
+  <p>We source the world's finest coffee beans and roast them in small batches in Vienna. Delivered to your door within 48 hours.</p>
+  <button class="btn-wa">📲 Order on WhatsApp</button>
+</div>
+<div class="story">
+  <h2>Our Story</h2>
+  <p>Started in a Vienna apartment with one roasting machine and an obsession with perfect coffee. Today we ship to 14 countries — still roasting every batch by hand. No middlemen. No compromises.</p>
+</div>
+<div class="products">
+  <h2>Our Selection</h2>
+  <div class="product-grid">
+    <div class="product-card"><div class="icon">🇪🇹</div><h4>Ethiopian Yirgacheffe</h4><div class="weight">250g</div><div class="price">€14.90</div><button class="btn-small-wa">Order →</button></div>
+    <div class="product-card"><div class="icon">🇨🇴</div><h4>Colombian Huila</h4><div class="weight">250g</div><div class="price">€13.50</div><button class="btn-small-wa">Order →</button></div>
+    <div class="product-card"><div class="icon">🇯🇵</div><h4>Japanese Blend</h4><div class="weight">250g</div><div class="price">€16.90</div><button class="btn-small-wa">Order →</button></div>
+  </div>
+</div>
+<div class="reviews">
+  <div class="stars">⭐⭐⭐⭐⭐</div>
+  <p class="review-text">"I've tried dozens of specialty coffees. Bean & Soul is on another level. The Ethiopian is life-changing."</p>
+  <p style="color:#7a4a20;font-size:0.8rem;margin-top:10px;">— Tomáš M., Praha · Verified buyer</p>
+</div>
+<div class="cta-final">
+  <h2>Ready to taste?</h2>
+  <p>Message us on WhatsApp and receive your order in 48 hours.</p>
+  <button class="btn-wa" style="font-size:1.05rem;padding:16px 40px;">📲 Order Now on WhatsApp</button>
+</div>
+<footer>© 2025 Bean & Soul Coffee · Vienna, Austria · hello@beanandsoul.com</footer>
+</body></html>`
+  }
+};
+
+function openModal(key) {
+  const site = sites[key];
+  if(!site) return;
+  document.getElementById('modal-title').textContent = site.title;
+  const frame = document.getElementById('modal-frame');
+  frame.srcdoc = site.html;
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(e) {
+  if(e && e.target !== document.getElementById('modal-overlay') && e.type !== 'click') return;
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+  document.getElementById('modal-frame').srcdoc = '';
+}
+
+// ═══════════════════════════════════════
+// CONTACT FORM — EmailJS
+// ═══════════════════════════════════════
+function sendForm() {
+  const name = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const niche = document.getElementById('f-niche').value;
+  const msg = document.getElementById('f-msg').value.trim();
+  if(!name || !email || !msg) return;
+  const subject = encodeURIComponent(`VeloWeb Inquiry from ${name}`);
+  const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nBusiness: ${niche}\n\nMessage:\n${msg}`);
+  window.open(`mailto:velowebfz@proton.me?subject=${subject}&body=${body}`, '_blank');
+  document.getElementById('form-success').style.display = 'block';
+  const d = T[currentLang] || T['en'];
+  document.getElementById('form-success').textContent = d['form_ok'] || '✅ Done!';
+}
+
+// ═══════════════════════════════════════
+// SCROLL REVEAL
+// ═══════════════════════════════════════
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Close modal on Escape
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal({}); });
+</script>
+</body>
+</html>
