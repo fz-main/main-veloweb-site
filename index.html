@@ -20,7 +20,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);overflow-x:hidden;}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);overflow-x:hidden;word-break:break-word;}
 
 /* ── LANG SWITCHER ── */
 .lang-bar{
@@ -49,8 +49,8 @@ nav{
 }
 .nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;letter-spacing:-0.5px;color:var(--ink);text-decoration:none;}
 .nav-logo span{color:var(--accent2);}
-nav ul{list-style:none;display:flex;gap:32px;}
-nav ul a{text-decoration:none;color:var(--mid);font-size:0.88rem;font-weight:500;transition:color 0.2s;}
+nav ul{list-style:none;display:flex;gap:20px;flex-wrap:wrap;}
+nav ul a{text-decoration:none;color:var(--mid);font-size:0.82rem;font-weight:500;transition:color 0.2s;white-space:nowrap;}
 nav ul a:hover{color:var(--ink);}
 .nav-cta{background:var(--ink);color:var(--paper)!important;padding:10px 24px!important;border-radius:50px!important;font-weight:700!important;}
 .nav-cta:hover{background:var(--accent2)!important;color:#fff!important;}
@@ -71,16 +71,20 @@ nav ul a:hover{color:var(--ink);}
 }
 .hero h1{
   font-family:'Syne',sans-serif;font-weight:800;
-  font-size:clamp(3.5rem,7vw,6.5rem);
+  font-size:clamp(2.2rem,6vw,6.5rem);
   line-height:0.95;letter-spacing:-2px;
   margin-bottom:30px;
   max-width:900px;
+  word-break:break-word;
+  overflow-wrap:break-word;
+  hyphens:auto;
 }
 .hero h1 em{font-style:normal;color:var(--accent2);}
 .hero-sub{
-  font-size:1.1rem;color:var(--mid);
+  font-size:1rem;color:var(--mid);
   max-width:520px;line-height:1.7;
   margin-bottom:50px;font-weight:300;
+  word-break:break-word;overflow-wrap:break-word;
 }
 .hero-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
 .btn-primary{
@@ -123,8 +127,9 @@ section{padding:100px 0;}
 }
 .section-title{
   font-family:'Syne',sans-serif;font-weight:800;
-  font-size:clamp(2rem,4vw,3.5rem);letter-spacing:-1px;
+  font-size:clamp(1.6rem,4vw,3.5rem);letter-spacing:-1px;
   line-height:1.1;margin-bottom:20px;
+  word-break:break-word;overflow-wrap:break-word;hyphens:auto;
 }
 .section-title em{font-style:normal;color:var(--accent2);}
 
@@ -145,7 +150,7 @@ section{padding:100px 0;}
 .why-card:hover{background:#fafff0;}
 .why-icon{font-size:2.2rem;margin-bottom:20px;display:block;}
 .why-card h3{font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;margin-bottom:12px;}
-.why-card p{font-size:0.9rem;color:var(--mid);line-height:1.7;}
+.why-card p{font-size:0.9rem;color:var(--mid);line-height:1.7;word-break:break-word;overflow-wrap:break-word;}
 
 /* ── PORTFOLIO ── */
 .portfolio-intro{
@@ -203,7 +208,7 @@ section{padding:100px 0;}
   text-transform:uppercase;color:var(--accent2);margin-bottom:8px;
 }
 .portfolio-info h3{font-family:'Syne',sans-serif;font-weight:700;font-size:1.15rem;margin-bottom:8px;}
-.portfolio-info p{font-size:0.88rem;color:var(--mid);line-height:1.6;flex:1;}
+.portfolio-info p{font-size:0.88rem;color:var(--mid);line-height:1.6;flex:1;word-break:break-word;overflow-wrap:break-word;}
 .portfolio-meta{
   display:flex;align-items:center;justify-content:space-between;
   margin-top:20px;padding-top:16px;border-top:1px solid var(--border);
@@ -390,7 +395,23 @@ footer{
   .portfolio-tabs{gap:6px;}
   .tab-btn{font-size:0.75rem;padding:6px 14px;}
   .why-card{padding:30px 24px;}
+  .hero h1{font-size:clamp(1.9rem,9vw,3rem);letter-spacing:-1px;}
+  .section-title{font-size:clamp(1.4rem,7vw,2.2rem)!important;}
+  .hero-tag{font-size:0.72rem;}
+  .hero-sub{font-size:0.88rem;}
+  .contact-item{font-size:0.82rem;flex-wrap:wrap;}
+  .step-title,.process-step h4{font-size:0.88rem;}
+  .process-step p{font-size:0.8rem;}
+  .portfolio-niche{font-size:0.68rem;}
+  .testimonial-box p{font-size:0.78rem;}
 }
+
+/* Extra safe: prevent ANY element from overflowing */
+*, *::before, *::after {
+  max-width:100%;
+  box-sizing:border-box;
+}
+img,svg,iframe{max-width:100%;}
 
 
 /* ── ANIMATIONS ── */
