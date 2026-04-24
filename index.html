@@ -27,13 +27,19 @@ body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);o
   position:fixed;top:0;left:0;right:0;z-index:2000;
   background:var(--ink);
   display:flex;align-items:center;justify-content:center;
-  gap:6px;padding:6px 20px;flex-wrap:wrap;
+  gap:4px;padding:4px 16px;
+  flex-wrap:nowrap;
+  overflow-x:auto;
+  scrollbar-width:none;
+  height:26px;
 }
+.lang-bar::-webkit-scrollbar{display:none;}
 .lang-btn{
-  background:none;border:1px solid rgba(255,255,255,0.2);
-  color:rgba(255,255,255,0.6);font-family:'DM Sans',sans-serif;
-  font-size:0.72rem;padding:3px 10px;border-radius:20px;
+  background:none;border:1px solid rgba(255,255,255,0.15);
+  color:rgba(255,255,255,0.5);font-family:'DM Sans',sans-serif;
+  font-size:0.65rem;padding:2px 7px;border-radius:20px;
   cursor:pointer;transition:all 0.2s;letter-spacing:0.5px;
+  white-space:nowrap;flex-shrink:0;
 }
 .lang-btn:hover,.lang-btn.active{background:var(--accent);color:var(--ink);border-color:var(--accent);font-weight:700;}
 
@@ -57,7 +63,7 @@ nav ul a:hover{color:var(--ink);}
 
 /* ── HERO ── */
 .hero{
-  min-height:100vh;padding-top:100px;
+  min-height:100vh;padding-top:84px;
   display:flex;align-items:center;
   position:relative;overflow:hidden;
 }
@@ -103,45 +109,15 @@ nav ul a:hover{color:var(--ink);}
   transition:all 0.3s;display:inline-block;
 }
 .btn-ghost:hover{background:var(--ink);color:var(--paper);}
-.hero-stats{
-  display:flex;gap:16px;margin-top:80px;
-  flex-wrap:wrap;
-}
-.hero-stat{
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.1);
-  border-radius:16px;
-  padding:18px 24px;
-  min-width:130px;
-  position:relative;overflow:hidden;
-  backdrop-filter:blur(8px);
-  transition:all 0.3s;
-}
-.hero-stat:hover{
-  background:rgba(46,155,214,0.12);
-  border-color:rgba(46,155,214,0.4);
-  transform:translateY(-3px);
-}
-.hero-stat::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,var(--accent2),var(--accent));
-  opacity:0;transition:opacity 0.3s;
-}
-.hero-stat:hover::before{opacity:1;}
-
-
-
-
-.hero-stat .stat-label{
-  font-size:0.78rem;
-  color:rgba(255,255,255,0.6);
-  font-weight:600;
-  letter-spacing:0.5px;
-  display:block;
-}
-.hero-stat .stat-icon{
-  font-size:1rem;margin-bottom:8px;display:block;
-}
+.hero-stats{display:flex;gap:14px;margin-top:70px;flex-wrap:wrap;}
+.hero-stat{background:#1E3A4A;border:1px solid rgba(46,155,214,0.3);border-radius:16px;padding:18px 24px;min-width:130px;position:relative;overflow:hidden;transition:all 0.3s;box-shadow:0 4px 20px rgba(30,58,74,0.2);}
+.hero-stat::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:3px 3px 0 0;background:linear-gradient(90deg,#2E9BD6,#c8f135);}
+.hero-stat:hover{border-color:#2E9BD6;transform:translateY(-4px);box-shadow:0 12px 36px rgba(46,155,214,0.25);}
+.hero-stat strong{font-family:'Syne',sans-serif;font-size:2.3rem;font-weight:800;display:block;color:#c8f135;line-height:1;margin-bottom:4px;}
+.hero-stat:nth-child(2) strong{color:#2E9BD6;}
+.hero-stat:nth-child(3) strong{color:#ff6b6b;}
+.hero-stat:nth-child(4) strong{color:#4cff72;}
+.hero-stat span{font-size:0.78rem;color:rgba(255,255,255,0.6);font-weight:600;letter-spacing:0.5px;}
 .hero-bg-text{
   position:absolute;right:-60px;top:50%;transform:translateY(-50%);
   font-family:'Syne',sans-serif;font-weight:800;font-size:18vw;
@@ -355,62 +331,22 @@ footer{
   padding:56px 60px 32px;
   font-size:0.85rem;
 }
-.footer-inner{
-  max-width:1200px;margin:0 auto;
-}
+.footer-inner{max-width:1200px;margin:0 auto;}
 .footer-grid{
   display:grid;
   grid-template-columns:1.8fr 1fr 1fr 1fr;
-  gap:40px;
-  margin-bottom:40px;
+  gap:40px;margin-bottom:40px;
 }
-.footer-brand{}
-.footer-logo{
-  font-family:'Syne',sans-serif;font-weight:800;
-  color:#fff;font-size:1.2rem;letter-spacing:-0.5px;
-  margin-bottom:12px;display:block;
-}
+.footer-logo{font-family:'Syne',sans-serif;font-weight:800;color:#fff;font-size:1.2rem;letter-spacing:-0.5px;margin-bottom:12px;display:block;}
 .footer-logo span{color:var(--accent);}
-.footer-brand p{
-  color:rgba(255,255,255,0.4);font-size:0.83rem;
-  line-height:1.7;max-width:260px;
-  margin-bottom:16px;
-}
-.footer-email{
-  color:var(--accent2);font-size:0.82rem;
-  text-decoration:none;font-weight:600;
-  display:inline-flex;align-items:center;gap:6px;
-}
+.footer-brand p{color:rgba(255,255,255,0.4);font-size:0.83rem;line-height:1.7;max-width:260px;margin-bottom:16px;word-break:break-word;}
+.footer-email{color:var(--accent2);font-size:0.82rem;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:6px;}
 .footer-email:hover{color:var(--accent);}
-.footer-col h4{
-  font-size:0.7rem;font-weight:700;
-  letter-spacing:2px;text-transform:uppercase;
-  color:rgba(255,255,255,0.35);
-  margin-bottom:16px;
-}
+.footer-col h4{font-size:0.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px;}
 .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
-.footer-col ul a{
-  color:rgba(255,255,255,0.55);text-decoration:none;
-  font-size:0.83rem;transition:color 0.2s;
-}
+.footer-col ul a{color:rgba(255,255,255,0.55);text-decoration:none;font-size:0.83rem;transition:color 0.2s;}
 .footer-col ul a:hover{color:#fff;}
-.footer-bottom{
-  border-top:1px solid rgba(255,255,255,0.07);
-  padding-top:24px;
-  display:flex;justify-content:space-between;align-items:center;
-  flex-wrap:wrap;gap:12px;
-  color:rgba(255,255,255,0.25);font-size:0.76rem;
-}
-@media(max-width:900px){
-  footer{padding:40px 20px 24px;}
-  .footer-grid{grid-template-columns:1fr 1fr;gap:28px;}
-  .footer-brand{grid-column:1/-1;}
-}
-@media(max-width:500px){
-  .footer-grid{grid-template-columns:1fr 1fr;}
-  .footer-brand{grid-column:1/-1;}
-  .footer-bottom{flex-direction:column;text-align:center;gap:6px;}
-}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.07);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;color:rgba(255,255,255,0.25);font-size:0.76rem;}
 
 
 /* ══════════════════════════════
@@ -422,7 +358,7 @@ footer{
   .lang-btn{font-size:0.65rem;padding:2px 7px;}
 
   /* Nav */
-  nav{padding:12px 16px;top:28px;flex-wrap:wrap;gap:8px;}
+  nav{padding:12px 16px;top:26px;flex-wrap:wrap;gap:8px;}
   nav ul{gap:12px;flex-wrap:wrap;}
   nav ul a{font-size:0.78rem;}
   .nav-cta{padding:7px 16px!important;font-size:0.78rem!important;}
@@ -435,9 +371,7 @@ footer{
   .hero-actions{flex-direction:column;align-items:flex-start;}
   .btn-primary,.btn-ghost{width:100%;text-align:center;padding:14px 20px;}
   .hero-stats{gap:30px;margin-top:50px;}
-  .hero-stats{gap:10px;}
-  .hero-stat{min-width:calc(50% - 5px);padding:14px 16px;}
-  .hero-stat strong{font-size:1.7rem;}
+  .hero-stat strong{font-size:1.8rem;}
   .hero-bg-text{display:none;}
 
   /* Why grid */
@@ -503,15 +437,44 @@ img,svg,iframe{max-width:100%;}
 
 /* ── ANIMATIONS ── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
-.fade-up{animation:fadeUp 0.7s ease forwards;opacity:0;}
+.fade-up{animation:fadeUp 0.7s ease forwards;opacity:1;}
 .delay-1{animation-delay:0.1s;}
 .delay-2{animation-delay:0.2s;}
 .delay-3{animation-delay:0.3s;}
 .delay-4{animation-delay:0.4s;}
 
 /* Scroll reveal */
-.reveal{opacity:0;transform:translateY(30px);transition:all 0.7s ease;}
+.reveal{opacity:1;transform:none;transition:all 0.7s ease;}
 .reveal.visible{opacity:1;transform:none;}
+
+/* ═══ ANIMATIONS ═══ */
+.hero-grid{position:absolute;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(circle,rgba(46,155,214,0.15) 1px,transparent 1px);background-size:44px 44px;animation:gridDrift 20s linear infinite;mask-image:linear-gradient(to bottom,transparent 0%,black 20%,black 80%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,black 20%,black 80%,transparent 100%);}
+@keyframes gridDrift{0%{background-position:0 0;}100%{background-position:44px 44px;}}
+.hero::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:1;background:radial-gradient(ellipse 60% 50% at 20% 60%,rgba(46,155,214,0.1) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 80% 30%,rgba(200,241,53,0.06) 0%,transparent 60%);animation:meshPulse 8s ease-in-out infinite alternate;}
+@keyframes meshPulse{0%{opacity:0.6;}100%{opacity:1;}}
+.hero-tag{position:relative;overflow:hidden;}
+.hero-tag::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);animation:tagShine 3s ease-in-out infinite;}
+@keyframes tagShine{0%{left:-100%;}60%{left:150%;}100%{left:150%;}}
+.ticker-wrap{width:100%;overflow:hidden;background:var(--ink);border-top:1px solid rgba(46,155,214,0.2);border-bottom:1px solid rgba(46,155,214,0.2);padding:9px 0;}
+.ticker-track{display:flex;animation:ticker 28s linear infinite;width:max-content;}
+.ticker-track:hover{animation-play-state:paused;}
+.ticker-item{white-space:nowrap;padding:0 36px;font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.45);letter-spacing:1px;text-transform:uppercase;}
+.ticker-item span{color:var(--accent);margin-right:6px;}
+@keyframes ticker{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+#scroll-bar{position:fixed;top:26px;left:0;height:2px;background:linear-gradient(90deg,var(--accent2),var(--accent));z-index:3000;width:0%;transition:width 0.1s linear;}
+.btn-primary{box-shadow:0 8px 30px rgba(46,155,214,0.25);animation:ctaPulse 3s ease-in-out infinite;}
+@keyframes ctaPulse{0%,100%{box-shadow:0 8px 30px rgba(46,155,214,0.2);}50%{box-shadow:0 8px 50px rgba(46,155,214,0.45);}}
+.btn-primary:hover{animation:none;box-shadow:0 12px 40px rgba(46,155,214,0.55)!important;}
+.section-label{position:relative;display:inline-flex;align-items:center;gap:8px;}
+.section-label::before{content:'';display:inline-block;width:20px;height:2px;background:var(--accent2);border-radius:2px;animation:labelLine 2s ease-in-out infinite alternate;}
+@keyframes labelLine{0%{width:14px;opacity:0.6;}100%{width:26px;opacity:1;}}
+.portfolio-card:hover{transform:translateY(-8px)!important;box-shadow:0 24px 60px rgba(46,155,214,0.18),0 0 0 1px rgba(46,155,214,0.2)!important;}
+.step-num{transition:all 0.3s!important;}
+.process-step:hover .step-num{box-shadow:0 0 0 8px rgba(46,155,214,0.12),0 0 0 16px rgba(46,155,214,0.05)!important;background:var(--accent2)!important;}
+#particles-canvas{position:absolute;inset:0;z-index:1;pointer-events:none;}
+.nav-logo{animation:logoPop 0.8s cubic-bezier(.34,1.56,.64,1) forwards;animation-delay:0.2s;}
+@keyframes logoPop{0%{opacity:0;transform:scale(0.85);}100%{opacity:1;transform:scale(1);}}
+@media(max-width:600px){.hero-stats{gap:8px;}.hero-stat{min-width:calc(50% - 4px);padding:14px 14px;}.hero-stat strong{font-size:1.7rem;}}
 
 /* ════════════════════════════════════════
    CRYPTOFUNDTRADER-INSPIRED ANIMATIONS
@@ -520,7 +483,7 @@ img,svg,iframe{max-width:100%;}
 /* --- Animated gradient mesh background on hero --- */
 .hero::after{
   content:'';
-  position:absolute;inset:0;pointer-events:none;z-index:1;
+  position:absolute;inset:0;pointer-events:none;z-index:0;
   background:
     radial-gradient(ellipse 60% 50% at 20% 60%, rgba(46,155,214,0.12) 0%, transparent 70%),
     radial-gradient(ellipse 40% 60% at 80% 30%, rgba(200,241,53,0.07) 0%, transparent 60%);
@@ -578,14 +541,7 @@ img,svg,iframe{max-width:100%;}
 /* --- Counter number animation --- */
 .stat-counter{display:inline-block;}
 
-@keyframes statPop{
-  0%{opacity:0;transform:scale(0.5) translateY(10px);}
-  100%{opacity:1;transform:scale(1) translateY(0);}
-}
-.hero-stat:nth-child(1) strong{animation-delay:0.6s;}
-.hero-stat:nth-child(2) strong{animation-delay:0.75s;}
-.hero-stat:nth-child(3) strong{animation-delay:0.9s;}
-.hero-stat:nth-child(4) strong{animation-delay:1.05s;}
+/* statPop removed */
 
 /* --- Ticker / marquee strip --- */
 .ticker-wrap{
@@ -778,7 +734,6 @@ img,svg,iframe{max-width:100%;}
   .hero-stat{min-width:calc(50% - 5px);padding:14px 16px;}
   .hero-stat strong{font-size:1.8rem !important;}
 }
-
 </style>
 </head>
 <body>
@@ -814,10 +769,9 @@ img,svg,iframe{max-width:100%;}
   </ul>
 </nav>
 
-
 <!-- TICKER -->
 <div class="ticker-wrap">
-  <div class="ticker-track" id="ticker">
+  <div class="ticker-track">
     <div class="ticker-item"><span>⚡</span>Static Web Architecture</div>
     <div class="ticker-item"><span>🌐</span>200+ CDN Servers</div>
     <div class="ticker-item"><span>🔒</span>Zero-Server Vulnerability</div>
@@ -826,7 +780,6 @@ img,svg,iframe{max-width:100%;}
     <div class="ticker-item"><span>📱</span>Mobile-First Design</div>
     <div class="ticker-item"><span>🔍</span>SEO-Ready</div>
     <div class="ticker-item"><span>💬</span>Fixed Price — No Surprises</div>
-    <!-- duplicate for seamless loop -->
     <div class="ticker-item"><span>⚡</span>Static Web Architecture</div>
     <div class="ticker-item"><span>🌐</span>200+ CDN Servers</div>
     <div class="ticker-item"><span>🔒</span>Zero-Server Vulnerability</div>
@@ -855,28 +808,12 @@ img,svg,iframe{max-width:100%;}
       <a href="#contact" class="btn-primary" data-i="hero_cta1">Start your project</a>
       <a href="#portfolio" class="btn-ghost" data-i="hero_cta2">See our work</a>
     </div>
-      <div class="hero-stats fade-up delay-4">
-        <div class="hero-stat">
-          <span class="stat-icon">⚡</span>
-          <strong>0.2s</strong>
-          <span class="stat-label" data-i="stat1">Load time</span>
-        </div>
-        <div class="hero-stat">
-          <span class="stat-icon">🌐</span>
-          <strong>200+</strong>
-          <span class="stat-label" data-i="stat2">CDN servers</span>
-        </div>
-        <div class="hero-stat">
-          <span class="stat-icon">🔒</span>
-          <strong>100%</strong>
-          <span class="stat-label" data-i="stat3">Hack-proof</span>
-        </div>
-        <div class="hero-stat">
-          <span class="stat-icon">🌿</span>
-          <strong>10×</strong>
-          <span class="stat-label" data-i="stat4">Less energy</span>
-        </div>
-      </div>
+    <div class="hero-stats fade-up delay-4">
+      <div class="hero-stat"><div style="font-size:1rem;margin-bottom:8px">⚡</div><strong>0.2s</strong><span data-i="stat1">Load time</span></div>
+      <div class="hero-stat"><div style="font-size:1rem;margin-bottom:8px">🌐</div><strong>200+</strong><span data-i="stat2">CDN servers</span></div>
+      <div class="hero-stat"><div style="font-size:1rem;margin-bottom:8px">🔒</div><strong>100%</strong><span data-i="stat3">Hack-proof</span></div>
+      <div class="hero-stat"><div style="font-size:1rem;margin-bottom:8px">🌿</div><strong>10×</strong><span data-i="stat4">Less energy</span></div>
+    </div>
   </div>
 </section>
 
@@ -1164,13 +1101,11 @@ img,svg,iframe{max-width:100%;}
 <footer>
   <div class="footer-inner">
     <div class="footer-grid">
-
       <div class="footer-brand">
         <span class="footer-logo">Velo<span>Web</span></span>
         <p data-i="footer_brand_desc">We build fast, modern websites for small and medium businesses — static architecture, global CDN, fixed price.</p>
         <a class="footer-email" href="mailto:velowebfz@proton.me">📧 velowebfz@proton.me</a>
       </div>
-
       <div class="footer-col">
         <h4 data-i="footer_col1">Services</h4>
         <ul>
@@ -1181,7 +1116,6 @@ img,svg,iframe{max-width:100%;}
           <li><a href="#portfolio" data-i="footer_shop">Single Product</a></li>
         </ul>
       </div>
-
       <div class="footer-col">
         <h4 data-i="footer_col2">Why us</h4>
         <ul>
@@ -1192,7 +1126,6 @@ img,svg,iframe{max-width:100%;}
           <li><a href="#why" data-i="footer_price">Fixed Price</a></li>
         </ul>
       </div>
-
       <div class="footer-col">
         <h4 data-i="footer_col3">Contact</h4>
         <ul>
@@ -1201,7 +1134,6 @@ img,svg,iframe{max-width:100%;}
           <li><a href="#process" data-i="footer_how">How it works</a></li>
         </ul>
       </div>
-
     </div>
     <div class="footer-bottom">
       <span data-i="footer_rights">© 2025 VeloWeb. All rights reserved.</span>
@@ -1227,149 +1159,6 @@ img,svg,iframe{max-width:100%;}
 <!-- These are injected dynamically via JS srcdoc -->
 
 <script>
-
-// ═══════════════════════════════════════
-// ANIMATIONS
-// ═══════════════════════════════════════
-
-// Scroll progress bar
-window.addEventListener('scroll', () => {
-  const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-  document.getElementById('scroll-bar').style.width = scrolled + '%';
-});
-
-// Particle canvas
-(function() {
-  const canvas = document.getElementById('particles-canvas');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  let particles = [];
-  let W, H;
-
-  function resize() {
-    W = canvas.width = canvas.offsetWidth;
-    H = canvas.height = canvas.offsetHeight;
-  }
-  window.addEventListener('resize', resize);
-  resize();
-
-  function Particle() {
-    this.reset();
-  }
-  Particle.prototype.reset = function() {
-    this.x = Math.random() * W;
-    this.y = Math.random() * H;
-    this.r = Math.random() * 1.8 + 0.4;
-    this.vx = (Math.random() - 0.5) * 0.4;
-    this.vy = (Math.random() - 0.5) * 0.4;
-    this.alpha = Math.random() * 0.5 + 0.1;
-    this.color = Math.random() > 0.5 ? '46,155,214' : '200,241,53';
-  };
-  Particle.prototype.update = function() {
-    this.x += this.vx;
-    this.y += this.vy;
-    if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
-  };
-
-  for (let i = 0; i < 60; i++) particles.push(new Particle());
-
-  function draw() {
-    ctx.clearRect(0, 0, W, H);
-    // Draw connections
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const dist = Math.sqrt(dx*dx + dy*dy);
-        if (dist < 100) {
-          ctx.beginPath();
-          ctx.strokeStyle = `rgba(46,155,214,${0.08 * (1 - dist/100)})`;
-          ctx.lineWidth = 0.5;
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.stroke();
-        }
-      }
-    }
-    // Draw dots
-    particles.forEach(p => {
-      p.update();
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${p.color},${p.alpha})`;
-      ctx.fill();
-    });
-    requestAnimationFrame(draw);
-  }
-  draw();
-})();
-
-// Animated counters for hero stats
-function animateCounter(el, target, prefix, suffix, duration) {
-  let start = 0;
-  const step = target / (duration / 16);
-  function tick() {
-    start = Math.min(start + step, target);
-    const val = Number.isInteger(target) ? Math.floor(start) : start.toFixed(1);
-    el.textContent = prefix + val + suffix;
-    if (start < target) requestAnimationFrame(tick);
-  }
-  tick();
-}
-
-// Trigger counters when hero stats come into view
-const statsObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    const stats = document.querySelectorAll('.hero-stat strong');
-    const data = [
-      {val: 0.2, pre: '', suf: 's'},
-      {val: 200, pre: '', suf: '+'},
-      {val: 100, pre: '', suf: '%'},
-      {val: 10, pre: '', suf: '×'},
-    ];
-    stats.forEach((el, i) => {
-      if (data[i]) animateCounter(el, data[i].val, data[i].pre, data[i].suf, 1200);
-    });
-    statsObserver.disconnect();
-  });
-}, {threshold: 0.5});
-const heroStats = document.querySelector('.hero-stats');
-if (heroStats) statsObserver.observe(heroStats);
-
-// Mouse parallax on hero
-const hero = document.querySelector('.hero');
-if (hero) {
-  hero.addEventListener('mousemove', (e) => {
-    const rect = hero.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    const bg = hero.querySelector('.hero-bg-text');
-    if (bg) bg.style.transform = `translateY(-50%) translate(${x * 20}px, ${y * 10}px)`;
-  });
-}
-
-// Stagger reveal for why cards
-const whyCards = document.querySelectorAll('.why-card');
-const cardObserver = new IntersectionObserver((entries) => {
-  entries.forEach((e, idx) => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('visible'), idx * 80);
-      cardObserver.unobserve(e.target);
-    }
-  });
-}, {threshold: 0.1});
-whyCards.forEach(c => {
-  c.classList.add('reveal');
-  cardObserver.observe(c);
-});
-
-// Nav scroll shadow
-window.addEventListener('scroll', () => {
-  const nav = document.querySelector('nav');
-  if (nav) nav.style.boxShadow = window.scrollY > 20 ? '0 4px 30px rgba(0,0,0,0.15)' : 'none';
-});
-
 // ═══════════════════════════════════════
 // TRANSLATIONS
 // ═══════════════════════════════════════
@@ -1631,6 +1420,132 @@ const T = {
   hr:{nav_why:"Zašto mi",nav_portfolio:"Portfolio",nav_process:"Proces",nav_contact:"Kontakt",hero_tag:"Statička web arhitektura",hero_h1a:"Web stranice koje",hero_h1b:"se učitavaju trenutno.",hero_h1c:"Nemoguće hakirati.",hero_sub:"Gradimo brze, moderne web stranice za male i srednje tvrtke na statičkoj arhitekturi s globalnim CDN-om.",hero_cta1:"Pokrenite projekt",hero_cta2:"Naš rad",stat1:"Vrijeme učitavanja",stat2:"CDN servera",stat3:"Nezlomivo",stat4:"Manje energije",why_label:"Zašto VeloWeb",why_title:"Izgrađeno drugačije. Namjerno.",why1_title:"Edge Computing",why1_text:"Hostiramo vašu stranicu na 200+ servera diljem svijeta. Klijent u Pragu otvori je za 0,2 sekunde.",why2_title:"Nulta ranjivost",why2_text:"Naše stranice nemaju serversku bazu podataka — nemoguće ih je hakirati.",why3_title:"Zelena tehnologija",why3_text:"Statička arhitektura troši 10× manje energije od tradicionalnih servera.",why4_title:"Mobile-First",why4_text:"Više od 70% vaših klijenata posjećuje s mobitela.",why5_title:"SEO-spreman",why5_text:"Brzo učitavanje i čist kod znači bolji Google ranking.",why6_title:"Fiksna cijena",why6_text:"Bez iznenađujućih računa. Opseg i cijena dogovoreni unaprijed.",port_label:"Naš rad",port_title:"5 niša. 5 rješenja.",port_sub:"Svaki projekt je po mjeri. Kliknite na karticu za prikaz cijele stranice.",niche1:"☕ Kafić & Restoran",niche2:"✂️ Salon ljepote & Berbershop",niche3:"🔧 Auto servis & Popravak",niche4:"⚖️ Specijalist — Odvjetnik / Savjetnik",niche5:"🛍️ Trgovina jednog proizvoda",card1_desc:"QR meni, rezervacija stola s Telegram botom, mobilni dizajn.",card2_desc:"Galerija prije/poslije, online rezervacija s Google kalendarom, tamni luksuzni dizajn.",card3_desc:"Cjenik usluga, gumb za poziv jednim klikom, Google Maps, lokalni SEO.",card4_desc:"Osobna brend landing stranica s recenzijama i brzim formularom.",card5_desc:"Lijepe fotografije proizvoda, narativni tekst, gumb za narudžbu WhatsApp.",test1_text:'"Od novog weba, rezervacije su porasle za 40%."',test2_text:'"Naš obrazac je uvijek pun."',test3_text:'"Za 2 mjeseca dospjeli smo na prvo mjesto u lokalnoj pretrazi."',test4_text:'"Imao sam 3 zahtjeva za konzultacije u prvom tjednu."',test5_text:'"Prodajem 3× više nego sa starom stranicom."',view_site:"Pogledaj stranicu →",proc_label:"Kako funkcionira",proc_title:"Od ideje do live stranice.",step1_title:"Uvodni poziv",step1_text:"Upoznajemo vaše poslovanje. Samo nam pišite — odgovorit ćemo s planom.",step2_title:"Dizajn & Prijedlog",step2_text:"U 48h šaljemo koncept i fiksnu cijenu.",step3_title:"Izgradnja & Pregled",step3_text:"Gradimo stranicu i ugrađujemo vaše povratne informacije.",step4_title:"Lansiranje 🚀",step4_text:"Deployamo na globalni CDN. Brzo, sigurno, vaše.",contact_label:"Razgovarajmo",contact_title:"Spremni za izgradnju nečeg sjajnog?",contact_sub:"Recite nam o svom poslovanju. Za 24h dobit ćete plan i fiksnu cijenu.",contact_response:"Odgovor unutar 24 sata",contact_location:"Poslujemo s klijentima diljem Europe",form_name:"Vaše ime",form_email:"E-mail",form_niche:"Vrsta poslovanja",form_niche_pick:"Odaberite nišu...",form_msg:"Opišite svoj projekt",form_send:"Pošalji poruku →",form_ok:"✅ Poruka poslana! Odgovorit ćemo u roku od 24 sata.",opt_cafe:"Kafić / Restoran",opt_beauty:"Salon ljepote / Berbershop",opt_auto:"Auto servis / Popravak",opt_specialist:"Odvjetnik / Savjetnik",opt_product:"Trgovina jednog proizvoda",opt_other:"Ostalo",footer_rights:"© 2025 VeloWeb. Sva prava pridržana."}
 };
 
+
+// ═══ ANIMATION JS ═══
+window.addEventListener('scroll', () => {
+  const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('scroll-bar').style.width = scrolled + '%';
+});
+
+// Particle canvas
+(function() {
+  const canvas = document.getElementById('particles-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  let W, H;
+
+  function resize() {
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  function Particle() {
+    this.reset();
+  }
+  Particle.prototype.reset = function() {
+    this.x = Math.random() * W;
+    this.y = Math.random() * H;
+    this.r = Math.random() * 1.8 + 0.4;
+    this.vx = (Math.random() - 0.5) * 0.4;
+    this.vy = (Math.random() - 0.5) * 0.4;
+    this.alpha = Math.random() * 0.5 + 0.1;
+    this.color = Math.random() > 0.5 ? '46,155,214' : '200,241,53';
+  };
+  Particle.prototype.update = function() {
+    this.x += this.vx;
+    this.y += this.vy;
+    if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
+  };
+
+  for (let i = 0; i < 60; i++) particles.push(new Particle());
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    // Draw connections
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < 100) {
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(46,155,214,${0.08 * (1 - dist/100)})`;
+          ctx.lineWidth = 0.5;
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+    // Draw dots
+    particles.forEach(p => {
+      p.update();
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${p.color},${p.alpha})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// Animated counters for hero stats
+function animateCounter(el, target, prefix, suffix, duration) {
+  let start = 0;
+  const step = target / (duration / 16);
+  function tick() {
+    start = Math.min(start + step, target);
+    const val = Number.isInteger(target) ? Math.floor(start) : start.toFixed(1);
+    el.textContent = prefix + val + suffix;
+    if (start < target) requestAnimationFrame(tick);
+  }
+  tick();
+}
+
+// Trigger counters when hero stats come into view
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const stats = document.querySelectorAll('.hero-stat strong');
+    const data = [
+      {val: 0.2, pre: '', suf: 's'},
+      {val: 200, pre: '', suf: '+'},
+      {val: 100, pre: '', suf: '%'},
+      {val: 10, pre: '', suf: '×'},
+    ];
+    stats.forEach((el, i) => {
+      if (data[i]) animateCounter(el, data[i].val, data[i].pre, data[i].suf, 1200);
+    });
+    statsObserver.disconnect();
+  });
+}, {threshold: 0.5});
+const heroStats = document.querySelector('.hero-stats');
+if (heroStats) statsObserver.observe(heroStats);
+
+// Mouse parallax on hero
+const hero = document.querySelector('.hero');
+if (hero) {
+  hero.addEventListener('mousemove', (e) => {
+    const rect = hero.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    const bg = hero.querySelector('.hero-bg-text');
+    if (bg) bg.style.transform = `translateY(-50%) translate(${x * 20}px, ${y * 10}px)`;
+  });
+}
+
+
+
+// Nav scroll shadow
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  if (nav) nav.style.boxShadow = window.scrollY > 20 ? '0 4px 30px rgba(0,0,0,0.15)' : 'none';
+});
+
 let currentLang = 'en';
 
 function setLang(lang) {
@@ -1680,222 +1595,7 @@ nav ul a{text-decoration:none;color:rgba(245,230,200,0.7);font-size:0.85rem;}
 .form-grid input,.form-grid select{background:rgba(255,255,255,0.07);border:1px solid rgba(245,200,66,0.2);border-radius:10px;padding:12px 16px;color:#f5e6c8;font-size:0.9rem;width:100%;}
 .tg-note{text-align:center;color:rgba(245,230,200,0.5);font-size:0.8rem;margin-top:12px;}
 footer{text-align:center;padding:30px;color:rgba(245,230,200,0.3);font-size:0.8rem;border-top:1px solid rgba(245,200,66,0.1);}
-
-/* ════════════════════════════════════════
-   CRYPTOFUNDTRADER-INSPIRED ANIMATIONS
-   ════════════════════════════════════════ */
-
-/* --- Animated gradient mesh background on hero --- */
-.hero::after{
-  content:'';
-  position:absolute;inset:0;pointer-events:none;z-index:1;
-  background:
-    radial-gradient(ellipse 60% 50% at 20% 60%, rgba(46,155,214,0.12) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 60% at 80% 30%, rgba(200,241,53,0.07) 0%, transparent 60%);
-  animation:meshPulse 8s ease-in-out infinite alternate;
-}
-@keyframes meshPulse{
-  0%{opacity:0.6;transform:scale(1);}
-  100%{opacity:1;transform:scale(1.05);}
-}
-
-/* --- Floating grid dots on hero --- */
-.hero-grid{
-  position:absolute;inset:0;z-index:0;pointer-events:none;
-  background-image:
-    radial-gradient(circle, rgba(46,155,214,0.18) 1px, transparent 1px);
-  background-size:44px 44px;
-  animation:gridDrift 20s linear infinite;
-  mask-image:linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
-  -webkit-mask-image:linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
-}
-@keyframes gridDrift{
-  0%{background-position:0 0;}
-  100%{background-position:44px 44px;}
-}
-
-/* --- Hero heading glitch shimmer --- */
-.hero h1{position:relative;}
-.hero h1 em{
-  position:relative;
-  background:linear-gradient(90deg, var(--accent2) 0%, #6ec6f0 40%, var(--accent2) 100%);
-  background-size:200% auto;
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-  animation:shimmer 3s linear infinite;
-}
-@keyframes shimmer{
-  0%{background-position:0% center;}
-  100%{background-position:200% center;}
-}
-
-/* --- Animated hero tag --- */
-.hero-tag{
-  position:relative;overflow:hidden;
-}
-.hero-tag::after{
-  content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);
-  animation:tagShine 3s ease-in-out infinite;
-}
-@keyframes tagShine{
-  0%{left:-100%;}60%{left:150%;}100%{left:150%;}
-}
-
-/* --- Counter number animation --- */
-.stat-counter{display:inline-block;}
-
-@keyframes statPop{
-  0%{opacity:0;transform:scale(0.5) translateY(10px);}
-  100%{opacity:1;transform:scale(1) translateY(0);}
-}
-.hero-stat:nth-child(1) strong{animation-delay:0.6s;}
-.hero-stat:nth-child(2) strong{animation-delay:0.75s;}
-.hero-stat:nth-child(3) strong{animation-delay:0.9s;}
-.hero-stat:nth-child(4) strong{animation-delay:1.05s;}
-
-/* --- Ticker / marquee strip --- */
-.ticker-wrap{
-  width:100%;overflow:hidden;
-  background:var(--ink);
-  border-top:1px solid rgba(46,155,214,0.2);
-  border-bottom:1px solid rgba(46,155,214,0.2);
-  padding:10px 0;
-}
-.ticker-track{
-  display:flex;gap:0;
-  animation:ticker 28s linear infinite;
-  width:max-content;
-}
-.ticker-track:hover{animation-play-state:paused;}
-.ticker-item{
-  white-space:nowrap;
-  padding:0 40px;
-  font-size:0.78rem;font-weight:600;
-  color:rgba(255,255,255,0.5);
-  letter-spacing:1px;text-transform:uppercase;
-}
-.ticker-item span{color:var(--accent);margin-right:6px;}
-@keyframes ticker{
-  0%{transform:translateX(0);}
-  100%{transform:translateX(-50%);}
-}
-
-/* --- Why cards: neon border on hover --- */
-.why-card{
-  position:relative;
-}
-.why-card::after{
-  content:'';
-  position:absolute;inset:0;border-radius:0;
-  background:linear-gradient(135deg, rgba(46,155,214,0.15), rgba(200,241,53,0.08));
-  opacity:0;transition:opacity 0.4s;pointer-events:none;
-}
-.why-card:hover::after{opacity:1;}
-
-/* --- Portfolio cards: lift + glow --- */
-.portfolio-card{
-  transition:transform 0.35s cubic-bezier(.34,1.56,.64,1), box-shadow 0.35s ease !important;
-}
-.portfolio-card:hover{
-  transform:translateY(-8px) !important;
-  box-shadow:0 24px 60px rgba(46,155,214,0.18), 0 0 0 1px rgba(46,155,214,0.2) !important;
-}
-
-/* --- Process step: pulse on hover --- */
-.step-num{
-  transition:all 0.3s !important;
-  box-shadow:0 0 0 0 rgba(46,155,214,0.4);
-}
-.process-step:hover .step-num{
-  box-shadow:0 0 0 8px rgba(46,155,214,0.12), 0 0 0 16px rgba(46,155,214,0.05) !important;
-  background:var(--accent2) !important;
-}
-
-/* --- CTA buttons: ripple glow --- */
-.btn-primary{position:relative;overflow:hidden;}
-.btn-primary::before{
-  content:'';position:absolute;top:50%;left:50%;
-  width:0;height:0;border-radius:50%;
-  background:rgba(255,255,255,0.2);
-  transform:translate(-50%,-50%);
-  transition:width 0.5s ease,height 0.5s ease,opacity 0.5s ease;
-  opacity:0;
-}
-.btn-primary:hover::before{width:300px;height:300px;opacity:1;}
-
-/* --- Contact section: floating label glow --- */
-.form-field input:focus,.form-field textarea:focus,.form-field select:focus{
-  box-shadow:0 0 0 3px rgba(46,155,214,0.15) !important;
-}
-
-/* --- Section title underline animate --- */
-.section-title{position:relative;display:inline-block;}
-
-/* --- Staggered card reveals --- */
-.why-card:nth-child(1){transition-delay:0s;}
-.why-card:nth-child(2){transition-delay:0.07s;}
-.why-card:nth-child(3){transition-delay:0.14s;}
-.why-card:nth-child(4){transition-delay:0.21s;}
-.why-card:nth-child(5){transition-delay:0.28s;}
-.why-card:nth-child(6){transition-delay:0.35s;}
-
-/* --- Nav logo pulse on load --- */
-.nav-logo{
-  animation:logoPop 0.8s cubic-bezier(.34,1.56,.64,1) both;
-  animation-delay:0.2s;
-  opacity:0;
-}
-@keyframes logoPop{
-  0%{opacity:0;transform:scale(0.85);}
-  100%{opacity:1;transform:scale(1);}
-}
-
-/* --- Hero CTA button: continuous glow pulse --- */
-.btn-primary{
-  box-shadow:0 0 0 0 rgba(46,155,214,0.5);
-  animation:ctaPulse 3s ease-in-out infinite;
-}
-@keyframes ctaPulse{
-  0%,100%{box-shadow:0 8px 30px rgba(46,155,214,0.25);}
-  50%{box-shadow:0 8px 50px rgba(46,155,214,0.5), 0 0 30px rgba(46,155,214,0.2);}
-}
-.btn-primary:hover{
-  animation:none;
-  box-shadow:0 12px 40px rgba(46,155,214,0.6) !important;
-}
-
-/* --- Accent line under section labels --- */
-.section-label{
-  position:relative;display:inline-flex;align-items:center;gap:8px;
-}
-.section-label::before{
-  content:'';display:inline-block;
-  width:24px;height:2px;
-  background:var(--accent2);
-  border-radius:2px;
-  animation:labelLine 2s ease-in-out infinite alternate;
-}
-@keyframes labelLine{
-  0%{width:16px;opacity:0.6;}
-  100%{width:28px;opacity:1;}
-}
-
-/* --- Floating particles canvas overlay on hero --- */
-#particles-canvas{
-  position:absolute;inset:0;z-index:1;pointer-events:none;
-}
-
-/* --- Scroll progress bar at top --- */
-#scroll-bar{
-  position:fixed;top:28px;left:0;height:2px;
-  background:linear-gradient(90deg,var(--accent2),var(--accent));
-  z-index:3000;width:0%;transition:width 0.1s linear;
-}
-
 </style></head><body>
-<div id="scroll-bar"></div>
 <nav><div class="logo">VOLTA CAFÉ</div><ul><li><a href="#">Menu</a></li><li><a href="#">Reserve</a></li><li><a href="#">Story</a></li></ul></nav>
 <div class="hero">
   <h1>VOLTA CAFÉ</h1>
@@ -1982,222 +1682,7 @@ nav ul a{text-decoration:none;color:rgba(232,196,160,0.5);font-size:0.8rem;lette
 .form-col{display:flex;flex-direction:column;gap:12px;max-width:360px;margin:0 auto 20px;}
 .form-col input,.form-col select{background:rgba(232,196,160,0.07);border:1px solid rgba(232,196,160,0.2);border-radius:10px;padding:12px 16px;color:#e8c4a0;font-size:0.9rem;}
 footer{text-align:center;padding:30px;color:rgba(232,196,160,0.2);font-size:0.75rem;border-top:1px solid rgba(232,196,160,0.08);}
-
-/* ════════════════════════════════════════
-   CRYPTOFUNDTRADER-INSPIRED ANIMATIONS
-   ════════════════════════════════════════ */
-
-/* --- Animated gradient mesh background on hero --- */
-.hero::after{
-  content:'';
-  position:absolute;inset:0;pointer-events:none;z-index:1;
-  background:
-    radial-gradient(ellipse 60% 50% at 20% 60%, rgba(46,155,214,0.12) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 60% at 80% 30%, rgba(200,241,53,0.07) 0%, transparent 60%);
-  animation:meshPulse 8s ease-in-out infinite alternate;
-}
-@keyframes meshPulse{
-  0%{opacity:0.6;transform:scale(1);}
-  100%{opacity:1;transform:scale(1.05);}
-}
-
-/* --- Floating grid dots on hero --- */
-.hero-grid{
-  position:absolute;inset:0;z-index:0;pointer-events:none;
-  background-image:
-    radial-gradient(circle, rgba(46,155,214,0.18) 1px, transparent 1px);
-  background-size:44px 44px;
-  animation:gridDrift 20s linear infinite;
-  mask-image:linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
-  -webkit-mask-image:linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
-}
-@keyframes gridDrift{
-  0%{background-position:0 0;}
-  100%{background-position:44px 44px;}
-}
-
-/* --- Hero heading glitch shimmer --- */
-.hero h1{position:relative;}
-.hero h1 em{
-  position:relative;
-  background:linear-gradient(90deg, var(--accent2) 0%, #6ec6f0 40%, var(--accent2) 100%);
-  background-size:200% auto;
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-  animation:shimmer 3s linear infinite;
-}
-@keyframes shimmer{
-  0%{background-position:0% center;}
-  100%{background-position:200% center;}
-}
-
-/* --- Animated hero tag --- */
-.hero-tag{
-  position:relative;overflow:hidden;
-}
-.hero-tag::after{
-  content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);
-  animation:tagShine 3s ease-in-out infinite;
-}
-@keyframes tagShine{
-  0%{left:-100%;}60%{left:150%;}100%{left:150%;}
-}
-
-/* --- Counter number animation --- */
-.stat-counter{display:inline-block;}
-
-@keyframes statPop{
-  0%{opacity:0;transform:scale(0.5) translateY(10px);}
-  100%{opacity:1;transform:scale(1) translateY(0);}
-}
-.hero-stat:nth-child(1) strong{animation-delay:0.6s;}
-.hero-stat:nth-child(2) strong{animation-delay:0.75s;}
-.hero-stat:nth-child(3) strong{animation-delay:0.9s;}
-.hero-stat:nth-child(4) strong{animation-delay:1.05s;}
-
-/* --- Ticker / marquee strip --- */
-.ticker-wrap{
-  width:100%;overflow:hidden;
-  background:var(--ink);
-  border-top:1px solid rgba(46,155,214,0.2);
-  border-bottom:1px solid rgba(46,155,214,0.2);
-  padding:10px 0;
-}
-.ticker-track{
-  display:flex;gap:0;
-  animation:ticker 28s linear infinite;
-  width:max-content;
-}
-.ticker-track:hover{animation-play-state:paused;}
-.ticker-item{
-  white-space:nowrap;
-  padding:0 40px;
-  font-size:0.78rem;font-weight:600;
-  color:rgba(255,255,255,0.5);
-  letter-spacing:1px;text-transform:uppercase;
-}
-.ticker-item span{color:var(--accent);margin-right:6px;}
-@keyframes ticker{
-  0%{transform:translateX(0);}
-  100%{transform:translateX(-50%);}
-}
-
-/* --- Why cards: neon border on hover --- */
-.why-card{
-  position:relative;
-}
-.why-card::after{
-  content:'';
-  position:absolute;inset:0;border-radius:0;
-  background:linear-gradient(135deg, rgba(46,155,214,0.15), rgba(200,241,53,0.08));
-  opacity:0;transition:opacity 0.4s;pointer-events:none;
-}
-.why-card:hover::after{opacity:1;}
-
-/* --- Portfolio cards: lift + glow --- */
-.portfolio-card{
-  transition:transform 0.35s cubic-bezier(.34,1.56,.64,1), box-shadow 0.35s ease !important;
-}
-.portfolio-card:hover{
-  transform:translateY(-8px) !important;
-  box-shadow:0 24px 60px rgba(46,155,214,0.18), 0 0 0 1px rgba(46,155,214,0.2) !important;
-}
-
-/* --- Process step: pulse on hover --- */
-.step-num{
-  transition:all 0.3s !important;
-  box-shadow:0 0 0 0 rgba(46,155,214,0.4);
-}
-.process-step:hover .step-num{
-  box-shadow:0 0 0 8px rgba(46,155,214,0.12), 0 0 0 16px rgba(46,155,214,0.05) !important;
-  background:var(--accent2) !important;
-}
-
-/* --- CTA buttons: ripple glow --- */
-.btn-primary{position:relative;overflow:hidden;}
-.btn-primary::before{
-  content:'';position:absolute;top:50%;left:50%;
-  width:0;height:0;border-radius:50%;
-  background:rgba(255,255,255,0.2);
-  transform:translate(-50%,-50%);
-  transition:width 0.5s ease,height 0.5s ease,opacity 0.5s ease;
-  opacity:0;
-}
-.btn-primary:hover::before{width:300px;height:300px;opacity:1;}
-
-/* --- Contact section: floating label glow --- */
-.form-field input:focus,.form-field textarea:focus,.form-field select:focus{
-  box-shadow:0 0 0 3px rgba(46,155,214,0.15) !important;
-}
-
-/* --- Section title underline animate --- */
-.section-title{position:relative;display:inline-block;}
-
-/* --- Staggered card reveals --- */
-.why-card:nth-child(1){transition-delay:0s;}
-.why-card:nth-child(2){transition-delay:0.07s;}
-.why-card:nth-child(3){transition-delay:0.14s;}
-.why-card:nth-child(4){transition-delay:0.21s;}
-.why-card:nth-child(5){transition-delay:0.28s;}
-.why-card:nth-child(6){transition-delay:0.35s;}
-
-/* --- Nav logo pulse on load --- */
-.nav-logo{
-  animation:logoPop 0.8s cubic-bezier(.34,1.56,.64,1) both;
-  animation-delay:0.2s;
-  opacity:0;
-}
-@keyframes logoPop{
-  0%{opacity:0;transform:scale(0.85);}
-  100%{opacity:1;transform:scale(1);}
-}
-
-/* --- Hero CTA button: continuous glow pulse --- */
-.btn-primary{
-  box-shadow:0 0 0 0 rgba(46,155,214,0.5);
-  animation:ctaPulse 3s ease-in-out infinite;
-}
-@keyframes ctaPulse{
-  0%,100%{box-shadow:0 8px 30px rgba(46,155,214,0.25);}
-  50%{box-shadow:0 8px 50px rgba(46,155,214,0.5), 0 0 30px rgba(46,155,214,0.2);}
-}
-.btn-primary:hover{
-  animation:none;
-  box-shadow:0 12px 40px rgba(46,155,214,0.6) !important;
-}
-
-/* --- Accent line under section labels --- */
-.section-label{
-  position:relative;display:inline-flex;align-items:center;gap:8px;
-}
-.section-label::before{
-  content:'';display:inline-block;
-  width:24px;height:2px;
-  background:var(--accent2);
-  border-radius:2px;
-  animation:labelLine 2s ease-in-out infinite alternate;
-}
-@keyframes labelLine{
-  0%{width:16px;opacity:0.6;}
-  100%{width:28px;opacity:1;}
-}
-
-/* --- Floating particles canvas overlay on hero --- */
-#particles-canvas{
-  position:absolute;inset:0;z-index:1;pointer-events:none;
-}
-
-/* --- Scroll progress bar at top --- */
-#scroll-bar{
-  position:fixed;top:28px;left:0;height:2px;
-  background:linear-gradient(90deg,var(--accent2),var(--accent));
-  z-index:3000;width:0%;transition:width 0.1s linear;
-}
-
 </style></head><body>
-<div id="scroll-bar"></div>
 <nav><div class="logo">NOIR STUDIO</div><ul><li><a href="#">SERVICES</a></li><li><a href="#">GALLERY</a></li><li><a href="#">BOOK</a></li></ul></nav>
 <div class="hero">
   <h1>NOIR STUDIO</h1>
@@ -2267,222 +1752,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:18px 4
 .trust-item span{font-size:0.78rem;color:rgba(224,240,224,0.5);}
 footer{padding:24px 40px;border-top:1px solid rgba(76,255,114,0.1);display:flex;justify-content:space-between;font-size:0.8rem;color:rgba(224,240,224,0.3);}
 footer a{color:#4cff72;text-decoration:none;}
-
-/* ════════════════════════════════════════
-   CRYPTOFUNDTRADER-INSPIRED ANIMATIONS
-   ════════════════════════════════════════ */
-
-/* --- Animated gradient mesh background on hero --- */
-.hero::after{
-  content:'';
-  position:absolute;inset:0;pointer-events:none;z-index:1;
-  background:
-    radial-gradient(ellipse 60% 50% at 20% 60%, rgba(46,155,214,0.12) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 60% at 80% 30%, rgba(200,241,53,0.07) 0%, transparent 60%);
-  animation:meshPulse 8s ease-in-out infinite alternate;
-}
-@keyframes meshPulse{
-  0%{opacity:0.6;transform:scale(1);}
-  100%{opacity:1;transform:scale(1.05);}
-}
-
-/* --- Floating grid dots on hero --- */
-.hero-grid{
-  position:absolute;inset:0;z-index:0;pointer-events:none;
-  background-image:
-    radial-gradient(circle, rgba(46,155,214,0.18) 1px, transparent 1px);
-  background-size:44px 44px;
-  animation:gridDrift 20s linear infinite;
-  mask-image:linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
-  -webkit-mask-image:linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
-}
-@keyframes gridDrift{
-  0%{background-position:0 0;}
-  100%{background-position:44px 44px;}
-}
-
-/* --- Hero heading glitch shimmer --- */
-.hero h1{position:relative;}
-.hero h1 em{
-  position:relative;
-  background:linear-gradient(90deg, var(--accent2) 0%, #6ec6f0 40%, var(--accent2) 100%);
-  background-size:200% auto;
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-  animation:shimmer 3s linear infinite;
-}
-@keyframes shimmer{
-  0%{background-position:0% center;}
-  100%{background-position:200% center;}
-}
-
-/* --- Animated hero tag --- */
-.hero-tag{
-  position:relative;overflow:hidden;
-}
-.hero-tag::after{
-  content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);
-  animation:tagShine 3s ease-in-out infinite;
-}
-@keyframes tagShine{
-  0%{left:-100%;}60%{left:150%;}100%{left:150%;}
-}
-
-/* --- Counter number animation --- */
-.stat-counter{display:inline-block;}
-
-@keyframes statPop{
-  0%{opacity:0;transform:scale(0.5) translateY(10px);}
-  100%{opacity:1;transform:scale(1) translateY(0);}
-}
-.hero-stat:nth-child(1) strong{animation-delay:0.6s;}
-.hero-stat:nth-child(2) strong{animation-delay:0.75s;}
-.hero-stat:nth-child(3) strong{animation-delay:0.9s;}
-.hero-stat:nth-child(4) strong{animation-delay:1.05s;}
-
-/* --- Ticker / marquee strip --- */
-.ticker-wrap{
-  width:100%;overflow:hidden;
-  background:var(--ink);
-  border-top:1px solid rgba(46,155,214,0.2);
-  border-bottom:1px solid rgba(46,155,214,0.2);
-  padding:10px 0;
-}
-.ticker-track{
-  display:flex;gap:0;
-  animation:ticker 28s linear infinite;
-  width:max-content;
-}
-.ticker-track:hover{animation-play-state:paused;}
-.ticker-item{
-  white-space:nowrap;
-  padding:0 40px;
-  font-size:0.78rem;font-weight:600;
-  color:rgba(255,255,255,0.5);
-  letter-spacing:1px;text-transform:uppercase;
-}
-.ticker-item span{color:var(--accent);margin-right:6px;}
-@keyframes ticker{
-  0%{transform:translateX(0);}
-  100%{transform:translateX(-50%);}
-}
-
-/* --- Why cards: neon border on hover --- */
-.why-card{
-  position:relative;
-}
-.why-card::after{
-  content:'';
-  position:absolute;inset:0;border-radius:0;
-  background:linear-gradient(135deg, rgba(46,155,214,0.15), rgba(200,241,53,0.08));
-  opacity:0;transition:opacity 0.4s;pointer-events:none;
-}
-.why-card:hover::after{opacity:1;}
-
-/* --- Portfolio cards: lift + glow --- */
-.portfolio-card{
-  transition:transform 0.35s cubic-bezier(.34,1.56,.64,1), box-shadow 0.35s ease !important;
-}
-.portfolio-card:hover{
-  transform:translateY(-8px) !important;
-  box-shadow:0 24px 60px rgba(46,155,214,0.18), 0 0 0 1px rgba(46,155,214,0.2) !important;
-}
-
-/* --- Process step: pulse on hover --- */
-.step-num{
-  transition:all 0.3s !important;
-  box-shadow:0 0 0 0 rgba(46,155,214,0.4);
-}
-.process-step:hover .step-num{
-  box-shadow:0 0 0 8px rgba(46,155,214,0.12), 0 0 0 16px rgba(46,155,214,0.05) !important;
-  background:var(--accent2) !important;
-}
-
-/* --- CTA buttons: ripple glow --- */
-.btn-primary{position:relative;overflow:hidden;}
-.btn-primary::before{
-  content:'';position:absolute;top:50%;left:50%;
-  width:0;height:0;border-radius:50%;
-  background:rgba(255,255,255,0.2);
-  transform:translate(-50%,-50%);
-  transition:width 0.5s ease,height 0.5s ease,opacity 0.5s ease;
-  opacity:0;
-}
-.btn-primary:hover::before{width:300px;height:300px;opacity:1;}
-
-/* --- Contact section: floating label glow --- */
-.form-field input:focus,.form-field textarea:focus,.form-field select:focus{
-  box-shadow:0 0 0 3px rgba(46,155,214,0.15) !important;
-}
-
-/* --- Section title underline animate --- */
-.section-title{position:relative;display:inline-block;}
-
-/* --- Staggered card reveals --- */
-.why-card:nth-child(1){transition-delay:0s;}
-.why-card:nth-child(2){transition-delay:0.07s;}
-.why-card:nth-child(3){transition-delay:0.14s;}
-.why-card:nth-child(4){transition-delay:0.21s;}
-.why-card:nth-child(5){transition-delay:0.28s;}
-.why-card:nth-child(6){transition-delay:0.35s;}
-
-/* --- Nav logo pulse on load --- */
-.nav-logo{
-  animation:logoPop 0.8s cubic-bezier(.34,1.56,.64,1) both;
-  animation-delay:0.2s;
-  opacity:0;
-}
-@keyframes logoPop{
-  0%{opacity:0;transform:scale(0.85);}
-  100%{opacity:1;transform:scale(1);}
-}
-
-/* --- Hero CTA button: continuous glow pulse --- */
-.btn-primary{
-  box-shadow:0 0 0 0 rgba(46,155,214,0.5);
-  animation:ctaPulse 3s ease-in-out infinite;
-}
-@keyframes ctaPulse{
-  0%,100%{box-shadow:0 8px 30px rgba(46,155,214,0.25);}
-  50%{box-shadow:0 8px 50px rgba(46,155,214,0.5), 0 0 30px rgba(46,155,214,0.2);}
-}
-.btn-primary:hover{
-  animation:none;
-  box-shadow:0 12px 40px rgba(46,155,214,0.6) !important;
-}
-
-/* --- Accent line under section labels --- */
-.section-label{
-  position:relative;display:inline-flex;align-items:center;gap:8px;
-}
-.section-label::before{
-  content:'';display:inline-block;
-  width:24px;height:2px;
-  background:var(--accent2);
-  border-radius:2px;
-  animation:labelLine 2s ease-in-out infinite alternate;
-}
-@keyframes labelLine{
-  0%{width:16px;opacity:0.6;}
-  100%{width:28px;opacity:1;}
-}
-
-/* --- Floating particles canvas overlay on hero --- */
-#particles-canvas{
-  position:absolute;inset:0;z-index:1;pointer-events:none;
-}
-
-/* --- Scroll progress bar at top --- */
-#scroll-bar{
-  position:fixed;top:28px;left:0;height:2px;
-  background:linear-gradient(90deg,var(--accent2),var(--accent));
-  z-index:3000;width:0%;transition:width 0.1s linear;
-}
-
 </style></head><body>
-<div id="scroll-bar"></div>
 <nav><div class="logo">⚡ SPEED GARAGE</div><button class="nav-call">📞 Call Now</button></nav>
 <div class="hero">
   <h1>Your car.<br><span>Our expertise.</span></h1>
@@ -2547,222 +1817,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:20px 4
 .form-section textarea{resize:none;margin-bottom:16px;}
 .btn-cream2{background:#e8d5b0;color:#2c3e50;padding:12px 28px;border-radius:50px;border:none;cursor:pointer;font-weight:bold;font-size:0.88rem;}
 footer{text-align:center;padding:24px;color:rgba(44,62,80,0.4);font-size:0.78rem;background:#f8f5f0;}
-
-/* ════════════════════════════════════════
-   CRYPTOFUNDTRADER-INSPIRED ANIMATIONS
-   ════════════════════════════════════════ */
-
-/* --- Animated gradient mesh background on hero --- */
-.hero::after{
-  content:'';
-  position:absolute;inset:0;pointer-events:none;z-index:1;
-  background:
-    radial-gradient(ellipse 60% 50% at 20% 60%, rgba(46,155,214,0.12) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 60% at 80% 30%, rgba(200,241,53,0.07) 0%, transparent 60%);
-  animation:meshPulse 8s ease-in-out infinite alternate;
-}
-@keyframes meshPulse{
-  0%{opacity:0.6;transform:scale(1);}
-  100%{opacity:1;transform:scale(1.05);}
-}
-
-/* --- Floating grid dots on hero --- */
-.hero-grid{
-  position:absolute;inset:0;z-index:0;pointer-events:none;
-  background-image:
-    radial-gradient(circle, rgba(46,155,214,0.18) 1px, transparent 1px);
-  background-size:44px 44px;
-  animation:gridDrift 20s linear infinite;
-  mask-image:linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
-  -webkit-mask-image:linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
-}
-@keyframes gridDrift{
-  0%{background-position:0 0;}
-  100%{background-position:44px 44px;}
-}
-
-/* --- Hero heading glitch shimmer --- */
-.hero h1{position:relative;}
-.hero h1 em{
-  position:relative;
-  background:linear-gradient(90deg, var(--accent2) 0%, #6ec6f0 40%, var(--accent2) 100%);
-  background-size:200% auto;
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-  animation:shimmer 3s linear infinite;
-}
-@keyframes shimmer{
-  0%{background-position:0% center;}
-  100%{background-position:200% center;}
-}
-
-/* --- Animated hero tag --- */
-.hero-tag{
-  position:relative;overflow:hidden;
-}
-.hero-tag::after{
-  content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);
-  animation:tagShine 3s ease-in-out infinite;
-}
-@keyframes tagShine{
-  0%{left:-100%;}60%{left:150%;}100%{left:150%;}
-}
-
-/* --- Counter number animation --- */
-.stat-counter{display:inline-block;}
-
-@keyframes statPop{
-  0%{opacity:0;transform:scale(0.5) translateY(10px);}
-  100%{opacity:1;transform:scale(1) translateY(0);}
-}
-.hero-stat:nth-child(1) strong{animation-delay:0.6s;}
-.hero-stat:nth-child(2) strong{animation-delay:0.75s;}
-.hero-stat:nth-child(3) strong{animation-delay:0.9s;}
-.hero-stat:nth-child(4) strong{animation-delay:1.05s;}
-
-/* --- Ticker / marquee strip --- */
-.ticker-wrap{
-  width:100%;overflow:hidden;
-  background:var(--ink);
-  border-top:1px solid rgba(46,155,214,0.2);
-  border-bottom:1px solid rgba(46,155,214,0.2);
-  padding:10px 0;
-}
-.ticker-track{
-  display:flex;gap:0;
-  animation:ticker 28s linear infinite;
-  width:max-content;
-}
-.ticker-track:hover{animation-play-state:paused;}
-.ticker-item{
-  white-space:nowrap;
-  padding:0 40px;
-  font-size:0.78rem;font-weight:600;
-  color:rgba(255,255,255,0.5);
-  letter-spacing:1px;text-transform:uppercase;
-}
-.ticker-item span{color:var(--accent);margin-right:6px;}
-@keyframes ticker{
-  0%{transform:translateX(0);}
-  100%{transform:translateX(-50%);}
-}
-
-/* --- Why cards: neon border on hover --- */
-.why-card{
-  position:relative;
-}
-.why-card::after{
-  content:'';
-  position:absolute;inset:0;border-radius:0;
-  background:linear-gradient(135deg, rgba(46,155,214,0.15), rgba(200,241,53,0.08));
-  opacity:0;transition:opacity 0.4s;pointer-events:none;
-}
-.why-card:hover::after{opacity:1;}
-
-/* --- Portfolio cards: lift + glow --- */
-.portfolio-card{
-  transition:transform 0.35s cubic-bezier(.34,1.56,.64,1), box-shadow 0.35s ease !important;
-}
-.portfolio-card:hover{
-  transform:translateY(-8px) !important;
-  box-shadow:0 24px 60px rgba(46,155,214,0.18), 0 0 0 1px rgba(46,155,214,0.2) !important;
-}
-
-/* --- Process step: pulse on hover --- */
-.step-num{
-  transition:all 0.3s !important;
-  box-shadow:0 0 0 0 rgba(46,155,214,0.4);
-}
-.process-step:hover .step-num{
-  box-shadow:0 0 0 8px rgba(46,155,214,0.12), 0 0 0 16px rgba(46,155,214,0.05) !important;
-  background:var(--accent2) !important;
-}
-
-/* --- CTA buttons: ripple glow --- */
-.btn-primary{position:relative;overflow:hidden;}
-.btn-primary::before{
-  content:'';position:absolute;top:50%;left:50%;
-  width:0;height:0;border-radius:50%;
-  background:rgba(255,255,255,0.2);
-  transform:translate(-50%,-50%);
-  transition:width 0.5s ease,height 0.5s ease,opacity 0.5s ease;
-  opacity:0;
-}
-.btn-primary:hover::before{width:300px;height:300px;opacity:1;}
-
-/* --- Contact section: floating label glow --- */
-.form-field input:focus,.form-field textarea:focus,.form-field select:focus{
-  box-shadow:0 0 0 3px rgba(46,155,214,0.15) !important;
-}
-
-/* --- Section title underline animate --- */
-.section-title{position:relative;display:inline-block;}
-
-/* --- Staggered card reveals --- */
-.why-card:nth-child(1){transition-delay:0s;}
-.why-card:nth-child(2){transition-delay:0.07s;}
-.why-card:nth-child(3){transition-delay:0.14s;}
-.why-card:nth-child(4){transition-delay:0.21s;}
-.why-card:nth-child(5){transition-delay:0.28s;}
-.why-card:nth-child(6){transition-delay:0.35s;}
-
-/* --- Nav logo pulse on load --- */
-.nav-logo{
-  animation:logoPop 0.8s cubic-bezier(.34,1.56,.64,1) both;
-  animation-delay:0.2s;
-  opacity:0;
-}
-@keyframes logoPop{
-  0%{opacity:0;transform:scale(0.85);}
-  100%{opacity:1;transform:scale(1);}
-}
-
-/* --- Hero CTA button: continuous glow pulse --- */
-.btn-primary{
-  box-shadow:0 0 0 0 rgba(46,155,214,0.5);
-  animation:ctaPulse 3s ease-in-out infinite;
-}
-@keyframes ctaPulse{
-  0%,100%{box-shadow:0 8px 30px rgba(46,155,214,0.25);}
-  50%{box-shadow:0 8px 50px rgba(46,155,214,0.5), 0 0 30px rgba(46,155,214,0.2);}
-}
-.btn-primary:hover{
-  animation:none;
-  box-shadow:0 12px 40px rgba(46,155,214,0.6) !important;
-}
-
-/* --- Accent line under section labels --- */
-.section-label{
-  position:relative;display:inline-flex;align-items:center;gap:8px;
-}
-.section-label::before{
-  content:'';display:inline-block;
-  width:24px;height:2px;
-  background:var(--accent2);
-  border-radius:2px;
-  animation:labelLine 2s ease-in-out infinite alternate;
-}
-@keyframes labelLine{
-  0%{width:16px;opacity:0.6;}
-  100%{width:28px;opacity:1;}
-}
-
-/* --- Floating particles canvas overlay on hero --- */
-#particles-canvas{
-  position:absolute;inset:0;z-index:1;pointer-events:none;
-}
-
-/* --- Scroll progress bar at top --- */
-#scroll-bar{
-  position:fixed;top:28px;left:0;height:2px;
-  background:linear-gradient(90deg,var(--accent2),var(--accent));
-  z-index:3000;width:0%;transition:width 0.1s linear;
-}
-
 </style></head><body>
-<div id="scroll-bar"></div>
 <nav><div class="logo">Dr. Jana Kovářová</div><button class="nav-cta">Free Consultation</button></nav>
 <div class="hero">
   <div class="avatar">⚖️</div>
@@ -2836,222 +1891,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:18px 4
 .cta-final h2{color:#f5e6c8;font-size:1.8rem;letter-spacing:3px;margin-bottom:15px;}
 .cta-final p{color:rgba(245,230,200,0.6);margin-bottom:25px;font-size:0.9rem;}
 footer{text-align:center;padding:24px;color:rgba(61,26,0,0.3);font-size:0.78rem;background:#fdf6ec;}
-
-/* ════════════════════════════════════════
-   CRYPTOFUNDTRADER-INSPIRED ANIMATIONS
-   ════════════════════════════════════════ */
-
-/* --- Animated gradient mesh background on hero --- */
-.hero::after{
-  content:'';
-  position:absolute;inset:0;pointer-events:none;z-index:1;
-  background:
-    radial-gradient(ellipse 60% 50% at 20% 60%, rgba(46,155,214,0.12) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 60% at 80% 30%, rgba(200,241,53,0.07) 0%, transparent 60%);
-  animation:meshPulse 8s ease-in-out infinite alternate;
-}
-@keyframes meshPulse{
-  0%{opacity:0.6;transform:scale(1);}
-  100%{opacity:1;transform:scale(1.05);}
-}
-
-/* --- Floating grid dots on hero --- */
-.hero-grid{
-  position:absolute;inset:0;z-index:0;pointer-events:none;
-  background-image:
-    radial-gradient(circle, rgba(46,155,214,0.18) 1px, transparent 1px);
-  background-size:44px 44px;
-  animation:gridDrift 20s linear infinite;
-  mask-image:linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
-  -webkit-mask-image:linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
-}
-@keyframes gridDrift{
-  0%{background-position:0 0;}
-  100%{background-position:44px 44px;}
-}
-
-/* --- Hero heading glitch shimmer --- */
-.hero h1{position:relative;}
-.hero h1 em{
-  position:relative;
-  background:linear-gradient(90deg, var(--accent2) 0%, #6ec6f0 40%, var(--accent2) 100%);
-  background-size:200% auto;
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-  animation:shimmer 3s linear infinite;
-}
-@keyframes shimmer{
-  0%{background-position:0% center;}
-  100%{background-position:200% center;}
-}
-
-/* --- Animated hero tag --- */
-.hero-tag{
-  position:relative;overflow:hidden;
-}
-.hero-tag::after{
-  content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);
-  animation:tagShine 3s ease-in-out infinite;
-}
-@keyframes tagShine{
-  0%{left:-100%;}60%{left:150%;}100%{left:150%;}
-}
-
-/* --- Counter number animation --- */
-.stat-counter{display:inline-block;}
-
-@keyframes statPop{
-  0%{opacity:0;transform:scale(0.5) translateY(10px);}
-  100%{opacity:1;transform:scale(1) translateY(0);}
-}
-.hero-stat:nth-child(1) strong{animation-delay:0.6s;}
-.hero-stat:nth-child(2) strong{animation-delay:0.75s;}
-.hero-stat:nth-child(3) strong{animation-delay:0.9s;}
-.hero-stat:nth-child(4) strong{animation-delay:1.05s;}
-
-/* --- Ticker / marquee strip --- */
-.ticker-wrap{
-  width:100%;overflow:hidden;
-  background:var(--ink);
-  border-top:1px solid rgba(46,155,214,0.2);
-  border-bottom:1px solid rgba(46,155,214,0.2);
-  padding:10px 0;
-}
-.ticker-track{
-  display:flex;gap:0;
-  animation:ticker 28s linear infinite;
-  width:max-content;
-}
-.ticker-track:hover{animation-play-state:paused;}
-.ticker-item{
-  white-space:nowrap;
-  padding:0 40px;
-  font-size:0.78rem;font-weight:600;
-  color:rgba(255,255,255,0.5);
-  letter-spacing:1px;text-transform:uppercase;
-}
-.ticker-item span{color:var(--accent);margin-right:6px;}
-@keyframes ticker{
-  0%{transform:translateX(0);}
-  100%{transform:translateX(-50%);}
-}
-
-/* --- Why cards: neon border on hover --- */
-.why-card{
-  position:relative;
-}
-.why-card::after{
-  content:'';
-  position:absolute;inset:0;border-radius:0;
-  background:linear-gradient(135deg, rgba(46,155,214,0.15), rgba(200,241,53,0.08));
-  opacity:0;transition:opacity 0.4s;pointer-events:none;
-}
-.why-card:hover::after{opacity:1;}
-
-/* --- Portfolio cards: lift + glow --- */
-.portfolio-card{
-  transition:transform 0.35s cubic-bezier(.34,1.56,.64,1), box-shadow 0.35s ease !important;
-}
-.portfolio-card:hover{
-  transform:translateY(-8px) !important;
-  box-shadow:0 24px 60px rgba(46,155,214,0.18), 0 0 0 1px rgba(46,155,214,0.2) !important;
-}
-
-/* --- Process step: pulse on hover --- */
-.step-num{
-  transition:all 0.3s !important;
-  box-shadow:0 0 0 0 rgba(46,155,214,0.4);
-}
-.process-step:hover .step-num{
-  box-shadow:0 0 0 8px rgba(46,155,214,0.12), 0 0 0 16px rgba(46,155,214,0.05) !important;
-  background:var(--accent2) !important;
-}
-
-/* --- CTA buttons: ripple glow --- */
-.btn-primary{position:relative;overflow:hidden;}
-.btn-primary::before{
-  content:'';position:absolute;top:50%;left:50%;
-  width:0;height:0;border-radius:50%;
-  background:rgba(255,255,255,0.2);
-  transform:translate(-50%,-50%);
-  transition:width 0.5s ease,height 0.5s ease,opacity 0.5s ease;
-  opacity:0;
-}
-.btn-primary:hover::before{width:300px;height:300px;opacity:1;}
-
-/* --- Contact section: floating label glow --- */
-.form-field input:focus,.form-field textarea:focus,.form-field select:focus{
-  box-shadow:0 0 0 3px rgba(46,155,214,0.15) !important;
-}
-
-/* --- Section title underline animate --- */
-.section-title{position:relative;display:inline-block;}
-
-/* --- Staggered card reveals --- */
-.why-card:nth-child(1){transition-delay:0s;}
-.why-card:nth-child(2){transition-delay:0.07s;}
-.why-card:nth-child(3){transition-delay:0.14s;}
-.why-card:nth-child(4){transition-delay:0.21s;}
-.why-card:nth-child(5){transition-delay:0.28s;}
-.why-card:nth-child(6){transition-delay:0.35s;}
-
-/* --- Nav logo pulse on load --- */
-.nav-logo{
-  animation:logoPop 0.8s cubic-bezier(.34,1.56,.64,1) both;
-  animation-delay:0.2s;
-  opacity:0;
-}
-@keyframes logoPop{
-  0%{opacity:0;transform:scale(0.85);}
-  100%{opacity:1;transform:scale(1);}
-}
-
-/* --- Hero CTA button: continuous glow pulse --- */
-.btn-primary{
-  box-shadow:0 0 0 0 rgba(46,155,214,0.5);
-  animation:ctaPulse 3s ease-in-out infinite;
-}
-@keyframes ctaPulse{
-  0%,100%{box-shadow:0 8px 30px rgba(46,155,214,0.25);}
-  50%{box-shadow:0 8px 50px rgba(46,155,214,0.5), 0 0 30px rgba(46,155,214,0.2);}
-}
-.btn-primary:hover{
-  animation:none;
-  box-shadow:0 12px 40px rgba(46,155,214,0.6) !important;
-}
-
-/* --- Accent line under section labels --- */
-.section-label{
-  position:relative;display:inline-flex;align-items:center;gap:8px;
-}
-.section-label::before{
-  content:'';display:inline-block;
-  width:24px;height:2px;
-  background:var(--accent2);
-  border-radius:2px;
-  animation:labelLine 2s ease-in-out infinite alternate;
-}
-@keyframes labelLine{
-  0%{width:16px;opacity:0.6;}
-  100%{width:28px;opacity:1;}
-}
-
-/* --- Floating particles canvas overlay on hero --- */
-#particles-canvas{
-  position:absolute;inset:0;z-index:1;pointer-events:none;
-}
-
-/* --- Scroll progress bar at top --- */
-#scroll-bar{
-  position:fixed;top:28px;left:0;height:2px;
-  background:linear-gradient(90deg,var(--accent2),var(--accent));
-  z-index:3000;width:0%;transition:width 0.1s linear;
-}
-
 </style></head><body>
-<div id="scroll-bar"></div>
 <nav><div class="logo">BEAN & SOUL</div><button class="nav-order">Order via WhatsApp</button></nav>
 <div class="hero">
   <div class="product-emoji">☕</div>
